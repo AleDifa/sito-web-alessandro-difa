@@ -1,0 +1,226 @@
+---
+---
+
+<section class="hero">
+  <!-- Ambient glow background -->
+  <div class="hero-glow hero-glow-1"></div>
+  <div class="hero-glow hero-glow-2"></div>
+  <div class="hero-grid"></div>
+
+  <div class="container">
+    <div class="hero-inner">
+      <div class="badge animate-fade-up">Consulente Strategie Marketing</div>
+
+      <h1 class="hero-title animate-fade-up delay-1">
+        Costruiamo l'autorevolezza<br class="br-desktop" />
+        che i<br class="br-mobile" />
+        <span class="hero-title-highlight">motori di ricerca e le AI</span>
+        <br />
+        <span class="hero-title-typed" id="typedText">scelgono.</span>
+      </h1>
+
+      <p class="hero-desc animate-fade-up delay-2">
+        Sviluppo siti web, SEO, gestione della reputazione online e 
+        <br> Google Business Profile a 360° per dominare il tuo mercato di riferimento.
+      </p>
+
+      <div class="hero-actions animate-fade-up delay-3">
+        <a href="#contatti" class="btn-primary">
+          Richiedi un'Analisi Competitiva
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#servizi" class="btn-secondary">
+          Scopri i Servizi
+        </a>
+      </div>
+
+      <div class="hero-stats animate-fade-up delay-4">
+        <div class="stat">
+          <span class="stat-num">50+</span>
+          <span class="stat-label">Progetti Completati</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">7+</span>
+          <span class="stat-label">Anni di Esperienza</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator">
+    <div class="scroll-dot"></div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 120px 0 80px;
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black, transparent);
+  }
+
+  .hero-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+  }
+
+  .hero-glow-1 {
+    width: 600px;
+    height: 600px;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%);
+  }
+
+  .hero-glow-2 {
+    width: 400px;
+    height: 400px;
+    bottom: 0;
+    right: -100px;
+    background: radial-gradient(circle, rgba(29,78,216,0.08) 0%, transparent 70%);
+  }
+
+  .hero-inner {
+    text-align: center;
+    max-width: 820px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(38px, 6.5vw, 72px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    margin-bottom: 24px;
+  }
+
+  .hero-title-highlight {
+    background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 40%, #93c5fd 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-title-typed {
+    color: rgba(240,240,240,0.9);
+  }
+
+  .br-mobile { display: none; }
+
+  .hero-desc {
+    color: var(--text-muted);
+    font-size: 17px;
+    max-width: 520px;
+    margin: 0 auto 36px;
+    line-height: 1.65;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 64px;
+  }
+
+  .hero-stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 40px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 0 36px;
+  }
+
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 48px;
+    background: var(--border);
+    flex-shrink: 0;
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 40px;
+    border: 2px solid rgba(255,255,255,0.15);
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    padding-top: 6px;
+  }
+
+  .scroll-dot {
+    width: 4px;
+    height: 8px;
+    background: rgba(255,255,255,0.4);
+    border-radius: 2px;
+    animation: scrollBounce 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollBounce {
+    0%, 100% { transform: translateY(0); opacity: 1; }
+    60% { transform: translateY(12px); opacity: 0; }
+  }
+
+  @media (max-width: 600px) {
+    .hero-stats { padding: 20px 16px; }
+    .stat { padding: 0 16px; }
+    .stat-num { font-size: 28px; }
+    .br-mobile { display: block; }
+    .br-desktop { display: none; }
+  }
+</style>

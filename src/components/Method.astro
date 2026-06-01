@@ -1,0 +1,195 @@
+---
+const steps = [
+  {
+    num: "01",
+    title: "Analisi",
+    desc: "Studio approfondito del mercato, competitor e opportunità locali e nazionali.",
+  },
+  {
+    num: "02",
+    title: "Strategia",
+    desc: "Definizione del posizionamento unico e piano d'azione basato su dati reali.",
+  },
+  {
+    num: "03",
+    title: "Sviluppo",
+    desc: "Creazione dell'ecosistema digitale con le migliori tecnologie disponibili.",
+  },
+  {
+    num: "04",
+    title: "Dominio",
+    desc: "Ottimizzazione continua per dominare ricerche nazionali e locali nel tempo.",
+  },
+];
+
+const whys = [
+  "Non semplici siti vetrina, ma ecosistemi digitali completi",
+  "Ottimizzazione per Google, AI e ricerche vocali",
+  "Dominio del business territoriale",
+  "Gestione reputazione e immagine a 360°",
+  "Google Business Profile ottimizzato per massima visibilità locale",
+];
+---
+
+<section class="section" id="metodo">
+  <div class="container">
+
+    <div class="section-label text-center">
+      <span class="badge">Approccio</span>
+    </div>
+    <div class="text-center" style="margin-bottom: 16px;">
+      <h2 class="section-title">Il Metodo</h2>
+    </div>
+    <p class="section-subtitle text-center" style="margin-bottom: 72px;">
+      Un processo collaudato per trasformare la tua presenza digitale in un vantaggio competitivo.
+    </p>
+
+    <div class="method-layout">
+      <!-- Steps -->
+      <div class="steps-grid">
+        {steps.map((s, i) => (
+          <div class="step-card" style={`animation-delay: ${i * 0.1}s`}>
+            <div class="step-num">{s.num}</div>
+            <h3 class="step-title">{s.title}</h3>
+            <p class="step-desc">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Why -->
+      <div class="why-panel">
+        <h3 class="why-title">Perché scegliere questo approccio?</h3>
+        <ul class="why-list">
+          {whys.map(w => (
+            <li class="why-item">
+              <span class="why-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              </span>
+              <span>{w}</span>
+            </li>
+          ))}
+        </ul>
+        <a href="#contatti" class="btn-primary" style="margin-top: 32px; display: inline-flex;">
+          Inizia il Percorso
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .method-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .step-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .step-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(59,130,246,0.04) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .step-card:hover {
+    border-color: rgba(59,130,246,0.2);
+    background: var(--bg-card-hover);
+    transform: translateY(-2px);
+  }
+
+  .step-num {
+    font-family: var(--font-display);
+    font-size: 44px;
+    font-weight: 800;
+    color: rgba(59,130,246,0.2);
+    line-height: 1;
+    margin-bottom: 12px;
+    letter-spacing: -0.04em;
+  }
+
+  .step-title {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  .step-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* Why panel */
+  .why-panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px;
+  }
+
+  .why-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 28px;
+  }
+
+  .why-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .why-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .why-icon {
+    width: 22px;
+    height: 22px;
+    background: rgba(59,130,246,0.15);
+    color: var(--blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  @media (max-width: 960px) {
+    .method-layout { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .steps-grid { grid-template-columns: 1fr; }
+  }
+</style>

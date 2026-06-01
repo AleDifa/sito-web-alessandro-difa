@@ -1,0 +1,184 @@
+---
+const services = [
+  {
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
+    title: "Web Design & Development",
+    desc: "Siti veloci, belli e convertenti. Architetture moderne che impressionano utenti e algoritmi per pc e mobile.",
+    tags: ["Next.js", "Astro", "Performance", "UX"],
+    color: "blue"
+  },
+  {
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M8 11h6M11 8v6"/></svg>`,
+    title: "AI & SEO Authority",
+    desc: "Diventa la fonte primaria per Google e le Intelligenze Artificiali. Posizionamento strategico per essere primo nelle ricerche.",
+    tags: ["SEO Tecnica", "Content Strategy", "AI Optimization"],
+    color: "purple"
+  },
+  {
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`,
+    title: "Reputazione a 360°",
+    desc: "Gestione e ottimizzazione Google Maps, Social Media, Facebook, recensioni, Fotografie. Il tuo brand, ovunque impeccabile.",
+    tags: ["Review Management", "Social Media", "Crisis PR"],
+    color: "green"
+  },
+  {
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>`,
+    title: "Google Business Profile",
+    desc: "Ottimizzazione completa della scheda Google per apparire su Maps e dominare la ricerca locale. Visibilità territoriale garantita.",
+    tags: ["Google Maps", "Local SEO", "NAP Consistency"],
+    color: "red",
+    featured: true
+  },
+  {
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>`,
+    title: "Branding & Identità Digitale",
+    desc: "Creazione logo e anima del brand. Un'identità visiva che si differenzi e comunica chi sei.",
+    tags: ["Logo Design", "Visual Identity", "Brand Strategy"],
+    color: "yellow"
+  },
+  {
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>`,
+    title: "Competitive Analysis",
+    desc: "Trova il posizionamento unico per svettare sui competitor. Dati, insight e strategie vincenti.",
+    tags: ["Market Research", "Gap Analysis", "Positioning"],
+    color: "cyan"
+  },
+];
+
+const colorMap: Record<string, string> = {
+  blue: "rgba(59,130,246,0.15)",
+  purple: "rgba(168,85,247,0.15)",
+  green: "rgba(34,197,94,0.15)",
+  red: "rgba(239,68,68,0.15)",
+  yellow: "rgba(234,179,8,0.15)",
+  cyan: "rgba(6,182,212,0.15)",
+};
+
+const strokeMap: Record<string, string> = {
+  blue: "#3b82f6",
+  purple: "#a855f7",
+  green: "#22c55e",
+  red: "#ef4444",
+  yellow: "#eab308",
+  cyan: "#06b6d4",
+};
+---
+
+<section class="section" id="servizi">
+  <div class="container">
+    <div class="section-label">
+      <span class="badge">Competenze</span>
+    </div>
+    <div class="text-center" style="margin-bottom: 16px;">
+      <h2 class="section-title">Servizi a 360°</h2>
+    </div>
+    <p class="section-subtitle text-center" style="margin-bottom: 64px;">
+      Un ecosistema completo di soluzioni per costruire e proteggere la tua presenza digitale.
+    </p>
+
+    <div class="services-grid">
+      {services.map((s) => (
+        <div
+          class={`service-card ${s.featured ? 'service-card--featured' : ''}`}
+          style={s.featured ? `--card-glow: ${colorMap[s.color]}` : ''}
+        >
+          <div
+            class="service-icon"
+            style={`background: ${colorMap[s.color]}; color: ${strokeMap[s.color]};`}
+            set:html={s.icon}
+          />
+          <h3 class="service-title">{s.title}</h3>
+          <p class="service-desc">{s.desc}</p>
+          <div class="tags">
+            {s.tags.map(t => <span class="tag">{t}</span>)}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .service-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .service-card:hover {
+    border-color: var(--border-hover);
+    background: var(--bg-card-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+  }
+
+  .service-card--featured {
+    border-color: rgba(59,130,246,0.25);
+    background: rgba(59,130,246,0.05);
+    grid-column: span 1;
+  }
+
+  .service-card--featured::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at top left, var(--card-glow, rgba(59,130,246,0.08)) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .service-card--featured:hover {
+    border-color: rgba(59,130,246,0.4);
+    box-shadow: 0 16px 48px rgba(59,130,246,0.12);
+  }
+
+  .service-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .service-title {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 10px;
+    line-height: 1.25;
+  }
+
+  .service-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  @media (max-width: 900px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 580px) {
+    .services-grid { grid-template-columns: 1fr; }
+  }
+</style>

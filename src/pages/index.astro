@@ -1,0 +1,63 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import GoogleBusiness from '../components/GoogleBusiness.astro';
+import Method from '../components/Method.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <Navbar />
+  <main>
+    <Hero />
+    <Services />
+    <GoogleBusiness />
+    <Method />
+    <Contact />
+  </main>
+  <Footer />
+</Layout>
+
+<style is:global>
+  /* Smooth scroll reveal for elements entering viewport */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  // Intersection Observer for scroll reveals
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.service-card, .step-card, .gb-card, .why-item, .stat').forEach(el => {
+    el.classList.add('reveal');
+    observer.observe(el);
+  });
+
+  // Navbar scroll behavior
+  const nav = document.querySelector('.nav-wrapper') as HTMLElement;
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      nav.style.background = 'rgba(10,10,10,0.95)';
+    } else {
+      nav.style.background = 'rgba(10,10,10,0.8)';
+    }
+  });
+</script>

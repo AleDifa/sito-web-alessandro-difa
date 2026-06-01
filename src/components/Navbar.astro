@@ -1,0 +1,195 @@
+---
+---
+
+<header class="nav-wrapper">
+  <nav class="nav container">
+
+  <a href="/" class="nav-logo">
+        <span class="nav-logo-icon">
+          <img src="img/logo-adf.png" alt="Logo ADF" class="nav-logo-img">
+        </span>
+        <span class="nav-logo-text">Alessandro Difa</span>
+      </a>
+
+    <ul class="nav-links">
+      <li><a href="#servizi">Servizi</a></li>
+      <li><a href="#metodo">Metodo</a></li>
+      <li><a href="#google-business">Google Business</a></li>
+      <li><a href="#reputazione-online">Reputazione online</a></li>
+      <li><a href="#contatti">Contatti</a></li>
+    </ul>
+
+
+    <button class="nav-hamburger" aria-label="Menu" id="hamburger">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#servizi" class="mobile-link">Servizi</a></li>
+    <li><a href="#metodo" class="mobile-link">Metodo</a></li>
+    <li><a href="#google-business" class="mobile-link">Google Business</a></li>
+    <li><a href="#reputazione-online">Reputazione online</a></li>
+    <li><a href="#contatti" class="mobile-link">Contatti</a></li>
+  </ul>
+</div>
+
+<style>
+ .nav-wrapper {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s;
+}
+
+/* Ensure the container centers content if you have a max-width wrapper */
+.container {
+  width: 100%;
+  max-width: 1200px; /* Optional: adjust to your layout */
+  margin: 0 auto;
+  padding: 0 20px;   /* Optional: prevents text from touching screen edges */
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  height: 64px;
+  gap: 32px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Horizontal space between logo icon and text */
+  text-decoration: none;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.nav-logo-icon {
+  height: 52px;      
+  display: flex;
+  align-items: center;
+}
+
+/* Added: Ensures the image scales beautifully within the 32px container */
+.nav-logo-img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 6px;
+  margin-left: auto; /* Pushes the links to the far right */
+}
+
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: var(--radius-xs);
+    transition: color 0.2s, background 0.2s;
+  }
+
+  .nav-links a:hover {
+    color: var(--text);
+    background: rgba(255,255,255,0.06);
+  }
+
+  .nav-cta {
+    font-size: 13px;
+    padding: 10px 18px;
+    flex-shrink: 0;
+  }
+
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: auto;
+  }
+
+  .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .mobile-menu {
+    position: fixed;
+    top: 64px;
+    left: 0; right: 0;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border);
+    z-index: 99;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+  }
+
+  .mobile-menu.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .mobile-menu ul {
+    list-style: none;
+    padding: 20px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .mobile-link {
+    display: block;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.2s;
+  }
+
+  .mobile-link:hover { color: var(--text); }
+
+  @media (max-width: 900px) {
+    .nav-links, .nav-cta { display: none; }
+    .nav-hamburger { display: flex; }
+  }
+</style>
+
+<script>
+  const btn = document.getElementById('hamburger');
+  const menu = document.getElementById('mobileMenu');
+
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('open');
+  });
+
+  document.querySelectorAll('.mobile-link, .mobile-menu .btn-primary').forEach(link => {
+    link.addEventListener('click', () => menu?.classList.remove('open'));
+  });
+</script>

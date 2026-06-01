@@ -1,0 +1,424 @@
+---
+const features = [
+ {
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>`,
+    title: "Posizionamento su Google e IA",
+    desc: "Ottimizzo a 360° la tua identità digitale per scalare i risultati di ricerca. Ti posiziono in cima su Google e ottimizziamo i tuoi contenuti per le ricerche basate sull'Intelligenza Artificiale.",
+  },
+  {
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`,
+    title: "Gestione della Reputazione & Recensioni",
+    desc: "Svilupo strategie mirate per raccogliere recensioni a 5 stelle, gestisco in modo professionale le risposte ai feedback e proteggo l'autorevolezza del tuo brand online.",
+  },
+  {
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>`,
+    title: "Aggiornamento e Gestione Contenuti",
+    desc: "Curo l'inserimento di contenuti di valore, foto professionali e aggiornamenti strategici per mantenere il tuo profilo sempre attivo, rilevante e attraente per i clienti.",
+  },
+  {
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h18M3 9h18M3 15h18M3 21h18"/></svg>`,
+    title: "Sviluppo Web & Local SEO Dominante",
+    desc: "Creiamo siti web moderni e ultra-ottimizzati, integrandoli perfettamente con i siti locali e le piattaforme di riferimento del tuo settore per farti diventare il leader indiscusso nel tuo territorio.",
+  },
+];
+---
+
+<section class="section gb-section" id="google-business">
+  <div class="gb-glow"></div>
+  <div class="container">
+
+    <div class="gb-header text-center">
+      <span class="badge badge-maps">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        Google Business Profile
+      </span>
+      <h2 class="section-title" style="margin-bottom:16px;">
+        Domina la Ricerca Locale con<br />
+        <span class="text-maps">Google Business ed un sito web</span>
+      </h2>
+      <p class="section-subtitle" style="max-width:560px;margin:0 auto 64px;">
+        Creo un sito web e metto su Google Maps la tua attività e coordino ogni aspetto della presenza locale per garantire visibilità massima nel tuo territorio.
+      </p>
+    </div>
+
+    <div class="gb-grid">
+      {features.map((f, i) => (
+        <div class="gb-card" style={`animation-delay: ${i * 0.08}s`}>
+          <div class="gb-icon" set:html={f.icon} />
+          <div>
+            <h3 class="gb-card-title">{f.title}</h3>
+            <p class="gb-card-desc">{f.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Google Maps mock visual -->
+    <div class="gb-visual">
+      <div class="gb-map-mock">
+        <div class="map-bg">
+          <!-- Fake map roads -->
+          <div class="map-road map-road-h" style="top:35%"></div>
+          <div class="map-road map-road-h" style="top:60%"></div>
+          <div class="map-road map-road-v" style="left:30%"></div>
+          <div class="map-road map-road-v" style="left:65%"></div>
+          <div class="map-road map-road-h thin" style="top:22%"></div>
+          <div class="map-road map-road-h thin" style="top:75%"></div>
+          <div class="map-road map-road-v thin" style="left:48%"></div>
+        </div>
+        <!-- Pin principale -->
+        <div class="map-pin main-pin">
+          <div class="pin-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <div class="pin-card">
+            <div class="pin-card-header">
+              <span class="pin-card-name">La Tua Attività</span>
+              <span class="pin-card-rating">★ 4.9</span>
+            </div>
+            <span class="pin-card-cat">Primo su Google Maps</span>
+          </div>
+        </div>
+        <!-- Pin secondari (concorrenti) -->
+        <div class="map-pin secondary-pin" style="top:25%;left:20%">
+          <div class="pin-icon-sm red"></div>
+        </div>
+        <div class="map-pin secondary-pin" style="top:62%;left:70%">
+          <div class="pin-icon-sm red"></div>
+        </div>
+        <div class="map-pin secondary-pin" style="top:45%;left:55%">
+          <div class="pin-icon-sm red"></div>
+        </div>
+      </div>
+
+      <div class="gb-results">
+        <div class="gbr-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#ea4335"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34a853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#fbbc05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#ea4335"/></svg>
+          Google Maps
+        </div>
+        <div class="gbr-item gbr-item--first">
+          <span class="gbr-pos">1°</span>
+          <div>
+            <div class="gbr-name">La Tua Attività</div>
+            <div class="gbr-info">★★★★★ 4.9 · (128 recensioni)</div>
+          </div>
+          <span class="gbr-badge">Top</span>
+        </div>
+        <div class="gbr-item">
+          <span class="gbr-pos muted">2°</span>
+          <div>
+            <div class="gbr-name muted">Concorrente A</div>
+            <div class="gbr-info">★★★☆☆ 3.4 · (22 recensioni)</div>
+          </div>
+        </div>
+        <div class="gbr-item">
+          <span class="gbr-pos muted">3°</span>
+          <div>
+            <div class="gbr-name muted">Concorrente B</div>
+            <div class="gbr-info">★★★★☆ 4.1 · (45 recensioni)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gb-cta">
+      <a href="#contatti" class="btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Mettimi su Google Maps
+      </a>
+      <p class="gb-cta-note">Analisi gratuita del tuo profilo</p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .gb-section {
+    position: relative;
+    background: linear-gradient(180deg, transparent 0%, rgba(59,130,246,0.03) 50%, transparent 100%);
+    overflow: hidden;
+  }
+
+  .gb-glow {
+    position: absolute;
+    width: 800px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(ellipse, rgba(59,130,246,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .badge-maps {
+    background: rgba(234,67,53,0.12);
+    border-color: rgba(234,67,53,0.3);
+    color: #ff6b6b;
+    gap: 8px;
+  }
+
+  .badge-maps::before { display: none; }
+
+  .text-maps {
+    background: linear-gradient(135deg, #ea4335, #fbbc05, #34a853, #4285f4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gb-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 64px;
+  }
+
+  .gb-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    transition: all 0.25s ease;
+  }
+
+  .gb-card:hover {
+    border-color: rgba(59,130,246,0.25);
+    background: var(--bg-card-hover);
+    transform: translateY(-2px);
+  }
+
+  .gb-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(59,130,246,0.12);
+    color: #60a5fa;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .gb-card-title {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .gb-card-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* Map visual */
+  .gb-visual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 64px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .gb-map-mock {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+  }
+
+  .map-bg {
+    position: absolute;
+    inset: 0;
+    background: #1a2332;
+  }
+
+  .map-road {
+    position: absolute;
+    background: rgba(255,255,255,0.08);
+  }
+
+  .map-road-h { left: 0; right: 0; height: 8px; }
+  .map-road-v { top: 0; bottom: 0; width: 8px; }
+  .map-road.thin { height: 3px; }
+  .map-road-v.thin { width: 3px; }
+
+  .map-pin {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    transform: translate(-50%, -100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+  }
+
+  .pin-icon {
+    width: 40px;
+    height: 40px;
+    background: #4285f4;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(66,133,244,0.5);
+    animation: pinBounce 2s ease-in-out infinite;
+  }
+
+  .pin-icon svg { transform: rotate(45deg); }
+
+  @keyframes pinBounce {
+    0%, 100% { transform: rotate(-45deg) translateY(0); }
+    50% { transform: rotate(-45deg) translateY(-4px); }
+  }
+
+  .pin-card {
+    background: white;
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-top: 4px;
+    min-width: 140px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  }
+
+  .pin-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2px;
+  }
+
+  .pin-card-name {
+    font-size: 12px;
+    font-weight: 700;
+    color: #111;
+  }
+
+  .pin-card-rating {
+    font-size: 11px;
+    color: #f59e0b;
+    font-weight: 600;
+  }
+
+  .pin-card-cat {
+    font-size: 10px;
+    color: #4285f4;
+    font-weight: 500;
+  }
+
+  .secondary-pin {
+    position: absolute;
+  }
+
+  .pin-icon-sm {
+    width: 16px;
+    height: 16px;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+  }
+
+  .pin-icon-sm.red { background: #ea4335; opacity: 0.6; }
+
+  /* Results panel */
+  .gb-results {
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .gbr-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+  }
+
+  .gbr-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    transition: border-color 0.2s;
+  }
+
+  .gbr-item--first {
+    border-color: rgba(59,130,246,0.3);
+    background: rgba(59,130,246,0.07);
+  }
+
+  .gbr-pos {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--blue);
+    min-width: 28px;
+  }
+
+  .gbr-pos.muted { color: var(--text-subtle); font-size: 15px; }
+
+  .gbr-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+
+  .gbr-name.muted { color: var(--text-muted); font-weight: 400; }
+
+  .gbr-info {
+    font-size: 12px;
+    color: var(--text-subtle);
+  }
+
+  .gbr-badge {
+    margin-left: auto;
+    background: rgba(59,130,246,0.15);
+    border: 1px solid rgba(59,130,246,0.3);
+    color: var(--blue-light);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  .gb-cta {
+    text-align: center;
+  }
+
+  .gb-cta-note {
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--text-subtle);
+  }
+
+  @media (max-width: 900px) {
+    .gb-grid { grid-template-columns: repeat(2, 1fr); }
+    .gb-visual { grid-template-columns: 1fr; }
+    .gb-map-mock { height: 220px; }
+  }
+
+  @media (max-width: 580px) {
+    .gb-grid { grid-template-columns: 1fr; }
+    .gb-card { flex-direction: column; }
+  }
+</style>
