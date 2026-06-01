@@ -29,9 +29,16 @@
   padding: 0;
 }
 
+/* ── FIX MOBILE OVERFLOW ──────────────────────────────────────
+   overflow-x: hidden su solo body non basta su iOS Safari.
+   Va messo su ENTRAMBI html e body.
+   min-width: 0 su html impedisce che il viewport si allarghi
+   per contenere elementi troppo larghi.
+─────────────────────────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;   /* ← AGGIUNTO */
 }
 
 body {
@@ -41,6 +48,9 @@ body {
   font-size: 16px;
   line-height: 1.6;
   overflow-x: hidden;
+  /* ── AGGIUNTO: impedisce al body di allargarsi oltre il viewport ── */
+  width: 100%;
+  min-width: 0;
 }
 
 /* Scrollbar */
@@ -51,8 +61,10 @@ body {
 /* Utility */
 .container {
   max-width: 1120px;
+  width: 100%;          /* ← AGGIUNTO: era assente, causa del bug */
   margin: 0 auto;
   padding: 0 24px;
+  /* box-sizing già ereditato da * */
 }
 
 .section {
