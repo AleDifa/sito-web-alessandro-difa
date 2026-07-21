@@ -1,0 +1,391 @@
+---
+---
+
+<section class="rank-hero" id="google-search">
+  <div class="rank-glow rank-glow-1"></div>
+  <div class="rank-glow rank-glow-2"></div>
+  <div class="rank-grid"></div>
+
+  <div class="container">
+    <div class="rank-layout">
+
+      <div class="rank-content">
+        <div class="badge-row animate-fade-up">
+        </div>
+
+        <h2 class="rank-title animate-fade-up delay-1">
+          Porta il tuo sito<br />
+          in <span class="rank-title-highlight">1ª posizione</span><br />
+          su Google.
+        </h2>
+
+        <p class="rank-desc animate-fade-up delay-2">
+          Strategie SEO su misura per scalare la SERP, intercettare le persone che stanno
+          già cercando i tuoi servizi e trasformare le visite in richieste e clienti reali.
+        </p>
+
+        <div class="rank-stats animate-fade-up delay-4">
+          <div class="rstat">
+            <span class="rstat-num"><span class="counter" data-count="1">0</span></span>
+            <span class="rstat-label">Posizione media ottenuta</span>
+          </div>
+          <div class="rstat-divider"></div>
+          <div class="rstat">
+            <span class="rstat-num"><span class="counter" data-count="340">0</span>%</span>
+            <span class="rstat-label">Traffico organico in più</span>
+          </div>
+          <div class="rstat-divider"></div>
+          <div class="rstat">
+            <span class="rstat-num"><span class="counter" data-count="50">0</span>+</span>
+            <span class="rstat-label">Siti portati in Top 3</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rank-visual animate-fade-up delay-2">
+        <div class="serp-tilt" id="serpTilt">
+          <div class="serp-card">
+
+            <div class="serp-topbar">
+              <div class="serp-logo">
+                <span class="g1">G</span><span class="g2">o</span><span class="g3">o</span><span class="g1">g</span><span class="g4">l</span><span class="g2">e</span>
+              </div>
+              <div class="serp-searchbar">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                <span class="serp-typed" id="serpTyped"></span><span class="serp-caret"></span>
+              </div>
+            </div>
+
+            <div class="serp-results">
+              <div class="serp-row serp-row-you">
+                <div class="serp-rank">
+                  <span class="rank-num rank-num-from">20</span>
+                  <span class="rank-num rank-num-to">1</span>
+                </div>
+                <div class="serp-body">
+                  <span class="serp-url">iltuosito.it</span>
+                  <span class="serp-title">Il Tuo Sito — Nome Attività</span>
+                  <span class="serp-desc">Servizi professionali nella tua città · Preventivo in 24h.</span>
+                </div>
+                <div class="serp-up-chip">▲ +19</div>
+              </div>
+
+              <div class="serp-row serp-row-comp">
+                <div class="serp-rank-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/></svg>
+                </div>
+                <div class="serp-body">
+                  <span class="serp-url muted">concorrente-a.it</span>
+                  <span class="serp-title muted">Concorrente A</span>
+                  <span class="serp-desc muted">Descrizione generica del servizio offerto...</span>
+                </div>
+              </div>
+
+              <div class="serp-row serp-row-comp">
+                <div class="serp-rank-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/></svg>
+                </div>
+                <div class="serp-body">
+                  <span class="serp-url muted">concorrente-b.it</span>
+                  <span class="serp-title muted">Concorrente B</span>
+                  <span class="serp-desc muted">Altro competitor nel tuo stesso settore...</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="float-chip float-chip-1">🏆 #1 su Google</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .rank-hero {
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    padding: clamp(60px, 10vw, 120px) 20px;
+  }
+
+  .rank-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 70% 60% at 80% 20%, black, transparent);
+  }
+
+  .rank-glow { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; }
+  .rank-glow-1 { width: 520px; height: 520px; top: -160px; right: -120px; background: radial-gradient(circle, rgba(59,130,246,0.14) 0%, transparent 70%); }
+  .rank-glow-2 { width: 420px; height: 420px; bottom: -120px; left: -100px; background: radial-gradient(circle, rgba(29,78,216,0.09) 0%, transparent 70%); }
+
+  .rank-layout {
+    max-width: 1160px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(32px, 6vw, 72px);
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .rank-content { max-width: 540px; }
+
+  .badge-row { display: flex; flex-wrap: wrap; gap: 10px; }
+  .badge-outline {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+  }
+
+  .rank-title {
+    font-family: var(--font-display);
+    font-size: clamp(26px, 3.4vw, 40px);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    margin: 20px 0 20px;
+  }
+
+  .rank-title-highlight {
+    background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 40%, #93c5fd 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .rank-desc {
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.65;
+    margin-bottom: 32px;
+  }
+
+  .rank-stats { display: flex; align-items: center; gap: 0; margin-top: 40px; }
+  .rstat { display: flex; flex-direction: column; gap: 4px; padding-right: 28px; }
+  .rstat-num { font-family: var(--font-display); font-size: 30px; font-weight: 800; color: var(--text); letter-spacing: -0.02em; }
+  .rstat-label { font-size: 12.5px; color: var(--text-muted); }
+  .rstat-divider { width: 1px; height: 34px; background: var(--border); margin: 0 20px; flex-shrink: 0; }
+
+  /* ---------- SERP visual ---------- */
+  .rank-visual { display: flex; justify-content: center; }
+  .serp-tilt {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    perspective: 1200px;
+  }
+
+  .serp-card {
+    background: rgba(255,255,255,0.035);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 20px 16px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transform-style: preserve-3d;
+    transition: transform 0.15s ease-out;
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.5);
+  }
+
+  .serp-topbar { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+  .serp-logo { font-family: var(--font-display); font-weight: 700; font-size: 15px; letter-spacing: -0.01em; flex-shrink: 0; }
+  .g1 { color: #4285F4; } .g2 { color: #EA4335; } .g3 { color: #FBBC05; } .g4 { color: #34A853; }
+
+  .serp-searchbar {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,0,0,0.25);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 8px 14px;
+    color: var(--text-muted);
+    font-size: 12.5px;
+    min-width: 0;
+  }
+  .serp-typed { white-space: nowrap; overflow: hidden; color: rgba(240,240,240,0.85); }
+  .serp-caret { width: 1px; height: 12px; background: rgba(147,197,253,0.8); display: inline-block; animation: caretBlink 0.9s step-end infinite; }
+  @keyframes caretBlink { 0%,50% { opacity: 1; } 51%,100% { opacity: 0; } }
+
+  .serp-results { position: relative; height: 258px; }
+
+  .serp-row {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 78px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    overflow: hidden;
+    background: rgba(255,255,255,0.015);
+  }
+
+  .serp-row-you {
+    z-index: 2;
+    animation: climbYou 7s cubic-bezier(.65,0,.35,1) infinite alternate;
+  }
+
+  .serp-row-comp:nth-of-type(2) { z-index: 1; animation: climbCompA 7s cubic-bezier(.65,0,.35,1) infinite alternate; }
+  .serp-row-comp:nth-of-type(3) { z-index: 1; animation: climbCompB 7s cubic-bezier(.65,0,.35,1) infinite alternate; }
+
+  @keyframes climbYou {
+    0%, 32%   { transform: translateY(180px); border-color: transparent; box-shadow: none; background: rgba(255,255,255,0.015); }
+    62%, 100% { transform: translateY(0);      border-color: rgba(59,130,246,0.45); box-shadow: 0 14px 30px -10px rgba(37,99,235,0.4), 0 0 0 1px rgba(59,130,246,0.15) inset; background: rgba(59,130,246,0.1); }
+  }
+  @keyframes climbCompA {
+    0%, 32%   { transform: translateY(0); }
+    62%, 100% { transform: translateY(90px); }
+  }
+  @keyframes climbCompB {
+    0%, 32%   { transform: translateY(90px); }
+    62%, 100% { transform: translateY(180px); }
+  }
+
+  .serp-rank { position: relative; width: 26px; height: 22px; flex-shrink: 0; margin-top: 2px; }
+  .rank-num {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 800; font-size: 15px;
+    border-radius: 6px;
+  }
+  .rank-num-from { color: rgba(240,240,240,0.35); animation: fadeSwapOut 7s cubic-bezier(.65,0,.35,1) infinite alternate; }
+  .rank-num-to   { color: #93c5fd; opacity: 0; animation: fadeSwapIn 7s cubic-bezier(.65,0,.35,1) infinite alternate; }
+  @keyframes fadeSwapOut { 0%,32% { opacity: 1; } 50%,100% { opacity: 0; } }
+  @keyframes fadeSwapIn  { 0%,50% { opacity: 0; } 68%,100% { opacity: 1; } }
+
+  .serp-rank-icon { width: 22px; height: 22px; flex-shrink: 0; margin-top: 2px; color: rgba(240,240,240,0.25); }
+
+  .serp-body { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+  .serp-url { font-size: 11.5px; color: #93c5fd; }
+  .serp-url.muted { color: rgba(240,240,240,0.3); }
+  .serp-title { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--text); }
+  .serp-title.muted { color: rgba(240,240,240,0.45); font-weight: 600; }
+  .serp-desc { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
+  .serp-desc.muted { color: rgba(240,240,240,0.28); }
+
+  .serp-up-chip {
+    position: absolute;
+    top: 10px; right: 10px;
+    font-size: 10.5px; font-weight: 700;
+    color: #93c5fd;
+    background: rgba(59,130,246,0.15);
+    border: 1px solid rgba(59,130,246,0.3);
+    border-radius: 100px;
+    padding: 2px 8px;
+    opacity: 0;
+    animation: chipIn 7s cubic-bezier(.65,0,.35,1) infinite alternate;
+  }
+  @keyframes chipIn { 0%,55% { opacity: 0; transform: translateY(-4px); } 70%,100% { opacity: 1; transform: translateY(0); } }
+
+
+  
+  @keyframes drawPath { to { stroke-dashoffset: 0; } }
+
+  .float-chip {
+    position: absolute;
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text);
+    background: rgba(20,20,22,0.85);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 8px 14px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 10px 24px -8px rgba(0,0,0,0.5);
+    white-space: nowrap;
+    animation: floatChip 5s ease-in-out infinite;
+  }
+  .float-chip-1 { top: -18px; left: -18px; animation-delay: 0s; }
+  @keyframes floatChip { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+  @media (max-width: 900px) {
+    .rank-layout { grid-template-columns: 1fr; }
+    .rank-content { max-width: 100%; text-align: center; }
+    .badge-row { justify-content: center; }
+    .rank-stats { justify-content: center; }
+    .rank-visual { margin-top: 12px; }
+  }
+
+  @media (max-width: 480px) {
+    .float-chip { display: none; }
+    .serp-searchbar { font-size: 11px; }
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    // Typing effect nella barra di ricerca
+    const el = document.getElementById('serpTyped');
+    if (el) {
+      const phrases = ['cooperativa sociale roma', 'associazione no profit vicino a me', 'ente del terzo settore'];
+      let pIndex = 0, cIndex = 0, deleting = false;
+
+      function tick() {
+        const phrase = phrases[pIndex];
+        el.textContent = deleting ? phrase.slice(0, cIndex--) : phrase.slice(0, cIndex++);
+
+        let delay = deleting ? 40 : 80;
+        if (!deleting && cIndex === phrase.length + 1) { delay = 1400; deleting = true; }
+        else if (deleting && cIndex < 0) { deleting = false; cIndex = 0; pIndex = (pIndex + 1) % phrases.length; delay = 400; }
+
+        setTimeout(tick, delay);
+      }
+      tick();
+    }
+
+    // Tilt 3D al passaggio del mouse
+    const tilt = document.getElementById('serpTilt');
+    const card = tilt ? tilt.querySelector('.serp-card') : null;
+    if (tilt && card) {
+      tilt.addEventListener('mousemove', (e) => {
+        const rect = tilt.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = `rotateY(${x * 10}deg) rotateX(${-y * 10}deg)`;
+      });
+      tilt.addEventListener('mouseleave', () => {
+        card.style.transform = 'rotateY(0deg) rotateX(0deg)';
+      });
+    }
+
+    // Counter animati quando entrano in viewport
+    const counters = document.querySelectorAll('.counter');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const target = entry.target;
+        const end = parseInt(target.getAttribute('data-count'), 10);
+        const duration = 1200;
+        const start = performance.now();
+
+        function step(now) {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          target.textContent = Math.round(eased * end);
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+        observer.unobserve(target);
+      });
+    }, { threshold: 0.4 });
+
+    counters.forEach((c) => observer.observe(c));
+  })();
+</script>

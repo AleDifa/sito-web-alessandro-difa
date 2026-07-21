@@ -122,25 +122,20 @@ body {
   margin: 0 auto;
 }
 
+.section-subtitle-center {
+  color: var(--text-muted);
+  font-size: 17px;
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section--tight-bottom {
+  padding-bottom: 40px;
+}
+
 .text-center { text-align: center; }
 
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--blue);
-  color: #fff;
-  font-family: var(--font-body);
-  font-size: 15px;
-  font-weight: 500;
-  padding: 14px 26px;
-  border-radius: 100px;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-}
 
 .btn-primary:hover {
   background: #2563eb;
