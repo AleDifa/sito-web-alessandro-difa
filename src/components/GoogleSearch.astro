@@ -103,6 +103,13 @@
 </section>
 
 <style>
+
+  html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+
   .rank-hero {
     width: 100%;
     box-sizing: border-box;
@@ -315,18 +322,26 @@
   .float-chip-1 { top: -18px; left: -18px; animation-delay: 0s; }
   @keyframes floatChip { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 
-  @media (max-width: 900px) {
+  @media (max-width: 960px) {
     .rank-layout { grid-template-columns: 1fr; }
     .rank-content { max-width: 100%; text-align: center; }
     .badge-row { justify-content: center; }
-    .rank-stats { justify-content: center; }
+    .rank-stats { display: flex; align-items: center; gap: 0; margin-top: 40px; }
     .rank-visual { margin-top: 12px; }
   }
 
   @media (max-width: 480px) {
-    .float-chip { display: none; }
-    .serp-searchbar { font-size: 11px; }
+  .rank-stats {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 20px;
   }
+  .rstat { padding-right: 16px; }
+  .rstat-divider { margin: 0 12px; }
+}
+
+
+  
 </style>
 
 <script is:inline>
@@ -388,4 +403,6 @@
 
     counters.forEach((c) => observer.observe(c));
   })();
+
+  
 </script>

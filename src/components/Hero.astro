@@ -10,8 +10,10 @@
   <div class="container text-center">
     <div class="hero-inner">
 
-    <p class="hero-eyebrow animate-fade-up">Web Designer & Consulente SEO — Ancona, Marche</p>
-    <h1 class="hero-title animate-fade-up delay-1">
+<p class="hero-eyebrow animate-fade-up">
+  Web Designer & Consulente SEO —<br class="mobile-break" /> Ancona, Marche
+</p>   
+      <h1 class="hero-title animate-fade-up delay-1">
       <span class="title-line">Realizzazione di siti web Professionali</span>
       <span class="title-line">che portano <span class="hero-title-highlight">clienti veri</span></span>
       <span class="title-line"><span class="hero-title-typed" id="typedText">non solo visite.</span></span>
@@ -26,21 +28,18 @@
     </div>
   </div>
 
-  <div class="scroll-indicator">
-    <div class="scroll-dot"></div>
-  </div>
+
 </section>
 
 <style>
-  /* CSS Scoped di Astro per il solo componente Hero */
-
   .hero-eyebrow {
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--text-muted);
-  margin-bottom: 16px;
+  margin-top:50px;
+  margin-bottom: 50px;
 }
 
   .hero {
@@ -88,7 +87,7 @@
 
   .hero-inner {
     max-width: 880px;
-    margin: 0 auto;
+    margin: 0 auto;    
     position: relative;
     z-index: 1;
   }
@@ -127,17 +126,7 @@
     line-height: 1.65;
   }
 
-  .scroll-indicator {
-    position: relative;
-    margin-top: 16px;
-    width: 24px;
-    height: 40px;
-    border: 2px solid rgba(255,255,255,0.15);
-    border-radius: 100px;
-    display: flex;
-    justify-content: center;
-    padding-top: 6px;
-  }
+ 
 
   .scroll-dot {
     width: 4px;
@@ -146,6 +135,11 @@
     border-radius: 2px;
     animation: scrollBounce 2s ease-in-out infinite;
   }
+.mobile-break { display: none; }
+
+@media (max-width: 480px) {
+  .mobile-break { display: inline; }
+}
 
   @keyframes scrollBounce {
     0%, 100% { transform: translateY(0); opacity: 1; }
