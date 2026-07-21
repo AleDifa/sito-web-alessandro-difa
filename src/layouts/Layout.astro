@@ -5,11 +5,43 @@ interface Props {
 }
 
 const {
-  title = "Alessandro – Consulente Strategie Marketing | SEO, Web Design & Google Business",
-  description = "Sviluppo web, SEO, gestione della reputazione e Google Business Profile a 360° per dominare il tuo mercato di riferimento.",
+  title = "Web design, siti Web SEO & GEO ad Ancona | Reputazione Online 360° - Alessandro DiFa",
+  description = "Creazione siti web performanti ottimizzati per SEO e GEO (AI), gestisco Google Business Profile e la reputazione online della tua azienda per farti trovare prima dei competitor, vendi di più.",
 } = Astro.props;
----
 
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Alessandro DiFa - Siti Web, SEO & Reputazione Online",
+  "image": "https://alessandrodifa.com/immagine-profilo.jpg",
+  "description": description,
+  "url": "https://alessandrodifa.com",
+  "telephone": "+39 392 4588449",
+  "email": "alessandro.difa93@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Ancona",
+    "addressRegion": "Marche",
+    "addressCountry": "IT"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Ancona" },
+    { "@type": "State", "name": "Marche" }
+  ],
+  "serviceType": [
+    "Sviluppo Siti Web",
+    "SEO",
+    "GEO (Generative Engine Optimization)",
+    "Google Business Profile",
+    "Gestione Reputazione Online Locale"
+  ],
+  "priceRange": "€€",
+  "sameAs": [
+    "https://www.linkedin.com/in/alessandro-difa/",
+    "https://www.instagram.com/alessandro_difa/"
+  ]
+};
+---
 <!doctype html>
 <html lang="it">
   <head>
@@ -29,17 +61,7 @@ const {
     <!-- Canonical -->
     <link rel="canonical" href="https://alessandrodifa.com/" />
     <!-- Schema.org -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "Alessandro Difa",
-        "description": "Web Design, SEO, AI Authority, Google Business Profile e reputazione digitale",
-        "url": "https://alessandrodifa.com",
-        "areaServed": "IT",
-        "serviceType": ["Web Design", "SEO", "Google Business Profile", "Reputation Management"]
-      }
-    </script>
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
