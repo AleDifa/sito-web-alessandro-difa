@@ -12,7 +12,7 @@
   --blue: #3b82f6;
   --blue-light: #60a5fa;
   --blue-glow: rgba(59,130,246,0.15);
-  --accent: #1d4ed8;
+  --accent: #60a5fa;
   --green: #22c55e;
   --yellow: #eab308;
   --red: #ef4444;
@@ -29,17 +29,11 @@
   padding: 0;
 }
 
-/* ── FIX MOBILE OVERFLOW ──────────────────────────────────────
-   overflow-x: hidden su solo body non basta su iOS Safari.
-   Va messo su ENTRAMBI html e body.
-   min-width: 0 su html impedisce che il viewport si allarghi
-   per contenere elementi troppo larghi.
-─────────────────────────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
+  /*-webkit-text-size-adjust: 100%;*/
    text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;
+ /* -webkit-font-smoothing: antialiased;*/
   overflow-x: hidden;   /* ← AGGIUNTO */
 }
 
@@ -66,7 +60,7 @@ body {
   max-width: none;
   width: 100%;
   margin: 0 auto;
-padding: 0 clamp(24px, 5vw, 96px);
+  padding: 0 clamp(24px, 5vw, 96px);
 }
 
 .section {
@@ -208,7 +202,3 @@ padding: 0 clamp(24px, 5vw, 96px);
   letter-spacing: 0.03em;
 }
 
-/* Responsive 
-@media (max-width: 768px) {
-  .section { padding: 80px 0; }
-}   */
