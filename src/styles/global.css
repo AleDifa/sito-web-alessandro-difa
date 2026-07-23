@@ -37,6 +37,8 @@
 ─────────────────────────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+   text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;   /* ← AGGIUNTO */
 }
