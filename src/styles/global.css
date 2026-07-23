@@ -58,13 +58,13 @@ body {
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: rgba(59,130,246,0.4); border-radius: 2px; }
 
-/* Utility */
+
+/* spazio ai lati dello schermo, regola sia mobile che non con clamp. 24px mobile, 6% desktop, schermi giganti 96 */
 .container {
-  max-width: 1120px;
-  width: 100%;          /* ← AGGIUNTO: era assente, causa del bug */
+  max-width: none;
+  width: 100%;
   margin: 0 auto;
-  padding: 0 24px;
-  /* box-sizing già ereditato da * */
+padding: 0 clamp(24px, 5vw, 96px);
 }
 
 .section {
@@ -206,7 +206,7 @@ body {
   letter-spacing: 0.03em;
 }
 
-/* Responsive */
+/* Responsive 
 @media (max-width: 768px) {
   .section { padding: 80px 0; }
-}
+}   */
