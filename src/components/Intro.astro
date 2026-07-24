@@ -1,0 +1,68 @@
+---
+import LiquidEther from '../components/LiquidEther.jsx';
+import ScrollReveal from './ScrollReveal.jsx';
+---
+
+<section class="intro-section">
+  <div class="intro-bg">
+    <LiquidEther
+      client:only="react"
+      colors={[ '#5227FF', '#FF9FFC', '#B497CF' ]}
+      mouseForce={20}
+      cursorSize={100}
+      isViscous
+      viscous={30}
+      iterationsViscous={32}
+      iterationsPoisson={32}
+      resolution={0.5}
+      isBounce={false}
+      autoDemo
+      autoSpeed={0.5}
+      autoIntensity={2.2}
+      takeoverDuration={0.25}
+      autoResumeDelay={3000}
+      autoRampDuration={0.6}
+    ></LiquidEther>
+  </div>
+
+  <div class="intro-content">
+    <ScrollReveal
+      client:load
+      baseOpacity={0.3}
+      enableBlur
+      baseRotation={7}
+      blurStrength={9}
+    >
+      Realizzo siti web e landing page per PMI con tecniche SEO per farti trovare 
+      prima dei competitor, GEO per fare in modo che le intelligenze artificiali 
+      come ChatGPT consigliano la tua attività, e modelli 3D e design avanzati per 
+      rendere il tuo sito un'esperienza visiva unica.
+
+    </ScrollReveal>
+  </div>
+</section>
+
+<style>
+  .intro-section {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 80px 0;
+  }
+
+  .intro-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .intro-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 0 clamp(24px, 5vw, 96px);
+    pointer-events: none;
+  }
+</style>
