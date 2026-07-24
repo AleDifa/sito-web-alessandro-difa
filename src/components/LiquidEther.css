@@ -5,3 +5,13 @@
   height: 100%;
   touch-action: none;
 }
+.liquid-ether-container,
+.liquid-ether-container canvas {
+  pointer-events: none;
+}
+
+.liquid-ether-container,
+.liquid-ether-container canvas {
+  pointer-events: none;
+  touch-action: pan-y;
+}
