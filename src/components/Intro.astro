@@ -25,6 +25,9 @@ import ScrollReveal from './ScrollReveal.jsx';
     ></LiquidEther>
   </div>
 
+  <!-- Nuovo nome classe per la intro -->
+  <div class="intro-gradient-overlay"></div>
+
   <div class="intro-content">
     <ScrollReveal
       client:load
@@ -37,7 +40,6 @@ import ScrollReveal from './ScrollReveal.jsx';
       prima dei competitor, GEO per fare in modo che le intelligenze artificiali 
       come ChatGPT consigliano la tua attività, e modelli 3D e design avanzati per 
       rendere il tuo sito un'esperienza visiva unica.
-
     </ScrollReveal>
   </div>
 </section>
@@ -58,11 +60,23 @@ import ScrollReveal from './ScrollReveal.jsx';
     z-index: 0;
   }
 
+  /* ---------- Overlay Gradiente (Corretto per Intro) ---------- */
+  .intro-gradient-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1; /* Sopra al background, sotto al testo */
+    
+    /* Gradiente che sfuma sia in ALTO che in BASSO per integrarsi nella pagina */
+    background: linear-gradient(180deg,rgba(87, 199, 133, 0) 0%, rgba(8, 0, 0, 1) 85%);
+    
+    pointer-events: none; /* Fondamentale: fa passare il mouse al canvas */
+  }
+
   .intro-content {
     position: relative;
-    z-index: 2;
+    z-index: 2; /* Più alto dell'overlay per mostrare bene il testo */
     width: 100%;
     padding: 0 clamp(24px, 5vw, 96px);
-    pointer-events: none;
+    pointer-events: none; /* Il testo ignora il mouse così puoi interagire col liquido dietro */
   }
 </style>
