@@ -1,4 +1,6 @@
 ---
+import Layout from '../layouts/Layout.astro';
+
 const steps = [
   {
     num: "01",
@@ -29,9 +31,10 @@ const whys = [
   "Reputazione e brand sotto controllo. Nessun assistente diverso ogni mese. Curo personalmente ogni dettaglio della tua immagine online (foto, recensioni e social) per assicurarmi che il tuo brand sia sempre impeccabile e generi fiducia.",
 ];
 ---
+<Layout>
+  <section class="section" id="metodo">
+    <div class="container">
 
-<section class="section" id="metodo">
-  <div class="container">
 
     <div class="section-label text-center">
     </div>
@@ -71,7 +74,7 @@ const whys = [
     </div>
   </div>
 </section>
-
+</Layout>
 <style>
   .method-layout {
     display: grid;
