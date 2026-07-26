@@ -184,7 +184,7 @@
     background: rgba(255,255,255,0.035);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 20px 20px 16px;
+    padding: 15px 15px 10px;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     transform-style: preserve-3d;
@@ -215,14 +215,14 @@
   .serp-caret { width: 1px; height: 12px; background: rgba(147,197,253,0.8); display: inline-block; animation: caretBlink 0.9s step-end infinite; }
   @keyframes caretBlink { 0%,50% { opacity: 1; } 51%,100% { opacity: 0; } }
 
-  .serp-results { position: relative; height: 258px; }
+  .serp-results { position: relative; height: 320px; }
 
   .serp-row {
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
-    height: 78px;
+    height: 100px;
     display: flex;
     align-items: flex-start;
     gap: 12px;
@@ -239,21 +239,25 @@
     animation: climbYou 7s cubic-bezier(.65,0,.35,1) infinite alternate;
   }
 
-  .serp-row-comp:nth-of-type(2) { z-index: 1; animation: climbCompA 7s cubic-bezier(.65,0,.35,1) infinite alternate; }
-  .serp-row-comp:nth-of-type(3) { z-index: 1; animation: climbCompB 7s cubic-bezier(.65,0,.35,1) infinite alternate; }
+ .serp-row-comp:nth-of-type(2) { z-index: 1; animation: climbCompA 7s cubic-bezier(.65,0,.35,1) infinite alternate; }
+.serp-row-comp:nth-of-type(3) { z-index: 1; animation: climbCompB 7s cubic-bezier(.65,0,.35,1) infinite alternate; }
 
-  @keyframes climbYou {
-    0%, 32%   { transform: translateY(180px); border-color: transparent; box-shadow: none; background: rgba(255,255,255,0.015); }
-    62%, 100% { transform: translateY(0);      border-color: rgba(59,130,246,0.45); box-shadow: 0 14px 30px -10px rgba(37,99,235,0.4), 0 0 0 1px rgba(59,130,246,0.15) inset; background: rgba(59,130,246,0.1); }
-  }
-  @keyframes climbCompA {
-    0%, 32%   { transform: translateY(0); }
-    62%, 100% { transform: translateY(90px); }
-  }
-  @keyframes climbCompB {
-    0%, 32%   { transform: translateY(90px); }
-    62%, 100% { transform: translateY(180px); }
-  }
+/* posizioni: con height 100px + gap 10px, 3 righe stanno in 320px */
+
+@keyframes climbYou {
+  0%   { top: 220px; } /* parte in fondo (#3) */
+  100% { top: 0px;   } /* sale al primo posto (#1) */
+}
+
+@keyframes climbCompA {
+  0%   { top: 0px;   } /* parte primo (#1) */
+  100% { top: 110px; } /* scende al secondo (#2) */
+}
+
+@keyframes climbCompB {
+  0%   { top: 110px; } /* parte secondo (#2) */
+  100% { top: 220px; } /* scende al terzo (#3) */
+}
 
   .serp-rank { position: relative; width: 26px; height: 22px; flex-shrink: 0; margin-top: 2px; }
   .rank-num {
