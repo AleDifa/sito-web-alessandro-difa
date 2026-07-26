@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
+import LiquidEther from '../components/LiquidEther.jsx';
 import Hero from '../components/Hero.astro';
 import Intro from '../components/Intro.astro';
 import Services from '../components/Services.astro';
@@ -12,14 +13,52 @@ import Footer from '../components/Footer.astro';
 <Layout>
   <Navbar />
   <main>
-    <Hero />
-    <Intro/>
+
+    <div class="hero-intro-wrapper">
+      <div class="shared-liquid-bg">
+        <LiquidEther
+          client:only="react"
+          colors={[ '#5227FF', '#FF9FFC', '#B497CF' ]}
+          mouseForce={20}
+          cursorSize={100}
+          isViscous
+          viscous={30}
+          iterationsViscous={32}
+          iterationsPoisson={32}
+          resolution={0.5}
+          isBounce={false}
+          autoDemo
+          autoSpeed={0.5}
+          autoIntensity={2.2}
+          takeoverDuration={0.25}
+          autoResumeDelay={3000}
+          autoRampDuration={0.6}
+        ></LiquidEther>
+      </div>
+
+      <Hero />
+      <Intro/>
+    </div>
+
     <GoogleBusiness />
     <Services />
     <Contact />
   </main>
   <Footer />
 </Layout>
+
+<style>
+  .hero-intro-wrapper {
+    position: relative;
+  }
+
+  .shared-liquid-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+</style>
 
 <style is:global>
   /* Smooth scroll reveal for elements entering viewport */
@@ -36,7 +75,6 @@ import Footer from '../components/Footer.astro';
 </style>
 
 <script>
-  // Intersection Observer for scroll reveals
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -51,7 +89,6 @@ import Footer from '../components/Footer.astro';
     observer.observe(el);
   });
 
-  // Navbar scroll behavior
   const nav = document.querySelector('.nav-wrapper') as HTMLElement;
   window.addEventListener('scroll', () => {
     if (window.scrollY > 40) {

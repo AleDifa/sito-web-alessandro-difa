@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
 
 :root {
-  --bg: #0a0a0a;
+  --bg: #080000;
   --bg-card: #111111;
   --bg-card-hover: #161616;
   --border: rgba(255,255,255,0.08);
@@ -31,10 +31,8 @@
 
 html {
   scroll-behavior: smooth;
-  /*-webkit-text-size-adjust: 100%;*/
    text-size-adjust: 100%;
- /* -webkit-font-smoothing: antialiased;*/
-  overflow-x: hidden;   /* ← AGGIUNTO */
+  overflow-x: hidden;  
 }
 
 body {
