@@ -1,16 +1,26 @@
-.scroll-reveal {
-  margin: 0;
-}
-
-.scroll-reveal-text {
-  font-size: clamp(2.2rem, 6vw, 4.5rem); /* testo grande */
-  font-weight: 600;
-  line-height: 1.25;
-  max-width: 800px;      /* colonna stretta = va a capo dopo poche parole */
-  margin: 0 auto;
-  text-align: left;
+.line {
+  margin-bottom: 1.2rem;
+  display: block;
+  width: 100%;
 }
 
 .word {
+  /* Mantiene le lettere della parola unite su un unico blocco */
   display: inline-block;
+  white-space: nowrap;
+}
+
+.char {
+  opacity: 0.15;
+  display: inline-block;
+  will-change: opacity;
+}
+.text {
+  width: 100%;
+  max-width: calc(100% - 20px); 
+  margin: 0 auto;
+  text-align: center;
+  font-size: clamp(3.0rem, 10vw, 5.6rem); 
+  font-weight: 700;
+  line-height: 1.4;
 }

@@ -1,119 +1,68 @@
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
 import './ScrollReveal.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ScrollReveal = ({
-  children,
-  scrollContainerRef = null,
-  enableBlur = true,
-  baseOpacity = 0.1,
-  baseRotation = 3,
-  blurStrength = 4,
-  containerClassName = '',
-  textClassName = '',
-  rotationEnd = 'bottom bottom',
-  wordAnimationEnd = 'bottom bottom'
-}) => {
-  const containerRef = useRef(null);
-  const textRef = useRef(null);
+const ScrollReveal = ({ lines }) => {
+  const wrapperRef = useRef(null);
+
+  // Fallback se non vengono passate righe
+  const defaultLines = [
+    "Realizzo siti web e landing page pensati per scalare il mercato per PMI e professionisti.",
+    "Posiziono la tua attività in cima a Google e nei consigli delle IA.",
+    "Integrazione 3D e design avanzato per un'esperienza visiva unica."
+  ];
+
+  const textLines = lines && lines.length > 0 ? lines : defaultLines;
 
   useEffect(() => {
-    const el = containerRef.current;
-    const textEl = textRef.current;
-    if (!el || !textEl) return;
+    let ctx = gsap.context(() => {
+      const chars = gsap.utils.toArray('.char');
 
-    // Astro passa i children come slot già renderizzato lato server
-    // (non come stringa JS pura), quindi leggiamo il testo direttamente
-    // dal DOM dopo il mount, invece di provare ad estrarlo da "children".
-    const rawText = textEl.textContent || '';
-
-    // Ricostruisce il contenuto in span per-parola, mantenendo gli spazi.
-    textEl.innerHTML = '';
-    const fragment = document.createDocumentFragment();
-    rawText.split(/(\s+)/).forEach(part => {
-      if (part === '') return;
-      if (/^\s+$/.test(part)) {
-        fragment.appendChild(document.createTextNode(part));
-      } else {
-        const span = document.createElement('span');
-        span.className = 'word';
-        span.textContent = part;
-        fragment.appendChild(span);
-      }
-    });
-    textEl.appendChild(fragment);
-
-    const scroller = scrollContainerRef && scrollContainerRef.current ? scrollContainerRef.current : window;
-
-    gsap.fromTo(
-      el,
-      { transformOrigin: '0% 50%', rotate: baseRotation },
-      {
-        ease: 'none',
-        rotate: 0,
+      gsap.timeline({
         scrollTrigger: {
-          trigger: el,
-          scroller,
-          start: 'top bottom',
-          end: rotationEnd,
-          scrub: true
+          trigger: wrapperRef.current,
+          start: 'top center',
+          end: 'bottom center',
+          scrub: true,
+          pin: false,
         }
-      }
-    );
-
-    const wordElements = textEl.querySelectorAll('.word');
-
-    gsap.fromTo(
-      wordElements,
-      { opacity: baseOpacity, willChange: 'opacity' },
-      {
-        ease: 'none',
+      }).to(chars, {
         opacity: 1,
-        stagger: 0.05,
-        scrollTrigger: {
-          trigger: el,
-          scroller,
-          start: 'top bottom-=20%',
-          end: wordAnimationEnd,
-          scrub: true
-        }
-      }
-    );
+        stagger: 0.08,
+        ease: 'power1.inOut'
+      });
+    }, wrapperRef);
 
-    if (enableBlur) {
-      gsap.fromTo(
-        wordElements,
-        { filter: `blur(${blurStrength}px)` },
-        {
-          ease: 'none',
-          filter: 'blur(0px)',
-          stagger: 0.05,
-          scrollTrigger: {
-            trigger: el,
-            scroller,
-            start: 'top bottom-=20%',
-            end: wordAnimationEnd,
-            scrub: true
-          }
-        }
-      );
-    }
-
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
-  }, [scrollContainerRef, enableBlur, baseRotation, baseOpacity, rotationEnd, wordAnimationEnd, blurStrength]);
+    return () => ctx.revert();
+  }, [lines]);
 
   return (
-    <h2 ref={containerRef} className={`scroll-reveal ${containerClassName}`}>
-      <p ref={textRef} className={`scroll-reveal-text ${textClassName}`}>
-        {children}
-      </p>
-    </h2>
+    <div className="textRevealWrapper">
+      <div ref={wrapperRef} className="text">
+        {textLines.map((lineText, lineKey) => (
+          <div className="line" key={lineKey}>
+            {/* 1. Divide la riga in parole */}
+            {lineText.split(' ').map((wordText, wordKey) => (
+              <React.Fragment key={wordKey}>
+                <span className="word">
+                  {/* 2. Divide la parola in caratteri */}
+                  {wordText.split('').map((char, charKey) => (
+                    <span className="char" key={charKey}>
+                      {char}
+                    </span>
+                  ))}
+                </span>
+                {/* Spazio normale tra le parole per consentire il va-a-capo naturale */}
+                {wordKey < lineText.split(' ').length - 1 && ' '}
+              </React.Fragment>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 

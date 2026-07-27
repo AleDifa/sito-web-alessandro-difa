@@ -1,54 +1,49 @@
 ---
 import ScrollReveal from './ScrollReveal.jsx';
+
+const introLines = [
+  "Realizzo siti web e landing page pensati per scalare il mercato per PMI e professionisti.",
+  "Posiziono la tua attività in cima a Google e nei consigli delle IA.",
+  "Integrazione 3D e design avanzato per un'esperienza visiva unica."
+];
 ---
 
 <section class="intro-section">
-
-  <!-- Nuovo nome classe per la intro -->
   <div class="intro-gradient-overlay"></div>
 
   <div class="intro-content">
-    <ScrollReveal
-      client:load
-      baseOpacity={0.3}
-      enableBlur
-      baseRotation={7}
-      blurStrength={9}
-    >
-      Realizzo siti web e landing page per PMI con tecniche SEO per farti trovare 
-      prima dei competitor, GEO per fare in modo che le intelligenze artificiali 
-      come ChatGPT consigliano la tua attività, e modelli 3D e design avanzati per 
-      rendere il tuo sito un'esperienza visiva unica.
-    </ScrollReveal>
+    <ScrollReveal client:visible lines={introLines} />
   </div>
 </section>
 
 <style>
-
 .intro-section {
   position: relative;
   min-height: 80vh;
   display: flex;
   align-items: center;
+  justify-content: center;
   overflow: hidden;
-  padding: 120px 0;
-  background: transparent; /* lascia vedere il liquid condiviso dietro */
+  padding: 80px 0;
+  background: transparent;
 }
 
-  /* ---------- Overlay Gradiente (Corretto per Intro) ---------- */
-  .intro-gradient-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background: linear-gradient(180deg,rgba(8,0,0,0) 0%, rgba(8, 0, 0, 1) 90%);
-    pointer-events: none;
-  }
+/* Overlay sfumato non interattivo */
+.intro-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(8,0,0,0) 0%, rgba(8,0,0,1) 90%);
+  pointer-events: none;
+}
 
-  .intro-content {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    padding: 0 clamp(24px, 5vw, 96px);
-    pointer-events: none;
-  }
+.intro-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 64px);
+  /* Rimosso pointer-events: none per permettere il corretto funzionamento delle animazioni */
+}
 </style>
