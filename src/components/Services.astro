@@ -1,39 +1,41 @@
 ---
+import FallBeamBackground from '../components/lightswind/fall-beam-background.tsx';
+
 const services = [
   {
-    title: "Siti dal design moderno",
-    desc: "Veloci, belli e che portano persone all'attività. Architetture che impressionano utenti e algoritmi.",
-    tags: ["Web Design", "Siti Web", "Mobile First"],
+    title: "Realizzazione Siti Web Artigianali",
+    desc: "Siti web su misura per farti apparire primo nelle ricerche su Google, sulle IA come ChatGPT e su Google Maps.",
+    tags: ["Web Design", "Siti Web", "SEO"],
     color: "blue"
   },
   {
-    title: "Primi su Google. Primi sulle AI",
-    desc: "Diventa la fonte primaria per Google e le Intelligenze Artificiali. Posizionamento strategico per essere primo nelle ricerche.",
-    tags: ["SEO", "GEO (AI)", "Posizionamento"],
+    title: "Servizi Fotografici e Video",
+    desc: "Riprese e foto professionali per raccontare la tua attività e valorizzare il tuo sito, i social e il materiale promozionale.",
+    tags: ["Fotografia", "Video Making", "Brand Content"],
     color: "purple"
   },
   {
-    title: "Reputazione a 360°, La tua vetrina digitale",
-    desc: "Gestione e ottimizzazione Google Maps, Social Media, recensioni, Fotografie. Il tuo brand, ovunque impeccabile.",
-    tags: ["Brand Reputation", "Social Media", "Recensioni"],
+    title: "Ottimizzazione Google Business Profile",
+    desc: "Ottimizzazione completa della scheda per dominare Google Maps e la ricerca locale nella tua zona.",
+    tags: ["Google Maps", "Local SEO", "Clienti in Zona"],
     color: "green"
   },
   {
-    title: "Google Business Profile ad Ancona",
-    desc: "Ottimizzazione completa della scheda Google per apparire su Maps e dominare la ricerca locale nella tua zona. Visibilità territoriale garantita in tutte le Marche.",
-    tags: ["Local SEO", "Google Maps", "Clienti in Zona"],
+    title: "Indicizzazione in Directory e Portali",
+    desc: "Inserimento strategico nei principali portali di settore per aumentare l'autorevolezza e la reperibilità online.",
+    tags: ["Directory", "Link Building", "Visibilità"],
     color: "red"
   },
   {
-    title: "Il Tuo Brand",
-    desc: "Un volto professionale al tuo business. Loghi e grafiche capaci di catturare l'attentione dei clienti e trasmettere fiducia al primo sguardo.",
-    tags: ["Logo Design", "Grafica", "Brand Identity"],
+    title: "Gestione Social Media e Brand Identity",
+    desc: "Immagine coordinata, piani editoriali, grafica e campagne pubblicitarie per dare un volto professionale al tuo business.",
+    tags: ["Social Media", "Logo Design", "Grafica"],
     color: "yellow"
   },
   {
-    title: "Strategia Anti-Competitor",
-    desc: "Analisi approfondita dei canali dei tuoi rivali. Trasformiamo i loro punti deboli nei tuoi punti di forza per farti dominare il mercato.",
-    tags: ["Analisi Social", "Studio Competitor", "Strategia"],
+    title: "Analisi di Mercato e dei Competitor",
+    desc: "Studio approfondito del mercato di riferimento per individuare i margini di posizionamento della tua azienda.",
+    tags: ["SEO", "GEO (AI)", "Analisi Competitor"],
     color: "cyan"
   }
 ];
@@ -50,13 +52,14 @@ const strokeMap: Record<string, string> = {
 
 <section class="section" id="servizi">
   <div class="container">
+      <FallBeamBackground client:load />
+
 
     <div class="text-center" style="margin-bottom: 16px;">
       <h2 class="section-title">Che cosa faccio</h2>
     </div>
     <p class="section-subtitle text-center" style="margin-bottom: 64px;">
-      Realizzo siti web ed e-commerce, massimizzo la tua attività su google maps e lavoro su come i motori di ricerca (google) e IA (chatgpt) trovino te per primo.
-      permettendomi di creare un ecosistema completo di soluzioni per costruire e far presente la tua azienda digitale a 360°.
+      Sviluppo siti web ed e-commerce ottimizzati per posizionarti al primo posto su Google, Google Maps e ChatGPT. Il risultato è un ecosistema digitale completo che dà alla tua azienda una presenza online forte e strutturata a 360°.
     </p>
 
     <div class="services-list">
@@ -85,6 +88,10 @@ const strokeMap: Record<string, string> = {
 </section>
 
 <style>
+.container {
+    position: relative; /* scoped solo a questa sezione, non tocca il global */
+  }
+
 .mio-bottone {
   display: block;
   margin: 48px auto 0;

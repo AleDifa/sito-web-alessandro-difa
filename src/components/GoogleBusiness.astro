@@ -150,13 +150,14 @@
     color: var(--text);
     margin: 20px 0 20px;
   }
-
-  .rank-title-highlight {
-    background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 40%, #93c5fd 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+.rank-title-highlight {
+  display: inline-block; /* Risolve il problema del blocco rettangolare su Chrome */
+  background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 40%, #93c5fd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; /* Fallback extra per browser non WebKit */
+}
 
   .rank-desc {
     color: var(--text-muted);

@@ -1,0 +1,201 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import Contact from '../components/Contact.astro';
+
+const stats = [
+  { value: "7", suffix: "anni", label: "di esperienza" },
+  { value: "20", suffix: "+", label: "clienti soddisfatti" },
+  { value: "∞", suffix: "", label: "progetti conclusi" },
+];
+---
+
+<Layout title="Chi Sono">
+  <Navbar />
+
+  <section class="section" id="chi-sono">
+    <div class="container">
+
+      <!-- INTRO -->
+      <div class="intro-block">
+        <p class="eyebrow">Chi sono</p>
+        <h1 class="section-title">
+          Strategia, creatività e tecnologia in un'unica figura
+        </h1>
+        <p class="section-subtitle">
+          Un'unica persona che unisce strategie marketing e tecnologie web,
+          offrendo soluzioni che uniscono strategia, creatività e
+          posizionamento nel mercato.
+        </p>
+        <p class="location">📍 Based in Ancona</p>
+      </div>
+
+      <!-- FOTO -->
+      <div class="photo-section">
+        <!-- Sostituisci con le tue immagini -->
+        <div class="photo-placeholder"></div>
+        <div class="photo-placeholder"></div>
+        <div class="photo-placeholder"></div>
+      </div>
+
+      <!-- STATS -->
+      <div class="stats-grid">
+        {stats.map((s) => (
+          <div class="stat-card">
+            <div class="stat-value">{s.value}<span class="stat-suffix">{s.suffix}</span></div>
+            <div class="stat-label">{s.label}</div>
+          </div>
+        ))}
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-wrap">
+        <a href="/servizi" class="mio-bottone">Scopri tutti i Servizi</a>
+      </div>
+
+      <!-- TESTO LIBERO -->
+      <div class="text-block">
+        <p>
+          Qui puoi aggiungere il testo che preferisci: il tuo percorso,
+          la tua filosofia di lavoro, come nasce il tuo approccio, o
+          qualsiasi cosa voglia raccontare la tua storia.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTATTI -->
+  <Contact />
+
+  <Footer />
+</Layout>
+
+<style>
+  .intro-block {
+    max-width: 780px;
+    margin: 0 auto 64px;
+    text-align: center;
+  }
+
+  .eyebrow {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--blue-light, #60a5fa);
+    margin-bottom: 12px;
+  }
+
+  .location {
+    margin-top: 20px;
+    font-size: 15px;
+    color: var(--text);
+    opacity: 0.7;
+  }
+
+  /* FOTO */
+  .photo-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1150px;
+    margin: 0 auto 64px;
+  }
+
+  .photo-placeholder {
+    aspect-ratio: 3 / 4;
+    border-radius: var(--radius);
+    background: var(--bg-card);
+    border: 1px dashed var(--border-hover);
+  }
+
+  @media (max-width: 768px) {
+    .photo-section {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* STATS */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto 64px;
+  }
+
+  .stat-card {
+    text-align: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px 16px;
+  }
+
+  .stat-value {
+    font-family: var(--font-display);
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1;
+  }
+
+  .stat-suffix {
+    font-size: 24px;
+    margin-left: 2px;
+  }
+
+  .stat-label {
+    margin-top: 8px;
+    font-size: 14px;
+    color: var(--text);
+    opacity: 0.7;
+  }
+
+  @media (max-width: 640px) {
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* CTA */
+  .cta-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 64px;
+  }
+
+  .mio-bottone {
+    display: inline-block;
+    padding: 14px 36px;
+    border: none;
+    border-radius: 12px;
+    background: var(--blue-light, #60a5fa);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: filter 0.2s ease, transform 0.2s ease;
+  }
+
+  .mio-bottone:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+  }
+
+  /* TESTO LIBERO */
+  .text-block {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .text-block p {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--text);
+    opacity: 0.85;
+  }
+</style>
