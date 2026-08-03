@@ -1,5 +1,9 @@
 ---
 import FallBeamBackground from '../components/lightswind/fall-beam-background.tsx';
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import Contact from '../components/Contact.astro';
 
 const services = [
   {
@@ -49,8 +53,10 @@ const strokeMap: Record<string, string> = {
   cyan: "#06b6d4",
 };
 ---
+<Layout >
 
-<section class="section" id="servizi">
+ <Navbar />
+ <section class="section" id="servizi">
   <div class="container">
       <div class="beam-background">
           <FallBeamBackground 
@@ -89,6 +95,10 @@ const strokeMap: Record<string, string> = {
     <button class="mio-bottone">Scopri più in dettaglio i Servizi</button>
   </div>
 </section>
+    <Contact />
+
+  <Footer />
+</Layout>
 
 <style>
 .container {
