@@ -92,8 +92,9 @@ const strokeMap: Record<string, string> = {
 
       ))}
     </div>
-    <button class="mio-bottone">Scopri più in dettaglio i Servizi</button>
-  </div>
+<div class="cta-wrap">
+    <a href="/servizi" class="button">Scopri tutti i Servizi</a>
+  </div>  </div>
 </section>
     <Contact />
 
@@ -119,24 +120,28 @@ const strokeMap: Record<string, string> = {
   z-index: 2;
 }
 
-.mio-bottone {
-  display: block;
-  margin: 48px auto 0;
-  padding: 14px 36px;
-  border: none;
-  border-radius: 22px;
-  background: var(--blue, #3b82f6);
-  color: #fff;
-  font-size: 17px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: filter 0.2s ease, transform 0.2s ease;
-}
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px 24px; /* Bottone più compatto */
+    border: none;
+    border-radius: 9999px; /* Forma totalmente arrotondata (Pill shape) */
+    background: #0066e8; /* Blu vivo come nella foto 3 */
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    white-space: nowrap; /* Mantiene il testo su una sola riga */
+  }
 
-.mio-bottone:hover {
-  filter: brightness(1.08);
-  transform: translateY(-1px);
-}
+  .button:hover {
+    background: #0052ba; /* Scurisce leggermente al passaggio del mouse */
+    transform: translateY(-1px);
+  }
 
   .services-list {
     display: flex;
@@ -211,6 +216,13 @@ const strokeMap: Record<string, string> = {
     line-height: 1.65;
     max-width: 720px;
     margin: 0;
+  }
+  /* CTA E BOTTONI (ISPIRATI ALLA 3ª FOTO) */
+  .cta-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 46px;
+    padding: 0 16px;
   }
 
   @media (max-width: 640px) {

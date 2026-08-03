@@ -290,7 +290,12 @@ export default function LiquidEther({
           if (this.active) this.forceStop();
           return;
         }
-        if (this.mouse.isHoverInside) {
+        // FIX: during the initial warm-up (before the user has ever really
+        // interacted with the canvas), ignore isHoverInside. Otherwise, if
+        // the page loads with the mouse cursor already resting inside the
+        // container (e.g. arriving from a search result click) and it
+        // never actually moves, the auto animation never starts.
+        if (this.mouse.isHoverInside && this.manager.hasHadFirstInteraction) {
           if (this.active) this.forceStop();
           return;
         }
@@ -930,9 +935,22 @@ export default function LiquidEther({
         Mouse.init(props.$wrapper);
         Mouse.autoIntensity = props.autoIntensity;
         Mouse.takeoverDuration = props.takeoverDuration;
-        this.lastUserInteraction = performance.now();
+        // FIX: start with lastUserInteraction already "expired" so the
+        // AutoDriver's resumeDelay doesn't force an extra wait on top of
+        // the natural mount time. The animation can begin as soon as the
+        // resumeDelay window has passed from page load, not from the
+        // first (nonexistent) user interaction.
+        this.lastUserInteraction = performance.now() - props.autoResumeDelay;
+        // FIX: tracks whether the user has ever actually interacted
+        // (moved the mouse/touched) inside the container. Used by
+        // AutoDriver to ignore isHoverInside during the initial warm-up,
+        // so the fluid animates immediately on load even if the cursor
+        // happens to already be resting inside the container without
+        // moving.
+        this.hasHadFirstInteraction = false;
         Mouse.onInteract = () => {
           this.lastUserInteraction = performance.now();
+          this.hasHadFirstInteraction = true;
           if (this.autoDriver) this.autoDriver.forceStop();
         };
         this.autoDriver = new AutoDriver(Mouse, this, {
