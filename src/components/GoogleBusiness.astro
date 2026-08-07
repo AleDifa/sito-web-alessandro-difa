@@ -222,14 +222,16 @@
   .serp-caret { width: 1px; height: 12px; background: rgba(147,197,253,0.8); display: inline-block; animation: caretBlink 0.9s step-end infinite; }
   @keyframes caretBlink { 0%,50% { opacity: 1; } 51%,100% { opacity: 0; } }
 
-  .serp-results { position: relative; height: 320px; }
+  .serp-results { 
+    position: relative; 
+    height: 370px; }
 
   .serp-row {
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
-    height: 100px;
+    height: 118px;
     display: flex;
     align-items: flex-start;
     gap: 12px;
@@ -251,21 +253,35 @@
 
 /* posizioni: con height 100px + gap 10px, 3 righe stanno in 320px */
 
+/* La tua riga che sale al primo posto */
 @keyframes climbYou {
-  0%   { top: 220px; } /* parte in fondo (#3) */
-  100% { top: 0px;   } /* sale al primo posto (#1) */
+  0%, 32% {
+    transform: translateY(260px); /* Posizione 3 (in fondo): 130px * 2 */
+  }
+  50%, 100% {
+    transform: translateY(0px);   /* Posizione 1 (in alto) */
+  }
 }
 
+/* Competitor A che scende dal 1° al 2° posto */
 @keyframes climbCompA {
-  0%   { top: 0px;   } /* parte primo (#1) */
-  100% { top: 110px; } /* scende al secondo (#2) */
+  0%, 32% {
+    transform: translateY(0px);   /* Posizione 1 (in alto) */
+  }
+  50%, 100% {
+    transform: translateY(130px); /* Posizione 2 (in mezzo): 130px * 1 */
+  }
 }
 
+/* Competitor B che scende dal 2° al 3° posto */
 @keyframes climbCompB {
-  0%   { top: 110px; } /* parte secondo (#2) */
-  100% { top: 220px; } /* scende al terzo (#3) */
+  0%, 32% {
+    transform: translateY(130px); /* Posizione 2 (in mezzo): 130px * 1 */
+  }
+  50%, 100% {
+    transform: translateY(260px); /* Posizione 3 (in fondo): 130px * 2 */
+  }
 }
-
   .serp-rank { position: relative; width: 26px; height: 22px; flex-shrink: 0; margin-top: 2px; }
   .rank-num {
     position: absolute; inset: 0;
@@ -280,7 +296,10 @@
 
   .serp-rank-icon { width: 22px; height: 22px; flex-shrink: 0; margin-top: 2px; color: rgba(240,240,240,0.25); }
 
-  .serp-body { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .serp-body { 
+    display: flex; 
+    flex-direction: column; 
+    min-width: 0; }
  
 
   .serp-url { font-size: 11.5px; color: #93c5fd; }
