@@ -153,16 +153,14 @@
 .rank-title-highlight {
   display: inline-block;
   background-image: linear-gradient(135deg, #3b82f6 0%, #60a5fa 40%, #93c5fd 100%);
-  /* Proprietà di clip */
+  
+  /* Ritaglio dello sfondo sul testo */
   -webkit-background-clip: text;
   background-clip: text;
-  /* Colore del testo trasparente */
+  
+  /* Testo trasparente per far passare lo sfondo */
   -webkit-text-fill-color: transparent;
   color: transparent;
-  /* Forza il rendering corretto in presenza di a capo o inline-block */
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-  color: #3b82f6;
 }
 
   .rank-desc {
