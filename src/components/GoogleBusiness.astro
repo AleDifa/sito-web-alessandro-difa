@@ -14,7 +14,8 @@
 
         <h2 class="rank-title animate-fade-up delay-1">
           Porta il tuo sito<br />
-          in <span class="rank-title-highlight">1ª posizione</span><br />
+          in <span class="rank-title-highlight">1ª posizione</span>
+          <br/>
           su Google.
         </h2>
 
@@ -151,16 +152,12 @@
     margin: 20px 0 20px;
   }
 .rank-title-highlight {
-  display: inline-block;
+  display: inline; /* Modificato da inline-block a inline */
   background-image: linear-gradient(135deg, #3b82f6 0%, #60a5fa 40%, #93c5fd 100%);
-  
-  /* Ritaglio dello sfondo sul testo */
-  -webkit-background-clip: text;
-  background-clip: text;
-  
-  /* Testo trasparente per far passare lo sfondo */
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
 }
 
   .rank-desc {
