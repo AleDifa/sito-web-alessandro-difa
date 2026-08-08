@@ -1,0 +1,245 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import Contact from '../components/Contact.astro';
+
+const stats = [
+  { value: "7", suffix: "anni", label: "di esperienza" },
+  { value: "20", suffix: "+", label: "clienti soddisfatti" },
+  { value: "∞", suffix: "", label: "progetti conclusi" },
+];
+---
+
+<Layout title="Chi Sono">
+  <Navbar />
+
+  <section class="section" id="chi-sono">
+    <div class="container">
+
+      <!-- INTRO -->
+      <div class="intro-block">
+        <p class="eyebrow">Chi sono</p>
+        <h1 class="section-title">
+          Strategia, creatività e tecnologia in un'unica figura
+        </h1>
+        <p class="section-subtitle">
+          Un'unica persona che unisce strategie marketing e tecnologie web,
+          offrendo soluzioni che uniscono marketing, creatività e
+          posizionamento nel mercato.
+        </p>
+        <p class="location">📍 Based in Ancona</p>
+      </div>
+
+      <!-- FOTO -->
+      <div class="photo-section">
+        <div class="photo-placeholder">
+          <img src="/img/foto-profilo.png" alt="Foto Profilo Alessandro" />
+        </div>
+        <div class="photo-placeholder">
+          <img src="/img/alessandro-difa-in-ufficio-milano-Slime.png" alt="Alessandro Difa in ufficio" />
+        </div>
+      </div>
+
+      <!-- STATS -->
+      <div class="stats-grid">
+        {stats.map((s) => (
+          <div class="stat-card">
+            <div class="stat-value">{s.value}<span class="stat-suffix">{s.suffix}</span></div>
+            <div class="stat-label">{s.label}</div>
+          </div>
+        ))}
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-wrap">
+        <a href="https://www.linkedin.com/in/alessandro-difa/" target="_blank" rel="noopener noreferrer" class="button">
+          Background professionale LinkedIn
+        </a>
+      </div>
+
+      <!-- TESTO LIBERO -->
+      <div class="text-block">
+        <p>
+          Aiuto aziende e professionisti a crescere online come consulente SEO e web developer. Porto in ogni progetto un solido background maturato in contesti internazionali e settori complessi (Toyota, Stellantis, Ford, Alpitour, MASE), che mi permette di unire la parte tecnica a una reale visione di business.
+        </p>
+        <hr class="separator" />
+        <p>
+          Il mio approccio integra creatività, analisi qualitative per differenziarsi (SWOT, competitor analysis) e quantitative per trasformare i dati in siti web performanti, strategie SEO efficaci e decisioni concrete.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="cta-wrap">
+    <a href="/servizi" class="button">Scopri tutti i Servizi</a>
+  </div>
+
+  <!-- CONTATTI -->
+  <Contact />
+
+  <Footer />
+</Layout>
+<style>
+  .intro-block {
+    max-width: 780px;
+    margin: 0 auto 40px;
+    text-align: center;
+    padding: 0 16px;
+  }
+
+  .separator {
+    border: none;
+    border-top: 1px solid var(--border, rgba(255, 255, 255, 0.1));
+    margin: 20px 0;
+  }
+
+  .eyebrow {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--blue-light, #60a5fa);
+    margin-bottom: 12px;
+  }
+
+  .location {
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--text);
+    opacity: 0.7;
+  }
+
+  /* FOTO UNIFORMI E RESPONSIVE */
+  .photo-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    padding: 0 16px;
+  }
+
+  .photo-placeholder {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    border-radius: var(--radius, 16px);
+    overflow: hidden;
+  }
+
+  .photo-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  /* STATS (VERSIONE PIÙ COMPATTA) */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px; /* Spazio ridotto */
+    max-width: 650px; /* Larghezza massima ridotta per compattare la griglia */
+    margin: 0 auto 40px;
+    padding: 0 16px;
+  }
+
+  .stat-card {
+    text-align: center;
+    background: var(--bg-card, #121212);
+    border: 1px solid var(--border, rgba(255, 255, 255, 0.1));
+    border-radius: 12px;
+    padding: 16px 12px; /* Padding molto più contenuto */
+  }
+
+  .stat-value {
+    font-family: var(--font-display);
+    font-size: 26px; /* Numeri più piccoli */
+    font-weight: 700;
+    color: var(--text, #fff);
+    line-height: 1.1;
+  }
+
+  .stat-suffix {
+    font-size: 18px;
+    margin-left: 2px;
+  }
+
+  .stat-label {
+    margin-top: 4px;
+    font-size: 12px; /* Testo label più piccolo */
+    color: var(--text, #fff);
+    opacity: 0.7;
+  }
+
+  /* CTA E BOTTONI (ISPIRATI ALLA 3ª FOTO) */
+  .cta-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    padding: 0 16px;
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px 24px; /* Bottone più compatto */
+    border: none;
+    border-radius: 9999px; /* Forma totalmente arrotondata (Pill shape) */
+    background: #0066e8; /* Blu vivo come nella foto 3 */
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    white-space: nowrap; /* Mantiene il testo su una sola riga */
+  }
+
+  .button:hover {
+    background: #0052ba; /* Scurisce leggermente al passaggio del mouse */
+    transform: translateY(-1px);
+  }
+
+  /* TESTO LIBERO */
+  .text-block {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  .text-block p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text);
+    opacity: 0.85;
+  }
+
+  /* MEDIA QUERIES MOBILE */
+  @media (max-width: 640px) {
+    .stats-grid {
+      grid-template-columns: repeat(3, 1fr); /* Mantiene i 3 elementi affiancati anche su mobile dato che ora sono piccoli */
+      gap: 8px;
+    }
+
+    .stat-card {
+      padding: 12px 6px;
+    }
+
+    .stat-value {
+      font-size: 20px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+    }
+
+    .button {
+      white-space: normal; /* Permette all'occorrenza di andare a capo su schermi davvero molto stretti */
+    }
+  }
+</style>
