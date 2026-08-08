@@ -142,14 +142,17 @@ const projects = [
       grid-template-columns: repeat(2, 1fr);
     }
   }
-
-   @media (max-width: 640px) {
-    .service-row {
-      grid-template-columns: 1fr;
-      padding: 24px;
-    }
-    .service-number {
-      font-size: 32px;
-    }
+@media (max-width: 640px) {
+  .projects-grid {
+    grid-template-columns: 1fr; /* una colonna sotto l'altra */
+    max-width: 400px;           /* opzionale: card non troppo larga */
   }
+  .service-row {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+  .service-number {
+    font-size: 32px;
+  }
+}
 </style>
