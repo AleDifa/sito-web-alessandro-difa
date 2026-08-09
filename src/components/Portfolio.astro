@@ -2,13 +2,17 @@
 const projects = [
   {
     title: 'Aurora per le Marche',
-    description: 'Sviluppo web e posizionamento digitale per l\'associazione. Implementazione di strategie GEO per la visibilità sulle intelligenze artificiali e gestione delle campagne di comunicazione social su Facebook e Instagram.',
+    description: `Sviluppo web e posizionamento strategico per l'associazione tramite <strong> analisi SWOT dei punti di forza e debolezza </strong>. 
+    
+    Implementazione di strategie di visibilità sulle intelligenze artificiali per i candidati in vista delle elezioni e gestione completa delle campagne social su Facebook e Instagram.`,
     image: './img/aurora_per_le_marche.JPG',
     link: 'https://www.auroraperlemarche.eu/'
   },
   {
     title: 'Conero Surf Club',
-    description: 'Realizzazione di un sito web istituzionale sviluppato su linee guida grafiche fornite dal cliente. Include l\'implementazione dell\'area utenti con funzionalità di registrazione.',
+    description: `Realizzazione di un sito web istituzionale sviluppato su linee guida grafiche fornite dal cliente. 
+    
+    Include l'implementazione dell'area utenti con funzionalità di registrazione.`,
     image: './img/conero_surf_club.JPG',
     link: 'https://conerosurfclub.it/'
   }
@@ -31,7 +35,7 @@ const projects = [
           </div>
           <div class="project-info">
             <h4 class="project-title">{project.title}</h4>
-            <p class="project-description">{project.description}</p>
+            <p class="project-description" set:html={project.description} />
           </div>
         </a>
       ))}
@@ -62,6 +66,7 @@ const projects = [
     line-height: 1.65;
     max-width: 720px;
     margin: 0;
+    white-space: pre-line;
   }
 
 .section-subtitle {
