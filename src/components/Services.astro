@@ -55,9 +55,11 @@ const strokeMap: Record<string, string> = {
     <div class="text-center" style="margin-bottom: 16px;">
       <h2 class="section-title">Che cosa faccio</h2>
     </div>
-    <p class="section-subtitle text-center" style="margin-bottom: 64px;">
-      Sviluppo siti web ed e-commerce ottimizzati per posizionarti al primo posto su Google, Google Maps e ChatGPT. Il risultato è un ecosistema digitale completo che dà alla tua azienda una presenza online forte e strutturata a 360°.
-    </p>
+    <div class="section-subtitle text-center">
+      <p>Sviluppo siti web ed e-commerce ottimizzati per posizionarti al primo posto su Google, Google Maps e ChatGPT.</p>
+      <p>Analisi di mercato e piani di marketing: scopri i tuoi punti di forza e debolezza per conquistare il tuo spazio nel settore di riferimento.</p>
+      <p>Il risultato è un ecosistema digitale completo che dà alla tua azienda una presenza online forte e strutturata a 360°.</p>
+    </div>
 
     <div class="services-list">
       {services.map((s, i) => (
@@ -156,6 +158,9 @@ const strokeMap: Record<string, string> = {
     flex-direction: column;
     gap: 14px;
   }
+  .section-subtitle p {
+  margin-bottom: 16px; /* Spazio verticale tra i singoli paragrafi */
+}
 
   .service-head {
     display: flex;
