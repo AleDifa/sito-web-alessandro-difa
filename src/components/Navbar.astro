@@ -1,24 +1,36 @@
----
----
-
 <header class="nav-wrapper">
   <nav class="nav container">
 
-  <a href="/" class="nav-logo">
-        <span class="nav-logo-icon">
-        </span>
-        <span class="nav-logo-text">Alessandro DiFa</span>
-      </a>
+    <a href="/" class="nav-logo">
+      <span class="nav-logo-icon"></span>
+      <span class="nav-logo-text">Alessandro DiFa</span>
+    </a>
 
     <ul class="nav-links">
-      <li><a href=/#Hero">Home</a></li>
+      <li><a href="/#Hero">Home</a></li>
       <li><a href="/Chi-Sono">Chi Sono</a></li>
-      <li><a href="/Servizi">Servizi</a></li>
+      
+      <li class="dropdown">
+        <a href="/Servizi" class="dropbtn">
+          Servizi <span class="arrow" style="color:rgb(139, 7, 117);">&#9660;</span>
+        </a>
+        <ul class="dropdown-content">
+          <li><a href="#creazione_siti_web">01 Creazione siti web</a></li>
+          <li><a href="#creazione_e-commerce">02 Creazione E-commerce</a></li>
+          <li><a href="#servizi_fotografici_e_video">03 Servizi Fotografici e Video</a></li>
+          <li><a href="#analisi_di_mercato_e_strategia_360°">04 Analisi di Mercato e Strategia 360°</a></li>
+          <li><a href="#Ottimizzazione_Google_Business_Profile_(Google Maps)">05 creazione profilo google maps</a></li>
+          
+          <li><a href="#analisi_dati_social_media">06 Analisi dati social media</a></li>
+          <li><a href="#realizzazione_sito_per_personal_trainer">06 Realizzazione sito per personal trainer</a></li>
+
+        </ul>
+      </li>
+
       <li><a href="#progetti">Progetti</a></li>
       <li><a href="/method">Metodo</a></li>
       <li><a href="#contatti">Contatti</a></li>
     </ul>
-
 
     <button class="nav-hamburger" aria-label="Menu" id="hamburger">
       <span></span><span></span><span></span>
@@ -38,17 +50,16 @@
 </div>
 
 <style>
- .nav-wrapper {
+.nav-wrapper {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
   background: rgba(10, 10, 10, 0.8);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--border, #333);
   transition: background 0.3s;
 }
-
 
 .nav {
   display: flex;
@@ -60,10 +71,10 @@
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 12px; /* Horizontal space between logo icon and text */
+  gap: 12px;
   text-decoration: none;
-  color: var(--text);
-  font-family: var(--font-display);
+  color: var(--text, #fff);
+  font-family: var(--font-display, sans-serif);
   font-weight: 700;
   font-size: 16px;
 }
@@ -74,7 +85,6 @@
   align-items: center;
 }
 
-/* Added: Ensures the image scales beautifully within the 32px container */
 .nav-logo-img {
   height: 100%;
   width: auto;
@@ -83,96 +93,151 @@
 
 .nav-links {
   display: flex;
+  align-items: center;
   list-style: none;
   gap: 6px;
-  margin-left: auto; /* Pushes the links to the far right */
+  margin-left: auto;
 }
 
-  .nav-links a {
-    color: var(--text);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 8px 14px;
-    border-radius: var(--radius-xs);
-    transition: color 0.2s, background 0.2s;
-  }
+.nav-links a {
+  color: var(--text, #fff);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: var(--radius-xs, 4px);
+  transition: color 0.2s, background 0.2s;
+}
 
-  .nav-links a:hover {
-    color: var(--text);
-    background: rgba(255,255,255,0.06);
-  }
+.nav-links a:hover {
+  color: var(--text, #fff);
+  background: rgba(255,255,255,0.06);
+}
 
-  .nav-cta {
-    font-size: 13px;
-    padding: 10px 18px;
-    flex-shrink: 0;
-  }
+/* STILI SPECIFICI DROPDOWN */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
 
-  .nav-hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-    margin-left: auto;
-  }
+.dropbtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
 
-  .nav-hamburger span {
-    display: block;
-    width: 22px;
-    height: 2px;
-    background: var(--text);
-    border-radius: 2px;
-    transition: all 0.3s;
-  }
+.arrow {
+  font-size: 10px;
+  transition: transform 0.2s ease;
 
-  .mobile-menu {
-    position: fixed;
-    top: 64px;
-    left: 0; right: 0;
-    background: var(--bg-card);
-    border-bottom: 1px solid var(--border);
-    z-index: 99;
-    transform: translateY(-100%);
-    opacity: 0;
-    transition: all 0.3s ease;
-    pointer-events: none;
-  }
+}
 
-  .mobile-menu.open {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: all;
-  }
+/* Rotazione della freccia al passaggio del mouse */
+.dropdown:hover .arrow {
+  transform: rotate(180deg);
+}
 
-  .mobile-menu ul {
-    list-style: none;
-    padding: 20px 24px 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #1a1a1a;
+  border: 1px solid var(--border, #333);
+  border-radius: var(--radius-xs, 6px);
+  list-style: none;
+  min-width: 210px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.4);
+  z-index: 10;
+  padding: 6px 0;
+  margin-top: 4px; /* Un piccolo distacco visivo dal menu principale */
+}
 
-  .mobile-link {
-    display: block;
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-    padding: 12px 0;
-    border-bottom: 1px solid var(--border);
-    transition: color 0.2s;
-  }
+.dropdown-content li {
+  width: 100%;
+}
 
-  .mobile-link:hover { color: var(--text); }
+.dropdown-content a {
+  display: block;
+  padding: 10px 16px;
+  color: var(--text, #fff);
+  border-radius: 0;
+}
 
-  @media (max-width: 900px) {
-    .nav-links, .nav-cta { display: none; }
-    .nav-hamburger { display: flex; }
-  }
+.dropdown-content a:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+/* Mostra menu al passaggio sopra il contenitore li.dropdown */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* MOBILE MENU STYLES */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: auto;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text, #fff);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 64px;
+  left: 0; right: 0;
+  background: var(--bg-card, #111);
+  border-bottom: 1px solid var(--border, #333);
+  z-index: 99;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.mobile-menu.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 20px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mobile-link {
+  display: block;
+  color: var(--text-muted, #ccc);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border, #333);
+  transition: color 0.2s;
+}
+
+.mobile-link:hover { color: var(--text, #fff); }
+
+@media (max-width: 900px) {
+  .nav-links, .nav-cta { display: none; }
+  .nav-hamburger { display: flex; }
+}
 </style>
 
 <script>
@@ -183,7 +248,7 @@
     menu?.classList.toggle('open');
   });
 
-  document.querySelectorAll('.mobile-link, .mobile-menu .btn-primary').forEach(link => {
+  document.querySelectorAll('.mobile-link').forEach(link => {
     link.addEventListener('click', () => menu?.classList.remove('open'));
   });
 </script>
