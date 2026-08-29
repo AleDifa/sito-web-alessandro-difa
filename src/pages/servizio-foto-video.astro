@@ -1,0 +1,72 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import Contact from '../components/Contact.astro';
+
+import '../styles/global.css';
+---
+
+<Layout>
+  <Navbar />
+
+  <main>
+    
+    <section class="hero-section">
+        <h1 >Servizi Fotografici e video</h1>
+        <h2 >Creatività, Marketing e Strategia</h2>
+
+        <span class="caption-text">Servizi fotografici per campionari, cataloghi, brochure, siti internet o pubblicità per aziende, imprese e attività commerciali</span>
+    
+        <p class="description-text">
+           Realizziamo contenuti video brevi, pensati per i social media instagram, facebook tik tok e il sito    </p>
+    </section>
+
+    
+    <!-- Sezione 3: Cosa è incluso -->
+    <section class="Prezzo-section">
+      <h1></h1>
+      <h2>Preventivi personalizzati</h2>
+      <p>  </p>
+      <p> </p>
+    </section>
+
+  </main>
+
+  <Contact />
+  <Footer />
+</Layout>
+
+
+<style>
+
+/* --- SEZIONE PROCESSO (Resta centrata e scura) --- */
+
+.hero-section,
+.Prezzo-section,
+.process-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  color: #ffffff;
+}
+.hero-section,
+.Prezzo-section,
+.process-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+.hero-section,
+.Prezzo-section,
+.process-section ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1.5rem;
+}
+.hero-section,
+.Prezzo-section,
+.process-section li {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+</style>

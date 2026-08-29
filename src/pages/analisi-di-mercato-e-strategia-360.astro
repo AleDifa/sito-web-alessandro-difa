@@ -1,0 +1,104 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import Contact from '../components/Contact.astro';
+
+import '../styles/global.css';
+---
+
+<Layout>
+  <Navbar />
+
+  <main>
+    
+    <section class="hero-section">
+        <h1>Servizi di Analisi di Mercato e Strategia di Marketing</h1>
+        <h2>Consulente Marketing Strategico & Data Analyst | Posizionamento Brand e Studio della Concorrenza</h2>
+
+        <span class="caption-text">dall'analisi della domanda al marketing mix e controllo kpi</span>
+    
+        <p class="description-text">
+          Offro consulenza specialistica in analisi di mercato e strategie di marketing data-driven per aziende e professionisti. Attraverso lo studio approfondito del target, dell'offerta e della concorrenza, trasformiamo i dati di mercato in decisioni strategiche orientate alla crescita del business.
+          Dalla segmentazione del pubblico alla definizione del posizionamento di brand, fino alla pianificazione del Marketing Mix e al monitoraggio delle performance economiche.
+        </p>
+    </section>
+
+    <!-- Sezione 2: Processo -->
+    <section class="process-section">
+      <h2>PROCESSI DI MARKETING E ANALISI STRATEGICA</h2>
+        <p> Un percorso strutturato in step chiave per analizzare il mercato, definire il valore unico del tuo brand e ottimizzare il processo d'acquisto: </p>
+         <p>Fasi operative della consulenza strategica:</p>
+      <ul>
+        <li>
+          <strong>01. Analisi di Mercato & Ricerca della Domanda:</strong> Definizione di Mission e Vision, segmentazione della domanda con Modello di Abell e calcolo delle quote di mercato.
+        </li>
+        <li>
+          <strong>02. Analisi della Concorrenza:</strong> Studio delle 5 Forze di Porter, matrice SWOT e analisi PEST per identificare minacce e opportunità del settore.
+        </li>
+        <li>
+          <strong>03. Posizionamento del Brand e Target:</strong> Definizione del target di riferimento e del posizionamento strategico per influenzare la percezione e la reputazione presso il cliente.
+        </li>
+        <li>
+          <strong>04. Valore, Customer Satisfaction e CRM:</strong> Strategie per aumentare la fidelizzazione del cliente, la soddisfazione e l'ottimizzazione dei processi di gestione clienti (CRM).
+        </li>
+        <li>
+          <strong>05. Comunicazione Social & Piano Editoriale:</strong> Gestione della comunicazione sui Social Network, monitoraggio dei dati, SWOT periodica e piano editoriale orientato ai risultati.
+        </li>
+        <li>
+          <strong>06. Servizi, Prodotti e Modelli Organizzativi:</strong> Mappatura del Service Blueprint, analisi del ciclo di vita dei prodotti e gestione efficiente della customer experience.
+        </li>
+        <li>
+          <strong>07. Strategie di Prezzo e Neuromarketing:</strong> Definizione del price point basata sulla domanda e principi di neuromarketing per evitare la battaglia dei prezzi al ribasso.
+        </li>
+        <li>
+          <strong>08. Marketing Mix (Le 7 P):</strong> Integrazione sinergica di Prodotto, Prezzo, Punto vendita, Promozione, Persone, Processo e Perfezionamento fisico.
+        </li>
+        <li>
+          <strong>09. Processo d'Acquisto e Vendite:</strong> Ottimizzazione delle fasi del funnel di vendita per guidare il potenziale cliente dalla scoperta alla conversione.
+        </li>
+        <li>
+          <strong>10. Valutazione Economica e Controllo KPI:</strong> Monitoraggio costante delle performance finanziarie, analisi delle metriche chiave (KPI) e modelli di controllo per garantire il ROI.
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <Contact />
+  <Footer />
+</Layout>
+
+
+<style>
+
+/* --- SEZIONE PROCESSO (Resta centrata e scura) --- */
+
+.hero-section,
+.Prezzo-section,
+.process-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  color: #ffffff;
+}
+.hero-section,
+.Prezzo-section,
+.process-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+.hero-section,
+.Prezzo-section,
+.process-section ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1.5rem;
+}
+.hero-section,
+.Prezzo-section,
+.process-section li {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+</style>

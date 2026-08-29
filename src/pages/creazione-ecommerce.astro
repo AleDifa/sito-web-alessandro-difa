@@ -1,0 +1,78 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import Contact from '../components/Contact.astro';
+
+import '../styles/global.css';
+---
+
+<Layout>
+  <Navbar />
+
+  <main>
+    
+    <section class="hero-section">
+        <h1 >Creazione Ecommerce</h1>
+        <h2 >Creatività, Marketing e Strategia</h2>
+
+        <span class="caption-text">Il tuo negozio, ma senza saracinesca</span>
+    
+        <p class="description-text">
+          Un e-commerce non è "un sito dove vendi": è un secondo punto vendita che resta aperto ventiquattr'ore su ventiquattro, sette giorni su sette, mentre tu dormi, mangi o sei impegnato in negozio. È un cambio di mentalità prima ancora che un progetto tecnico — ed io ti aiuto a farlo nel modo giusto.    </p>
+    </section>
+
+    <!-- Sezione 2: Processo -->
+    <section class="process-section">
+       <h1 >Realizzazione E-commerce</h1>
+      <h2>aperto 24 ore su 24</h2>
+        <p> Mentre il negozio fisico ha un orario, il tuo negozio online no. Qualcuno può scoprirti, guardare i tuoi prodotti e comprare anche alle undici di sera, o mentre è in vacanza dall'altra parte d'Italia. Un cliente in più che, senza un e-commerce, semplicemente non avresti mai incontrato. </p>
+    </section>
+
+    <!-- Sezione 3: Cosa è incluso -->
+    <section class="Prezzo-section">
+      <h1>PREZZI</h1>
+      <h2>A partire da 700 euro</h2>
+      <p> I prezzi variano in base agli obiettivi del progetto </p>
+      <p> pagamenti anche a rate* </p>
+    </section>
+
+  </main>
+
+  <Contact />
+  <Footer />
+</Layout>
+
+
+<style>
+
+/* --- SEZIONE PROCESSO (Resta centrata e scura) --- */
+
+.hero-section,
+.Prezzo-section,
+.process-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  color: #ffffff;
+}
+.hero-section,
+.Prezzo-section,
+.process-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+.hero-section,
+.Prezzo-section,
+.process-section ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1.5rem;
+}
+.hero-section,
+.Prezzo-section,
+.process-section li {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+</style>

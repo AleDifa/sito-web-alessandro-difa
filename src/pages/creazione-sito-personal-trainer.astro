@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import Contact from '../components/Contact.astro';
+
+import '../styles/global.css';
+---
+
+<Layout>
+  <Navbar />
+
+  <main>
+    
+    <section class="hero-section">
+        <h1>Siti Web per Personal Trainer e Nutrizionisti</h1>
+        <h2>Creazione Siti Web & Marketing per il Fitness | Specialista per Personal Trainer e Nutrizionisti</h2>
+
+        <span class="caption-text">posizionamento su misura per professionisti del fitness e della nutrizione</span>
+    
+        <p class="description-text">
+          Conosco da vicino le dinamiche del settore fitness in Italia e le esigenze dei professionisti della salute e dell'allenamento. Ho già realizzato piattaforme e siti web dedicati a Personal Trainer e Nutrizionisti, creando ecosistemi digitali capaci di trasformare i visitatori in clienti fidelizzati.
+          Dalla presentazione dei programmi di coaching online alla vendita di consulenze e schede, realizzo piattaforme ottimizzate per intercettare chi cerca un professionista nella tua zona o online. 
+        </p>
+    </section>
+
+    <!-- Sezione 2: Processo -->
+    <section class="process-section">
+      <h2>COME COLLABORO CON I PROFESSIONISTI DEL FITNESS</h2>
+        <p> Il percorso nasce per valorizzare il tuo metodo di lavoro, differenziarti dalla concorrenza nel mercato italiano e semplificare l'acquisizione di nuovi clienti: </p>
+         <p>Fasi operative per il tuo progetto digitale:</p>
+      <ul>
+        <li>
+          <strong>Analisi del Metodo & Target:</strong> Studio della tua nicchia (ricomposizione corporea, dimagrimento, performance, nutrizione clinica o sportiva) per definire la tua proposta di valore unica.
+        </li>
+        <li>
+          <strong>Strutturazione dell'Offerta & Pacchetti:</strong> Organizzazione dei servizi di coaching (in presenza, online o ibrido), consulenze nutrizionali e vendita di programmi d'allenamento.
+        </li>
+        <li>
+          <strong>Sviluppo Sito Web & Funnel di Acquisizione:</strong> Creazione di un sito veloce e professionale integrato con moduli di candidatura, form di contatto e prenotazione visite.
+        </li>
+        <li>      
+          <strong>Posizionamento SEO Locale e Social Integration:</strong> Ottimizzazione sui motori di ricerca per essere trovato dai clienti della tua città e integrazione con le tue pagine social.
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <Contact />
+  <Footer />
+</Layout>
+
+
+<style>
+
+/* --- SEZIONE PROCESSO (Resta centrata e scura) --- */
+
+.hero-section,
+.Prezzo-section,
+.process-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  color: #ffffff;
+}
+.hero-section,
+.Prezzo-section,
+.process-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+.hero-section,
+.Prezzo-section,
+.process-section ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1.5rem;
+}
+.hero-section,
+.Prezzo-section,
+.process-section li {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+</style>

@@ -1,0 +1,75 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import Contact from '../components/Contact.astro';
+
+import '../styles/global.css';
+---
+
+<Layout>
+  <Navbar />
+
+  <main>
+    
+    <section class="hero-section">
+        <h1 >analsi social media dati</h1>
+        <h2 >Cosa dicono online del tuo Brand? Scoprilo.</h2>
+
+        <span class="caption-text">’analisi dei dati provenienti dai social network come Facebook, LinkedIn, YouTube, Twitter e così via. </span>
+    
+        <p class="description-text">
+          Attraverso i dati generati dai social si possono effettuare analisi davvero profonde rispetto ai comportamenti del pubblico e alle performance e al posizionamento online di singoli profili, personaggi, brand, aziende, oltre a studiare il dibattito esistente in rete su specifiche tematiche e argomenti.
+        </p>
+        </section>
+
+    <!-- Sezione 2: Processo -->
+    <section class="process-section">
+      <h2>COME LAVORO</h2>
+        <p>     estrazione dei dati dai social media, pagina google maps, recensioni online e portali di aggrgazione, creazione di un report dhasbord che riasume ed analizza la situazione fotografando gli aspetti positivi, negativi e di miglioramento   </p>
+  <p>  il processo che raccoglie, analizza e interpreta i dati provenienti dai social media per capire se la strategia sta funzionando. </p>
+         <p>definizine dei KPIs, come andamento delle campagne pubblicitarie, Impression, e metriche chiave</p>
+      <p>La Social Media Analytics è il processo che raccoglie, analizza e interpreta i dati provenienti dalle attività sui social media, con lo scopo di ottenere informazioni e prendere decisioni basate sui dati.</p>
+    </section>
+
+
+
+  </main>
+
+  <Contact />
+  <Footer />
+</Layout>
+
+
+<style>
+
+/* --- SEZIONE PROCESSO (Resta centrata e scura) --- */
+
+.hero-section,
+.Prezzo-section,
+.process-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  color: #ffffff;
+}
+.hero-section,
+.Prezzo-section,
+.process-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+.hero-section,
+.Prezzo-section,
+.process-section ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1.5rem;
+}
+.hero-section,
+.Prezzo-section,
+.process-section li {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+</style>

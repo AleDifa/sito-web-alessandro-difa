@@ -1,0 +1,95 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import Contact from '../components/Contact.astro';
+
+import '../styles/global.css';
+---
+
+<Layout>
+  <Navbar />
+
+  <main>
+    
+    <section class="hero-section">
+        <h1 >Creazione Siti Web</h1>
+        <h2 >Creatività, Marketing e Strategia</h2>
+
+        <span class="caption-text">creazione di sito web e servizio fotografico insieme</span>
+    
+        <p class="description-text">
+          Creiamo la tua identità digitale che rispecchi i tuoi valori e la tua immagine professionale, integrando la produzione diretta di foto e video di prodotti e servizi.
+          Il pacchetto completo per la tua presenza online
+          Fatti trovare su Google con un sito professionale e su misura. Ottimizzato in chiave SEO e GEO per massimizzare la tua visibilità, garantendo un posizionamento prioritario sui motori di ricerca e sulle principali piattaforme di Intelligenza Artificiale. 
+        </p>
+    </section>
+
+    <!-- Sezione 2: Processo -->
+    <section class="process-section">
+      <h2>COME LAVORO</h2>
+        <p> Il percorso inizia definendo gli obiettivi: qual è lo scopo principale del progetto e quali traguardi si vogliono raggiungere? </p>
+         <p>Da questo punto di partenza prende forma l'intero sviluppo visivo e strategico:</p>
+      <ul>
+        <li>
+          <strong>Identità digitale:</strong> Scelta dei colori, dello stile e degli elementi visivi.
+        </li>
+        <li>
+          <strong>Servizio Fotografico Dedicato:</strong> Realizzazione di scatti e materiale visivo personalizzato per il tuo brand.
+        </li>
+        <li>
+          <strong>Strategia di Marketing Integrata:</strong> SWOT Analysis per differenziarti dalla concorrenza e intercettare i tuoi clienti target.
+        </li>
+        <li>      
+          <strong>Ottimizzazione SEO e GEO Locale:</strong> Tecniche avanzate per posizionare il sito sui dispositivi delle persone che cercano i tuoi servizi nella tua zona.
+        </li>
+      </ul>
+    </section>
+
+    <!-- Sezione 3: Cosa è incluso -->
+    <section class="Prezzo-section">
+      <h1>PREZZI</h1>
+      <h2>A partire da 700 euro</h2>
+      <p> I prezzi variano in base agli obiettivi del progetto </p>
+      <p> pagamenti anche a rate* </p>
+    </section>
+
+  </main>
+
+  <Contact />
+  <Footer />
+</Layout>
+
+
+<style>
+
+/* --- SEZIONE PROCESSO (Resta centrata e scura) --- */
+
+.hero-section,
+.Prezzo-section,
+.process-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  color: #ffffff;
+}
+.hero-section,
+.Prezzo-section,
+.process-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+.hero-section,
+.Prezzo-section,
+.process-section ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1.5rem;
+}
+.hero-section,
+.Prezzo-section,
+.process-section li {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+</style>

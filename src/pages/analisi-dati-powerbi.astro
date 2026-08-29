@@ -1,0 +1,87 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import Contact from '../components/Contact.astro';
+
+import '../styles/global.css';
+---
+
+<Layout>
+  <Navbar />
+
+  <main>
+    
+    <section class="hero-section">
+        <h1>Analisi Dati & Business Intelligence</h1>
+        <h2>Freelance Data Analyst & Power BI Specialist | Esperto in Analisi e Visualizzazione Dati</h2>
+
+        <span class="caption-text">modellazione dati, query sql, mongodb e dashboard power bi</span>
+    
+        <p class="description-text">
+          Trasformiamo i tuoi dati aziendali grezzi in dashboard interattive e report strategici. Grazie all'integrazione di database relazionali e NoSQL, ottimizziamo la gestione dei tuoi flussi informativi per guidare le decisioni di business basate su metriche concrete.
+          Il pacchetto completo per l'analisi dei tuoi dati.
+          Ottimizza le performance aziendali con pipeline SQL veloci e strutture MongoDB flessibili. Monitora KPI in tempo reale e prendi decisioni strategiche fondate su dati accurati e sempre aggiornati. 
+        </p>
+    </section>
+
+    <!-- Sezione 2: Processo -->
+    <section class="process-section">
+      <h2>COME LAVORO</h2>
+        <p> Il percorso inizia definendo gli obiettivi di business: quali insight sono fondamentali per l'azienda e quali metriche chiave (KPI) si vogliono monitorare? </p>
+         <p>Da questo punto di partenza prende forma l'intera infrastruttura di analisi ed estrazione dati:</p>
+      <ul>
+        <li>
+          <strong>Integrazione e Modellazione Dati:</strong> Connessione a database SQL e MongoDB per strutturare un data model solido e performante.
+        </li>
+        <li>
+          <strong>Query & Estrazione Avanzata:</strong> Scrittura di pipeline di aggregazione NoSQL e query SQL ottimizzate per la pulizia e trasformazione dei dati.
+        </li>
+        <li>
+          <strong>Dashboard Power BI Interattive:</strong> Progettazione di report visivi, dinamici e intuitivi per rendere i dati accessibili a tutto il team.
+        </li>
+        <li>      
+          <strong>Analisi Strategica e Monitoraggio KPI:</strong> Implementazione di metriche chiare per tracciare la crescita e identificare opportunità di business.
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <Contact />
+  <Footer />
+</Layout>
+
+
+<style>
+
+/* --- SEZIONE PROCESSO (Resta centrata e scura) --- */
+
+.hero-section,
+.Prezzo-section,
+.process-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  color: #ffffff;
+}
+.hero-section,
+.Prezzo-section,
+.process-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+.hero-section,
+.Prezzo-section,
+.process-section ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1.5rem;
+}
+.hero-section,
+.Prezzo-section,
+.process-section li {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+</style>
