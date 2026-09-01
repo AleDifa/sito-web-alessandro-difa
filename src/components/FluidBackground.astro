@@ -1,0 +1,46 @@
+---
+---
+<canvas id="fluid-canvas" class="fluid-canvas"></canvas>
+
+<script>
+  import WebGLFluid from 'webgl-fluid';
+
+  const canvas = document.getElementById('fluid-canvas') as HTMLCanvasElement;
+
+  WebGLFluid(canvas, {
+    TRIGGER: 'hover',              // si attiva al passaggio del mouse
+    IMMEDIATE: false,              // niente splash automatico all'avvio
+    AUTO: true,                    // piccole increspature "vive" quando il mouse è fermo
+    AUTO_SPEED: 0.3,
+    AUTO_INTENSITY: 1.2,
+
+    SPLAT_RADIUS: 0.15,            // increspature più piccole e precise = più "acqua", meno "macchia"
+    SPLAT_FORCE: 5000,
+
+    DENSITY_DISSIPATION: 2.5,      // alta = l'onda si esaurisce in fretta, come acqua vera (il fumo invece resta a lungo)
+    VELOCITY_DISSIPATION: 0.9,     // basso = l'onda si propaga per un tratto prima di fermarsi
+    PRESSURE: 0.8,
+    PRESSURE_ITERATIONS: 20,
+
+    CURL: 4,                       // basso = onde composte/lineari (acqua). Alto = vortici (fumo)
+
+    COLORFUL: false,               // niente arcobaleno: colore fisso
+    COLOR_UPDATE_SPEED: 0,
+    BACK_COLOR: { r: 10, g: 10, b: 10 },  // sfondo scuro coerente col resto del sito
+    TRANSPARENT: false,
+
+    BLOOM: true,                   // dà il "luccichio" tipico dei riflessi sull'acqua
+    BLOOM_INTENSITY: 0.5,
+    SUNRAYS: false,
+  });
+</script>
+
+<style>
+  .fluid-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+</style>

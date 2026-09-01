@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
-import LiquidEther from '../components/LiquidEther.jsx';
+import FluidBackground from '../components/FluidBackground.astro';
 import Hero from '../components/Hero.astro';
 import Intro from '../components/Intro.astro';
 import Services from '../components/Services.astro';
@@ -17,32 +17,17 @@ import Portfolio from '../components/Portfolio.astro';
 
     <div class="hero-intro-wrapper">
       <div class="shared-liquid-bg">
-        <LiquidEther
-          client:only="react"
-          colors={[ '#5227FF', '#FF9FFC', '#B497CF' ]}
-          mouseForce={20}
-          cursorSize={100}
-          isViscous
-          viscous={30}
-          iterationsViscous={32}
-          iterationsPoisson={32}
-          resolution={0.5}
-          isBounce={false}
-          autoDemo
-          autoSpeed={0.5}
-          autoIntensity={2.2}
-          takeoverDuration={0.25}
-          autoResumeDelay={3000}
-          autoRampDuration={0.6}
-        ></LiquidEther>
+        <FluidBackground />
       </div>
 
-      <Hero />
-      <Intro/>
+      <div class="content-layer">
+        <Hero />
+        <Intro />
+      </div>
     </div>
 
-    <GoogleBusiness/>
-    <Portfolio/>
+    <GoogleBusiness />
+    <Portfolio />
     <Services />
     <Contact />
   </main>
@@ -52,13 +37,39 @@ import Portfolio from '../components/Portfolio.astro';
 <style>
   .hero-intro-wrapper {
     position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: #0a0a0a;
   }
 
+  /* Sfondo WebGL */
   .shared-liquid-bg {
     position: absolute;
     inset: 0;
-    z-index: 0;
-    pointer-events: none;
+    z-index: 1;
+    pointer-events: auto; /* PERMETTE al mouse di interagire con l'acqua */
+  }
+
+  /* Assicura che il canvas occupi l'intero spazio */
+  .shared-liquid-bg :global(canvas) {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+  }
+
+  /* Layer dei contenuti sovrapposti */
+  .content-layer {
+    position: relative;
+    z-index: 2;
+    pointer-events: none; /* Lascia passare i movimenti del mouse sotto al canvas */
+  }
+
+  /* Riattiva i click su bottoni, link e input all'interno delle sezioni Hero e Intro */
+  .content-layer :global(a),
+  .content-layer :global(button),
+  .content-layer :global(input),
+  .content-layer :global(textarea) {
+    pointer-events: auto;
   }
 </style>
 
@@ -92,11 +103,13 @@ import Portfolio from '../components/Portfolio.astro';
   });
 
   const nav = document.querySelector('.nav-wrapper') as HTMLElement;
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      nav.style.background = 'rgba(10,10,10,0.95)';
-    } else {
-      nav.style.background = 'rgba(10,10,10,0.8)';
-    }
-  });
+  if (nav) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        nav.style.background = 'rgba(10,10,10,0.95)';
+      } else {
+        nav.style.background = 'rgba(10,10,10,0.8)';
+      }
+    });
+  }
 </script>
