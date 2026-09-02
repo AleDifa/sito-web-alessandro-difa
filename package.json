@@ -22,6 +22,7 @@
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "tailwind-merge": "^3.6.0",
-    "webgl-fluid": "^0.4.0"
+    "webgl-fluid": "^0.4.0",
+    "webgl-fluid-simulation": "^1.0.0"
   }
 }
