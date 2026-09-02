@@ -4,44 +4,45 @@ import FallBeamBackground from '../components/lightswind/fall-beam-background.ts
 const services = [
   {
     title: "Realizzazione Siti Web Artigianali",
-    desc: "Creazione Siti web su misura per farti apparire primo nelle ricerche su Google, sulle ripsoste dell' IA come ChatGPT e su Google Maps nel tuo comune.",
-    tags: ["Web Design", "Sviluppo Siti Web", "Landing Page"],
-    color: "blue"
+    desc: "Sviluppo siti web su misura tramite codice (Astro/React) o CMS (WordPress). Garantisco il massimo controllo su prestazioni e ottimizzazione SEO, Local SEO, sulle ricerche Google e posizionamento sui motori di ricerca e assistenti IA come ChatGPT.",
+    tags: ["Web Design", "Sviluppo Web", "Landing Page"],
+    color: "#3b82f6",
+    link: '/creazione-siti-web/'
+
   },
-   {
-    title: "Realizzazione Siti Web E-commerce",
-    desc: "Progetto il tuo negozio online su misura, sempre aperto, 24 ore su 24, ottimizzato per vendere i tuoi prodotti e servizi a qualsiasi pubblico, ovunque.",
-    tags: ["WordPress", "Shopify", "Vendita Online"],
-    color: "yellow"
+  {
+    title: "Sviluppo E-Commerce su Misura",
+    desc: "Progettazione di e-commerce performanti su WordPress, Shopify o custom code. Aperto 24h su 24h per vendere i tuoi prodotti e servizi a qualsiasi target, ovunque.",
+    tags: ["WordPress", "Shopify", "E-Commerce"],
+    color: "#eab308",
+    link: '/creazione-ecommerce/'
   },
   {
     title: "Servizi Fotografici e Video",
-    desc: "Riprese e foto professionali per raccontare la tua attività e valorizzare il tuo sito, i social e il materiale promozionale.",
+    desc: "Riprese e foto professionali fatte da me, per raccontare la tua attività e valorizzare il tuo sito, i social e il materiale promozionale.",
     tags: ["Fotografia", "Video Making", "Brand Content"],
-    color: "purple"
-  },
-    {
-    title: "Analisi di Mercato e Strategia 360°",
-    desc: "Un'analisi marketing completa dalla A alla Z per studiare il settore, analizzare la concorrenza e definire le migliori strategie di penetrazione per far distinguere la tua azienda.",
-    tags: ["Market Research", "Analisi Competitor", "Posizionamento"],
-    color: "cyan"
+    color: "#a855f7",
+    link: '/servizio-foto-video/'
+
   },
   {
-    title: "Ottimizzazione Google Business Profile (Google Maps)",
-    desc: "Ottimizzazione completa della scheda per dominare Google Maps e la ricerca locale nella tua zona.",
-    tags: ["Google Maps", "Local SEO", "Clienti in Zona"],
-    color: "green"
+    title: "Analisi di Mercato e Strategia Marketing",
+    desc: "Analisi di marketing strategica: dallo studio del settore e dei concorrenti alla definizione delle migliori leve di posizionamento per far distinguere la tua azienda sul mercato.",
+    tags: ["Market Research", "Analisi Competitor", "Posizionamento"],
+    color: "#06b6d4",
+    link: '/analisi-di-mercato-e-strategia-360/'
+
+  },
+  {
+    title: "Ottimizzazione Google Business Profile",
+    desc: "Gestione e ottimizzazione completa della scheda Google Maps per scalare i risultati della ricerca locale e intercettare nuovi clienti nella tua zona.",
+    tags: ["Google Maps", "Local SEO", "Local Marketing"],
+    color: "#22c55e",
+    link: '/ottimizzazione-google-business-profile/'
+
   }
 ];
 
-const strokeMap: Record<string, string> = {
-  blue: "#3b82f6",
-  purple: "#a855f7",
-  green: "#22c55e",
-  red: "#ef4444",
-  yellow: "#eab308",
-  cyan: "#06b6d4",
-};
 ---
 
 <section class="section" id="servizi">
@@ -68,7 +69,13 @@ const strokeMap: Record<string, string> = {
 
           <div class="service-content">
             <div class="service-head">
-              <h3 class="service-title">{s.title}</h3>
+              <h3 class="service-title">
+            {s.link ? (
+              <a href={s.link} class="service-link">{s.title}</a>
+            ) : (
+              s.title
+            )}
+          </h3>
             </div>
 
             <div class="tags">
@@ -83,7 +90,7 @@ const strokeMap: Record<string, string> = {
       ))}
     </div>
         <button class="mio-bottone" onclick="gtag('event', 'click_bottone_servizi'); window.location.href='/Servizi/';">
-        Scopri più in dettaglio i Servizi
+        Scopri Tutti i Servizi
       </button>
 </div>
 </section>
@@ -92,7 +99,15 @@ const strokeMap: Record<string, string> = {
 .container {
     position: relative; /* scoped solo a questa sezione, non tocca il global */
   }
+.service-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
 
+.service-link:hover {
+  color: #60a5fa;
+}
   .beam-background{
   position: absolute !important;
   inset: 0;
@@ -113,7 +128,7 @@ const strokeMap: Record<string, string> = {
   padding: 14px 36px;
   border: none;
   border-radius: 22px;
-  background: var(--blue, #3b82f6);
+  background: #60a5fa;
   color: #fff;
   font-size: 17px;
   font-weight: 600;

@@ -35,7 +35,7 @@ const FallBeamBackground: React.FC<FallBeamBackgroundProps> = ({
     lineCount = 20,
     displayText,
     // Note: Changed default to 'cyan-400' as per original comment suggestion
-    beamColorClass = 'ametista', 
+    beamColorClass = 'blue-400', 
 }) => {
     // 💡 FIX: Corrected the type from HTMLDivDivElement to HTMLDivElement
     const containerRef = useRef<HTMLDivElement>(null);
