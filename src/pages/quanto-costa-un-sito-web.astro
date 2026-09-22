@@ -27,16 +27,20 @@ import '../styles/global.css';
         <div class="hero-inner">
 
           <h1 class="hero-title">
-            <span class="title-line">CREAZIONE SITI WEB</span>
+            <span class="title-line">Quanto Costa un Sito Web?</span>
           </h1>
 
           <h2 class="hero-tagline">
-            Creatività, Marketing e Strategia
+            Trasparenza, Valore e Investimento
           </h2>
 
           <h3 class="hero-desc">
-            <span class="hero-slash">↳</span> Il pacchetto completo per la tua presenza online. Fatti trovare su Google con un sito professionale e su misura, ottimizzato in chiave SEO e GEO.
+            <span class="hero-slash">↳</span> Il costo di un sito web non è una voce standard, ma dipende dagli obiettivi reali della tua attività. Un semplice sito vetrina, un portale aziendale complesso o un e-commerce richiedono strutture, tecnologie e strategie di marketing differenti.
           </h3>
+          
+          <p class="hero-desc" style="margin-top: 16px;">
+            Il mio obiettivo è offrirti un investimento chiaro e mirato, progettato per generare ritorni concreti attraverso il traffico organico, la visibilità locale su Google Maps e la compatibilità con le nuove ricerche tramite intelligenza artificiale. Ogni progetto viene dimensionato sulle tue reali necessità aziendali, evitando sprechi di budget e puntando dritti ai risultati commerciali.
+          </p>
 
         </div>
       </div>
@@ -48,9 +52,9 @@ import '../styles/global.css';
       <div class="container">
 
         <div class="section-head">
-          <span class="section-kicker">Come lavoro</span>
+          <span class="section-kicker">Come definiamo il budget</span>
           <p class="section-intro">
-            Il percorso inizia definendo gli obiettivi: qual è lo scopo principale del progetto e quali traguardi si vogliono raggiungere? Da questo punto di partenza prende forma l'intero sviluppo visivo e strategico.
+            Prima di parlare di cifre, analizziamo insieme la natura del progetto per capire di quali strumenti hai realmente bisogno per far crescere il tuo business. I fattori chiave che compongono il valore del sito includono:
           </p>
         </div>
 
@@ -58,29 +62,29 @@ import '../styles/global.css';
           <li class="step">
             <span class="step-index">01</span>
             <div class="step-body">
-              <h4 class="step-title">Identità digitale</h4>
-              <p class="step-text">Scelta dei colori, dello stile e degli elementi visivi.</p>
+              <h4 class="step-title">Tipologia di Progetto</h4>
+              <p class="step-text">Dalla landing page essenziale al sito aziendale multi-pagina o e-commerce avanzato.</p>
             </div>
           </li>
           <li class="step">
             <span class="step-index">02</span>
             <div class="step-body">
-              <h4 class="step-title">Servizio Fotografico Dedicato</h4>
-              <p class="step-text">Realizzazione di scatti e materiale visivo personalizzato per il tuo brand.</p>
+              <h4 class="step-title">Integrazione Contenuti & Foto</h4>
+              <p class="step-text">Eventuale servizio fotografico dedicato e copy strategico orientato alla conversione.</p>
             </div>
           </li>
           <li class="step">
             <span class="step-index">03</span>
             <div class="step-body">
-              <h4 class="step-title">Strategia di Marketing Integrata</h4>
-              <p class="step-text">SWOT Analysis per differenziarti dalla concorrenza e intercettare i tuoi clienti target.</p>
+              <h4 class="step-title">Ottimizzazione SEO & GEO</h4>
+              <p class="step-text">Configurazione tecnica avanzata per farti trovare subito dai clienti della tua zona.</p>
             </div>
           </li>
           <li class="step">
             <span class="step-index">04</span>
             <div class="step-body">
-              <h4 class="step-title">Ottimizzazione SEO e GEO Locale</h4>
-              <p class="step-text">Tecniche avanzate per posizionare il sito sui dispositivi delle persone che cercano i tuoi servizi nella tua zona.</p>
+              <h4 class="step-title">Personalizzazione & Funzionalità</h4>
+              <p class="step-text">Integrazioni specifiche, aree riservate o sistemi di prenotazione automatizzati.</p>
             </div>
           </li>
         </ol>
@@ -93,7 +97,7 @@ import '../styles/global.css';
       <div class="container">
         <div class="price-card">
           <span class="section-kicker">Prezzi</span>
-          <p class="price-amount">A partire da 700€</p>
+          <p class="price-amount">A partire da 700 euro</p>
           <p class="price-note">I prezzi variano in base agli obiettivi del progetto</p>
           <p class="price-note price-note--muted">Pagamenti anche a rate*</p>
         </div>
@@ -108,6 +112,7 @@ import '../styles/global.css';
 
 
 <style>
+
   /* ================= TOKEN ================= */
   main {
     --bg: #0b0b0c;
@@ -141,6 +146,7 @@ import '../styles/global.css';
 
   .hero-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
 
+  /* blob sfocati coerenti con lo sfondo esistente del sito */
   .blob {
     position: absolute;
     border-radius: 50%;
@@ -203,7 +209,7 @@ import '../styles/global.css';
     color: var(--ink-dim);
     font-size: clamp(15px, 1.7vw, 17px);
     line-height: 1.6;
-    max-width: 480px;
+    max-width: 600px;
     margin: 0;
   }
   .hero-slash { font-style: normal; color: var(--accent); margin-right: 6px; }
@@ -287,7 +293,7 @@ import '../styles/global.css';
 
   .price-note {
     color: var(--ink-dim);
-    font-size: 15px;
+    price-note: 15px;
     margin: 0 0 4px;
   }
   .price-note--muted { color: var(--ink-faint); }

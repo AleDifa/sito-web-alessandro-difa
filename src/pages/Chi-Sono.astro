@@ -81,6 +81,7 @@ const stats = [
 
   <Footer />
 </Layout>
+
 <style>
   .intro-block {
     max-width: 780px;
@@ -111,7 +112,6 @@ const stats = [
     opacity: 0.7;
   }
 
-  /* FOTO UNIFORMI E RESPONSIVE */
   .photo-section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -136,12 +136,11 @@ const stats = [
     display: block;
   }
 
-  /* STATS (VERSIONE PIÙ COMPATTA) */
   .stats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px; /* Spazio ridotto */
-    max-width: 650px; /* Larghezza massima ridotta per compattare la griglia */
+    gap: 16px;
+    max-width: 650px;
     margin: 0 auto 40px;
     padding: 0 16px;
   }
@@ -151,12 +150,12 @@ const stats = [
     background: var(--bg-card, #121212);
     border: 1px solid var(--border, rgba(255, 255, 255, 0.1));
     border-radius: 12px;
-    padding: 16px 12px; /* Padding molto più contenuto */
+    padding: 16px 12px;
   }
 
   .stat-value {
     font-family: var(--font-display);
-    font-size: 26px; /* Numeri più piccoli */
+    font-size: 26px;
     font-weight: 700;
     color: var(--text, #fff);
     line-height: 1.1;
@@ -169,12 +168,11 @@ const stats = [
 
   .stat-label {
     margin-top: 4px;
-    font-size: 12px; /* Testo label più piccolo */
+    font-size: 12px;
     color: var(--text, #fff);
     opacity: 0.7;
   }
 
-  /* CTA E BOTTONI (ISPIRATI ALLA 3ª FOTO) */
   .cta-wrap {
     display: flex;
     justify-content: center;
@@ -187,25 +185,24 @@ const stats = [
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 10px 24px; /* Bottone più compatto */
+    padding: 10px 24px;
     border: none;
-    border-radius: 9999px; /* Forma totalmente arrotondata (Pill shape) */
-    background: #0066e8; /* Blu vivo come nella foto 3 */
+    border-radius: 9999px;
+    background: #0066e8;
     color: #ffffff;
     font-size: 14px;
     font-weight: 500;
     text-decoration: none;
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.2s ease;
-    white-space: nowrap; /* Mantiene il testo su una sola riga */
+    white-space: nowrap;
   }
 
   .button:hover {
-    background: #0052ba; /* Scurisce leggermente al passaggio del mouse */
+    background: #0052ba;
     transform: translateY(-1px);
   }
 
-  /* TESTO LIBERO */
   .text-block {
     max-width: 780px;
     margin: 0 auto;
@@ -219,27 +216,22 @@ const stats = [
     opacity: 0.85;
   }
 
-  /* MEDIA QUERIES MOBILE */
   @media (max-width: 640px) {
     .stats-grid {
-      grid-template-columns: repeat(3, 1fr); /* Mantiene i 3 elementi affiancati anche su mobile dato che ora sono piccoli */
+      grid-template-columns: repeat(3, 1fr);
       gap: 8px;
     }
-
     .stat-card {
       padding: 12px 6px;
     }
-
     .stat-value {
       font-size: 20px;
     }
-
     .stat-label {
       font-size: 11px;
     }
-
     .button {
-      white-space: normal; /* Permette all'occorrenza di andare a capo su schermi davvero molto stretti */
+      white-space: normal;
     }
   }
 </style>

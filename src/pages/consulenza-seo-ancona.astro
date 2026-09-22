@@ -1,4 +1,6 @@
 ---
+// Template per le pagine di servizio.
+// Cambia solo il testo (title, tagline, desc, steps, prezzo): la struttura resta identica su ogni pagina.
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
@@ -27,15 +29,15 @@ import '../styles/global.css';
         <div class="hero-inner">
 
           <h1 class="hero-title">
-            <span class="title-line">CREAZIONE SITI WEB</span>
+            <span class="title-line">CONSULENZA SEO AD ANCONA</span>
           </h1>
 
           <h2 class="hero-tagline">
-            Creatività, Marketing e Strategia
+            Posizionamento, strategia e visibilità locale
           </h2>
 
           <h3 class="hero-desc">
-            <span class="hero-slash">↳</span> Il pacchetto completo per la tua presenza online. Fatti trovare su Google con un sito professionale e su misura, ottimizzato in chiave SEO e GEO.
+            <span class="hero-slash">↳</span> Analisi, ricerca keyword e ottimizzazione: tutto quello che serve per farti trovare prima dei concorrenti.
           </h3>
 
         </div>
@@ -50,7 +52,8 @@ import '../styles/global.css';
         <div class="section-head">
           <span class="section-kicker">Come lavoro</span>
           <p class="section-intro">
-            Il percorso inizia definendo gli obiettivi: qual è lo scopo principale del progetto e quali traguardi si vogliono raggiungere? Da questo punto di partenza prende forma l'intero sviluppo visivo e strategico.
+            Il percorso parte sempre dagli obiettivi: cosa deve ottenere questo servizio per la tua attività,
+            e con quali risultati concreti misuriamo se ha funzionato.
           </p>
         </div>
 
@@ -58,29 +61,29 @@ import '../styles/global.css';
           <li class="step">
             <span class="step-index">01</span>
             <div class="step-body">
-              <h4 class="step-title">Identità digitale</h4>
-              <p class="step-text">Scelta dei colori, dello stile e degli elementi visivi.</p>
+              <h4 class="step-title">Analisi</h4>
+              <p class="step-text">Studio la situazione di partenza, il settore e i concorrenti diretti.</p>
             </div>
           </li>
           <li class="step">
             <span class="step-index">02</span>
             <div class="step-body">
-              <h4 class="step-title">Servizio Fotografico Dedicato</h4>
-              <p class="step-text">Realizzazione di scatti e materiale visivo personalizzato per il tuo brand.</p>
+              <h4 class="step-title">Strategia</h4>
+              <p class="step-text">Definisco le priorità e il piano d'azione più adatto ai tuoi obiettivi.</p>
             </div>
           </li>
           <li class="step">
             <span class="step-index">03</span>
             <div class="step-body">
-              <h4 class="step-title">Strategia di Marketing Integrata</h4>
-              <p class="step-text">SWOT Analysis per differenziarti dalla concorrenza e intercettare i tuoi clienti target.</p>
+              <h4 class="step-title">Esecuzione</h4>
+              <p class="step-text">Metto in pratica il piano, con aggiornamenti chiari lungo il percorso.</p>
             </div>
           </li>
           <li class="step">
             <span class="step-index">04</span>
             <div class="step-body">
-              <h4 class="step-title">Ottimizzazione SEO e GEO Locale</h4>
-              <p class="step-text">Tecniche avanzate per posizionare il sito sui dispositivi delle persone che cercano i tuoi servizi nella tua zona.</p>
+              <h4 class="step-title">Verifica</h4>
+              <p class="step-text">Controllo i risultati ottenuti e correggo la rotta dove serve.</p>
             </div>
           </li>
         </ol>
@@ -93,7 +96,7 @@ import '../styles/global.css';
       <div class="container">
         <div class="price-card">
           <span class="section-kicker">Prezzi</span>
-          <p class="price-amount">A partire da 700€</p>
+          <p class="price-amount">A partire da 400€</p>
           <p class="price-note">I prezzi variano in base agli obiettivi del progetto</p>
           <p class="price-note price-note--muted">Pagamenti anche a rate*</p>
         </div>
@@ -108,6 +111,7 @@ import '../styles/global.css';
 
 
 <style>
+
   /* ================= TOKEN ================= */
   main {
     --bg: #0b0b0c;
@@ -141,6 +145,7 @@ import '../styles/global.css';
 
   .hero-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
 
+  /* blob sfocati coerenti con lo sfondo esistente del sito */
   .blob {
     position: absolute;
     border-radius: 50%;

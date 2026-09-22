@@ -11,38 +11,93 @@ import '../styles/global.css';
   <Navbar />
 
   <main>
-    
-    <section class="hero-section">
-        <h1>Siti Web per Personal Trainer e Nutrizionisti</h1>
-        <h2>Creazione Siti Web & Marketing per il Fitness | Specialista per Personal Trainer e Nutrizionisti</h2>
 
-        <span class="caption-text">posizionamento su misura per professionisti del fitness e della nutrizione</span>
-    
-        <p class="description-text">
-          Conosco da vicino le dinamiche del settore fitness in Italia e le esigenze dei professionisti della salute e dell'allenamento. Ho già realizzato piattaforme e siti web dedicati a Personal Trainer e Nutrizionisti, creando ecosistemi digitali capaci di trasformare i visitatori in clienti fidelizzati.
-          Dalla presentazione dei programmi di coaching online alla vendita di consulenze e schede, realizzo piattaforme ottimizzate per intercettare chi cerca un professionista nella tua zona o online. 
-        </p>
+    <!-- ============ HERO ============ -->
+    <section class="hero section section--tight-bottom">
+
+      <div class="hero-bg" aria-hidden="true">
+        <span class="blob blob--a"></span>
+        <span class="blob blob--b"></span>
+        <span class="hero-grain"></span>
+      </div>
+
+      <span class="hero-badge">©2026</span>
+
+      <div class="container">
+        <div class="hero-inner">
+
+          <h1 class="hero-title">
+            <span class="title-line">SITI WEB PER FITNESS & NUTRIZIONE</span>
+          </h1>
+
+          <h2 class="hero-tagline">
+            Marketing e siti web su misura per Personal Trainer e Nutrizionisti
+          </h2>
+
+          <h3 class="hero-desc">
+            <span class="hero-slash">↳</span> Conosco da vicino le dinamiche del settore fitness. Realizzo piattaforme ottimizzate per trasformare i visitatori in clienti fidelizzati.
+          </h3>
+
+        </div>
+      </div>
+
     </section>
 
-    <!-- Sezione 2: Processo -->
-    <section class="process-section">
-      <h2>COME COLLABORO CON I PROFESSIONISTI DEL FITNESS</h2>
-        <p> Il percorso nasce per valorizzare il tuo metodo di lavoro, differenziarti dalla concorrenza nel mercato italiano e semplificare l'acquisizione di nuovi clienti: </p>
-         <p>Fasi operative per il tuo progetto digitale:</p>
-      <ul>
-        <li>
-          <strong>Analisi del Metodo & Target:</strong> Studio della tua nicchia (ricomposizione corporea, dimagrimento, performance, nutrizione clinica o sportiva) per definire la tua proposta di valore unica.
-        </li>
-        <li>
-          <strong>Strutturazione dell'Offerta & Pacchetti:</strong> Organizzazione dei servizi di coaching (in presenza, online o ibrido), consulenze nutrizionali e vendita di programmi d'allenamento.
-        </li>
-        <li>
-          <strong>Sviluppo Sito Web & Funnel di Acquisizione:</strong> Creazione di un sito veloce e professionale integrato con moduli di candidatura, form di contatto e prenotazione visite.
-        </li>
-        <li>      
-          <strong>Posizionamento SEO Locale e Social Integration:</strong> Ottimizzazione sui motori di ricerca per essere trovato dai clienti della tua città e integrazione con le tue pagine social.
-        </li>
-      </ul>
+    <!-- ============ PROCESSO ============ -->
+    <section class="section process-section">
+      <div class="container">
+
+        <div class="section-head">
+          <span class="section-kicker">Come collaboro</span>
+          <p class="section-intro">
+            Il percorso nasce per valorizzare il tuo metodo di lavoro, differenziarti dalla concorrenza nel mercato italiano e semplificare l'acquisizione di nuovi clienti.
+          </p>
+        </div>
+
+        <ol class="steps">
+          <li class="step">
+            <span class="step-index">01</span>
+            <div class="step-body">
+              <h4 class="step-title">Analisi del Metodo & Target</h4>
+              <p class="step-text">Studio della tua nicchia per definire la tua proposta di valore unica.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-index">02</span>
+            <div class="step-body">
+              <h4 class="step-title">Strutturazione dell'Offerta</h4>
+              <p class="step-text">Organizzazione dei servizi di coaching, consulenze nutrizionali e vendita di programmi.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-index">03</span>
+            <div class="step-body">
+              <h4 class="step-title">Sviluppo Sito Web & Funnel</h4>
+              <p class="step-text">Creazione di un sito veloce integrato con moduli di candidatura e form di contatto.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-index">04</span>
+            <div class="step-body">
+              <h4 class="step-title">Posizionamento Locale & Social</h4>
+              <p class="step-text">Ottimizzazione sui motori di ricerca per essere trovato dai clienti della tua città.</p>
+            </div>
+          </li>
+        </ol>
+
+      </div>
+    </section>
+
+    <!-- ============ PREZZO ============ -->
+    <section class="section price-section">
+      <div class="container">
+        <div class="price-card">
+          <span class="section-kicker">Prezzi</span>
+          <p class="price-amount">A partire da 700€</p>
+          <p class="price-note">I prezzi variano in base agli obiettivi del progetto</p>
+          <p class="price-note price-note--muted">Pagamenti anche a rate*</p>
+        </div>
+      </div>
     </section>
 
   </main>
@@ -53,34 +108,199 @@ import '../styles/global.css';
 
 
 <style>
+  /* ================= TOKEN ================= */
+  main {
+    --bg: #0b0b0c;
+    --ink: #f5f3ee;
+    --ink-dim: rgba(245, 243, 238, 0.62);
+    --ink-faint: rgba(245, 243, 238, 0.38);
+    --accent: var(--accent, #3b82f6);
+    --line: rgba(245, 243, 238, 0.12);
+    background: var(--bg);
+  }
 
-/* --- SEZIONE PROCESSO (Resta centrata e scura) --- */
+  .container {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 2;
+  }
 
-.hero-section,
-.Prezzo-section,
-.process-section {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 60px 20px;
-  color: #ffffff;
-}
-.hero-section,
-.Prezzo-section,
-.process-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-}
-.hero-section,
-.Prezzo-section,
-.process-section ul {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 1.5rem;
-}
-.hero-section,
-.Prezzo-section,
-.process-section li {
-  margin-bottom: 1rem;
-  line-height: 1.6;
-}
+  .section { padding: 96px 0; }
+  .section--tight-bottom { padding-bottom: 56px; }
+
+  /* ================= HERO ================= */
+  .hero {
+    position: relative;
+    min-height: 78vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: 0.35;
+  }
+  .blob--a {
+    width: 420px;
+    height: 420px;
+    top: -120px;
+    left: -80px;
+    background: radial-gradient(circle at 30% 30%, #2dd4bf, transparent 70%);
+  }
+  .blob--b {
+    width: 380px;
+    height: 380px;
+    top: 10%;
+    right: -100px;
+    background: radial-gradient(circle at 60% 40%, #a855f7, transparent 70%);
+  }
+  .hero-grain { position: absolute; inset: 0; opacity: 0.04; }
+
+  .hero-badge {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    z-index: 3;
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+  }
+
+  .hero-inner { max-width: 720px; }
+
+  .hero-title {
+    font-family: var(--font-display, sans-serif);
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: clamp(30px, 5.5vw, 72px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 0 0 24px;
+  }
+  .title-line { display: block; }
+
+  .hero-tagline {
+    font-family: var(--font-serif, Georgia, 'Times New Roman', serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(19px, 2.4vw, 26px);
+    color: var(--accent);
+    margin: 0 0 16px;
+  }
+
+  .hero-desc {
+    font-family: var(--font-body, inherit);
+    font-weight: 400;
+    color: var(--ink-dim);
+    font-size: clamp(15px, 1.7vw, 17px);
+    line-height: 1.6;
+    max-width: 480px;
+    margin: 0;
+  }
+  .hero-slash { font-style: normal; color: var(--accent); margin-right: 6px; }
+
+  /* ================= SECTION HEAD ================= */
+  .section-kicker {
+    display: inline-block;
+    font-family: var(--font-display, sans-serif);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+
+  .section-head { max-width: 620px; margin-bottom: 48px; }
+
+  .section-intro {
+    color: var(--ink-dim);
+    font-size: clamp(15px, 1.7vw, 17px);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ================= PROCESSO ================= */
+  .steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+
+  .step {
+    background: var(--bg);
+    padding: 32px;
+    display: flex;
+    gap: 20px;
+  }
+
+  .step-index {
+    font-family: var(--font-display, sans-serif);
+    font-weight: 800;
+    font-size: 15px;
+    color: var(--accent);
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+
+  .step-title {
+    font-family: var(--font-display, sans-serif);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--ink);
+    margin: 0 0 8px;
+  }
+
+  .step-text {
+    color: var(--ink-dim);
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ================= PREZZO ================= */
+  .price-card {
+    border: 1px solid var(--line);
+    padding: 48px;
+  }
+
+  .price-amount {
+    font-family: var(--font-display, sans-serif);
+    font-weight: 800;
+    font-size: clamp(28px, 4vw, 40px);
+    color: var(--ink);
+    margin: 0 0 12px;
+  }
+
+  .price-note {
+    color: var(--ink-dim);
+    font-size: 15px;
+    margin: 0 0 4px;
+  }
+  .price-note--muted { color: var(--ink-faint); }
+
+  /* ================= RESPONSIVE ================= */
+  @media (max-width: 720px) {
+    .hero { min-height: 70vh; }
+    .steps { grid-template-columns: 1fr; }
+    .price-card { padding: 32px 24px; }
+  }
+
+  /* ================= ACCESSIBILITÀ ================= */
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
 </style>

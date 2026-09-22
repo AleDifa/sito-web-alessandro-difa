@@ -1,18 +1,271 @@
 ---
-import FallBeamBackground from '../components/lightswind/fall-beam-background.tsx';
+// src/pages/nome-pagina.astro
+
+// 1. Importa il Layout e i componenti globali (Navbar, Footer)
 import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar.astro';
-import Services from '../components/Services.astro';
-import Footer from '../components/Footer.astro';
-import Contact from '../components/Contact.astro';
+import Navbar from '../components/Navbar.astro'; // Assicurati che il percorso sia corretto
+import Footer from '../components/Footer.astro'; // Assicurati che il percorso sia corretto
+
+// 2. Importa il componente React per lo sfondo
+import FallBeamBackground from '../components/lightswind/fall-beam-background.tsx';
+
+// 3. I tuoi dati dei servizi
+const services = [
+  {
+    title: "Realizzazione Siti Web Artigianali",
+    desc: "Sviluppo siti web su misura tramite codice (Astro/React) o CMS (WordPress). Garantisco il massimo controllo su prestazioni e ottimizzazione SEO, Local SEO, sulle ricerche Google e posizionamento sui motori di ricerca e assistenti IA come ChatGPT.",
+    tags: ["Web Design", "Sviluppo Web", "Landing Page"],
+    link: '/creazione-siti-web/'
+  },
+  {
+    title: "Sviluppo E-Commerce su Misura",
+    desc: "Progettazione di e-commerce performanti su WordPress, Shopify o custom code. Aperto 24h su 24h per vendere i tuoi prodotti e servizi a qualsiasi target, ovunque.",
+    tags: ["WordPress", "Shopify", "E-Commerce"],
+    link: '/siti-ecommerce/'
+  },
+  {
+    title: "Consulenza SEO ad Ancona",
+    desc: "Analisi, ricerca keyword e ottimizzazione: tutto quello che serve per farti trovare prima dei concorrenti a livello locale e posizionarti al meglio.",
+    tags: ["SEO", "Local SEO", "Ancona"],
+    link: '/consulenza-seo-ancona/'
+  },
+  {
+    title: "Realizzazione Siti Web ad Ancona",
+    desc: "Soluzioni web mirate e ottimizzate per le aziende e i professionisti della zona di Ancona che vogliono acquisire clienti online.",
+    tags: ["Web Design", "Local Business", "Ancona"],
+    link: '/realizzazione-siti-web-ancona/'
+  },
+  {
+    title: "Siti Web per Personal Trainer",
+    desc: "Soluzioni digitali specifiche per personal trainer e professionisti del fitness per acquisire nuovi clienti e vendere programmi di allenamento.",
+    tags: ["Fitness", "Personal Trainer", "Landing Page"],
+    link: '/creazione-sito-personal-trainer/'
+  },
+  {
+    title: "Analisi Dati con Power BI",
+    desc: "Trasforma i dati grezzi della tua azienda in dashboard interattive e chiari report visivi per prendere decisioni di business strategiche e informate.",
+    tags: ["Power BI", "Data Analysis", "Business Intelligence"],
+    link: '/analisi-dati-powerbi/'
+  },
+  {
+    title: "Analisi Dati Social Media",
+    desc: "Monitoraggio e interpretazione delle metriche delle tue piattaforme social per capire cosa funziona, ottimizzare i contenuti e far crescere la community.",
+    tags: ["Social Media", "Analytics", "Performance"],
+    link: '/analisi-dati-social-media/'
+  },
+  {
+    title: "Quanto Costa un Sito Web?",
+    desc: "Guida trasparente ai prezzi e ai fattori che determinano il costo di un sito web professionale, con soluzioni flessibili e pagamenti rateizzabili.",
+    tags: ["Prezzi", "Investimento", "Trasparenza"],
+    link: '/quanto-costa-un-sito-web/'
+  },
+  {
+    title: "Servizi Fotografici e Video",
+    desc: "Riprese e foto professionali fatte da me, per raccontare la tua attività e valorizzare il tuo sito, i social e il materiale promozionale.",
+    tags: ["Fotografia", "Video Making", "Brand Content"],
+    link: '/servizio-foto-video/'
+  },
+  {
+    title: "Analisi di Mercato e Strategia Marketing",
+    desc: "Analisi di marketing strategica: dallo studio del settore e dei concorrenti alla definizione delle migliori leve di posizionamento per far distinguere la tua azienda sul mercato.",
+    tags: ["Market Research", "Analisi Competitor", "Posizionamento"],
+    link: '/analisi-di-mercato-e-strategia-360/'
+  },
+  {
+    title: "Ottimizzazione Google Business Profile",
+    desc: "Gestione e ottimizzazione completa della scheda Google Maps per scalare i risultati della ricerca locale e intercettare nuovi clienti nella tua zona.",
+    tags: ["Google Maps", "Local SEO", "Local Marketing"],
+    link: '/ottimizzazione-google-business-profile/'
+  }
+];
 ---
-<Layout >
 
- <Navbar />
+<Layout title="I nostri servizi - Nome Azienda">
+  <!-- Navbar in cima alla pagina -->
+  <Navbar />
 
-<Services />
+  <main>
+    <section class="section" id="servizi">
+      <div class="container">
+          <div class="beam-background">
+              <FallBeamBackground client:load />
+          </div>
 
-    <Contact />
+        <div class="text-center" style="margin-bottom: 16px;">
+          <h2 class="section-title">Che cosa faccio</h2>
+        </div>
+        <div class="section-subtitle text-center">
+          <p>Sviluppo siti web ed e-commerce ottimizzati per posizionarti al primo posto su Google, Google Maps e ChatGPT.</p>
+          <p>Analisi di mercato e piani di marketing: scopri i tuoi punti di forza e debolezza per conquistare il tuo spazio nel settore di riferimento.</p>
+          <p>Il risultato è un ecosistema digitale completo che dà alla tua azienda una presenza online forte e strutturata a 360°.</p>
+        </div>
 
+        <div class="services-list">
+          {services.map((s, i) => (
+            <div class="service-row">
+              <div class="service-number">{String(i + 1).padStart(2, "0")}.</div>
+
+              <div class="service-content">
+                <div class="service-head">
+                  <h3 class="service-title">
+                    {s.link ? (
+                      <a href={s.link} class="service-link">{s.title}</a>
+                    ) : (
+                      s.title
+                    )}
+                  </h3>
+                </div>
+
+                <div class="tags">
+                  {s.tags.map(t => <span class="tag">{t}</span>)}
+                </div>
+
+                <p class="service-desc">{s.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer in fondo alla pagina -->
   <Footer />
 </Layout>
+
+<style>
+  .container {
+    position: relative;
+  }
+  
+  .service-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .service-link:hover {
+    color: #60a5fa;
+  }
+
+  .beam-background {
+    position: absolute !important;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .section:has(.beam-background) .container > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  .mio-bottone {
+    display: block;
+    margin: 48px auto 0;
+    padding: 14px 36px;
+    border: none;
+    border-radius: 22px;
+    background: #60a5fa;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: filter 0.2s ease, transform 0.2s ease;
+  }
+
+  .mio-bottone:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+  }
+
+  .services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 1150px;
+    margin: 0 auto;
+  }
+
+  .service-row {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 24px;
+    align-items: start;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-number {
+    font-family: var(--font-display);
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1;
+  }
+
+  .service-content {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .section-subtitle p {
+    margin-bottom: 16px;
+  }
+
+  .service-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .service-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.25;
+    margin: 0;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .tag {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    border: 1px solid var(--border-hover);
+    border-radius: 999px;
+    padding: 6px 16px;
+  }
+
+  .service-desc {
+    font-size: 15px;
+    color: var(--text);
+    opacity: 0.75;
+    line-height: 1.65;
+    max-width: 720px;
+    margin: 0;
+  }
+
+  @media (max-width: 640px) {
+    .service-row {
+      grid-template-columns: 1fr;
+      padding: 24px;
+    }
+    .service-number {
+      font-size: 32px;
+    }
+}
+</style>
