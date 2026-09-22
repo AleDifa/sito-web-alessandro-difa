@@ -1,15 +1,10 @@
 ---
-// src/pages/nome-pagina.astro
 
-// 1. Importa il Layout e i componenti globali (Navbar, Footer)
 import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar.astro'; // Assicurati che il percorso sia corretto
-import Footer from '../components/Footer.astro'; // Assicurati che il percorso sia corretto
-
-// 2. Importa il componente React per lo sfondo
+import Navbar from '../components/Navbar.astro'; 
+import Footer from '../components/Footer.astro'; 
 import FallBeamBackground from '../components/lightswind/fall-beam-background.tsx';
 
-// 3. I tuoi dati dei servizi
 const services = [
   {
     title: "Realizzazione Siti Web Artigianali",
@@ -81,7 +76,6 @@ const services = [
 ---
 
 <Layout title="I nostri servizi - Nome Azienda">
-  <!-- Navbar in cima alla pagina -->
   <Navbar />
 
   <main>
@@ -129,7 +123,6 @@ const services = [
     </section>
   </main>
 
-  <!-- Footer in fondo alla pagina -->
   <Footer />
 </Layout>
 
