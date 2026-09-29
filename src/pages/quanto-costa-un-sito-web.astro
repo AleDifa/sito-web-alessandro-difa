@@ -4,309 +4,455 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import Contact from '../components/Contact.astro';
 
-import '../styles/global.css';
----
+const authorName = "Alessandro DiFa"; 
 
-<Layout>
+const seoTitle = "Quanto costa un sito web ad Ancona e nelle Marche (2026)";
+const title = "Quanto costa un sito web? Prezzi reali per Ancona e le Marche";
+const description = "Quanto costa un sito web ad Ancona e nelle Marche? Prezzi da 400€ a 2.500€: sito leggero, completo, premium, e-commerce, landing page e restyle.";
+const date = "2026-09-29";
+
+const services = [
+  {
+    id: "sito-leggero",
+    kicker: "Per chi vuole un sito di rappresentanza",
+    price: "600€",
+    title: "Sito Leggero",
+    desc: "Per chi vuole essere online per ottenere credibilità, senza impelagarsi. Una o due pagine ordinate, curate e rapide da consultare: una vetrina digitale pronta per partire col piede giusto.",
+    ideal: "consulenti indipendenti, freelance e piccole realtà locali.",
+    pros: [
+      "È il modo più rapido ed economico per avere una presenza professionale online.",
+      "Poche pagine, quindi facile da consultare e da mantenere.",
+      "Ti fa trovare quando qualcuno cerca il tuo nome o la tua attività.",
+    ],
+    limits: [
+      "Con una o due pagine hai poco spazio per posizionarti su più ricerche diverse.",
+      "Non è pensato per vendere online né per gestire molti contenuti.",
+    ],
+    cta: "Nave in porto",
+  },
+  {
+    id: "sito-completo",
+    kicker: "Per chi vuole competere",
+    price: "1.200€",
+    title: "Sito Completo",
+    desc: "Per chi deve presentare al meglio la propria attività. Un sito articolato e semplice da gestire, che valorizza servizi e prodotti in modo chiaro ed elegante.",
+    ideal: "chi desidera essere trovato online, consigliato nelle ricerche dall'IA e da Google e guadagnare la fiducia dei clienti.",
+    pros: [
+      "Una pagina dedicata per ogni servizio: ognuna può posizionarsi su Google per una ricerca specifica.",
+      "Struttura chiara che aiuta sia i clienti sia i motori di ricerca.",
+      "Semplice da aggiornare in autonomia.",
+    ],
+    limits: [
+      "Servono testi, foto e informazioni sulla tua attività: più materiale hai, meglio funziona.",
+      "Il posizionamento su Google richiede tempo: un sito ben fatto è la base, non un risultato immediato.",
+    ],
+    cta: "Navighiamo in mare aperto",
+  },
+  {
+    id: "sito-premium",
+    kicker: "Per chi mira più lontano",
+    price: "2.000€",
+    title: "Sito Premium",
+    desc: "Per chi ambisce a un vero salto di qualità online. Un impianto professionale e su misura, ideato per aziende che puntano a vendere, farsi conoscere e restare impresse.",
+    ideal: "studi professionali, agenzie e aziende che vogliono vendere o comunicare in un mercato con molti competitor.",
+    pros: [
+      "Progettato da zero sulla tua attività e sui tuoi obiettivi, senza template standard.",
+      "Parte da uno studio del mercato e dei concorrenti per farti distinguere.",
+      "Pensato per convertire i visitatori in richieste e clienti.",
+    ],
+    limits: [
+      "È un investimento più alto e richiede più tempo di realizzazione.",
+      "Serve un confronto iniziale per definire posizionamento e obiettivi.",
+    ],
+    cta: "Salpiamo a vele spiegate",
+  },
+  {
+    id: "ecommerce",
+    kicker: "La casa digitale del tuo marchio",
+    price: "2.500€",
+    title: "Negozio online, E-commerce",
+    desc: "Costruisco negozi online sempre aperti h24, semplici da usare, veloci e in armonia con la tua immagine. Ogni particolare parla del tuo marchio.",
+    ideal: "botteghe, marchi artigianali e progetti creativi che desiderano vendere con personalità.",
+    pros: [
+      "Il tuo negozio è aperto 24 ore su 24, anche quando sei chiuso.",
+      "Vendi ben oltre la tua zona, in tutta Italia e all'estero.",
+      "Un'esperienza d'acquisto coerente con il tuo marchio, non un negozio anonimo.",
+    ],
+    limits: [
+      "Ai costi di creazione si aggiungono quelli di gestione: commissioni sui pagamenti, spedizioni, foto dei prodotti.",
+      "Aprire il negozio non basta: per vendere serve anche portare visitatori, con SEO e promozione.",
+    ],
+    cta: "Carica la stiva e salpa, al resto ci penso io!",
+  },
+  {
+    id: "landing-page",
+    kicker: "Per le tue iniziative speciali",
+    price: "400€",
+    title: "Landing Page",
+    desc: "Una sola schermata, un unico traguardo: convincere il visitatore a rispondere “sì”. Per un evento, un corso o un lancio di prodotto, la tua pagina sarà limpida, convincente e di forte impatto visivo.",
+    ideal: "campagne di advertising, offerte e lanci mirati.",
+    pros: [
+      "Costo contenuto e tempi rapidi.",
+      "Tutta l'attenzione è su un solo obiettivo, ideale per campagne a pagamento.",
+    ],
+    limits: [
+      "È una sola pagina: non sostituisce un sito completo.",
+      "Difficilmente si posiziona da sola su Google per molte ricerche.",
+    ],
+    cta: "Approda alla tua landing",
+  },
+  {
+    id: "restyle",
+    kicker: "Quando il tuo sito non ti rappresenta più",
+    price: "400€",
+    title: "Restyle",
+    desc: "Dai nuova vita al tuo sito, rendendolo più attraente e allineato all'identità del tuo marchio.",
+    ideal: "chi cerca un rinnovamento in linea con la propria crescita professionale.",
+    pros: [
+      "Mantieni ciò che funziona già e aggiorni immagine e sensazioni.",
+      "Costa meno che rifare tutto da capo.",
+    ],
+    limits: [
+      "Si lavora su una base esistente: se il sito è troppo datato o mal costruito, conviene rifarlo da zero.",
+      "Il prezzo finale dipende dallo stato attuale del sito.",
+    ],
+    cta: "Rimetti a nuovo lo scafo",
+  },
+];
+
+const faqs = [
+  {
+    q: "Quanto costa un sito web ad Ancona?",
+    a: "Il costo dipende dal tipo di sito. Si parte da 400€ per una landing page o un restyle, 600€ per un sito leggero, 1.200€ per un sito completo, 2.000€ per un sito premium su misura e 2.500€ per un e-commerce. Sono prezzi di partenza: la cifra finale dipende da pagine, funzioni e materiali.",
+  },
+  {
+    q: "Quanto costa un sito vetrina?",
+    a: "Un sito vetrina parte da 600€ nella versione leggera, con una o due pagine, e da 1.200€ nella versione completa, con una pagina dedicata a ogni servizio.",
+  },
+  {
+    q: "Ci sono costi da pagare ogni anno dopo la creazione?",
+    a: "Sì. Un sito ha costi ricorrenti, tra cui il dominio (il nome del sito), lo spazio dove è ospitato (hosting) e, se vuoi, manutenzione e aggiornamenti. Ti indico tutto in modo chiaro nel preventivo, senza sorprese.",
+  },
+  {
+    q: "Dopo la pubblicazione il sito compare subito su Google?",
+    a: "No. Dopo la pubblicazione Google deve scoprire e valutare il sito, e per posizionarsi bene serve tempo. Un sito costruito con criteri SEO fin dall'inizio parte con un netto vantaggio.",
+  },
+  {
+    q: "Meglio una landing page o un sito completo?",
+    a: "Se devi promuovere una sola iniziativa, come un evento, un corso o un'offerta, la landing page è più mirata. Se vuoi farti trovare per tutti i tuoi servizi e costruire fiducia nel tempo, serve un sito completo.",
+  },
+  {
+    q: "Lavori solo con attività di Ancona?",
+    a: "Lavoro con attività di Ancona e di tutte le Marche, oltre che a distanza con chi ha bisogno di un sito professionale in altre zone d'Italia.",
+  },
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: title,
+    description,
+    datePublished: date,
+    dateModified: date,
+    author: { "@type": "Person", name: authorName },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  },
+];
+---
+<Layout title={seoTitle} description={description}>
   <Navbar />
 
-  <main>
+  <article class="section">
+    <div class="container article">
+      <a href="/blog" class="back">Tutti gli articoli</a>
 
-    <!-- ============ HERO ============ -->
-    <section class="hero section section--tight-bottom">
+      <h1 class="article-title">{title}</h1>
+      <time class="article-date" datetime={date}>
+        {new Intl.DateTimeFormat('it-IT', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(date))}
+      </time>
 
-      <div class="hero-bg" aria-hidden="true">
-        <span class="blob blob--a"></span>
-        <span class="blob blob--b"></span>
-        <span class="hero-grain"></span>
-      </div>
+      <div class="prose">
+        <p>
+          <strong>Un sito web costa da 400€ a oltre 2.500€</strong>, a seconda di ciò che ti serve.
+          Una landing page o un restyle partono da 400€, un sito leggero da 600€, un sito completo da 1.200€,
+          un sito premium su misura da 2.000€ e un negozio online da 2.500€.
+        </p>
+        <p>
+          Se hai un'attività ad Ancona o nelle Marche, questa guida ti aiuta a capire quale soluzione
+          fa per te, cosa ottieni con ogni budget e quali sono i limiti di ciascuna, così puoi scegliere
+          senza spendere troppo o troppo poco.
+        </p>
 
-      <span class="hero-badge">©2026</span>
-
-      <div class="container">
-        <div class="hero-inner">
-
-          <h1 class="hero-title">
-            <span class="title-line">Quanto Costa un Sito Web?</span>
-          </h1>
-
-          <h2 class="hero-tagline">
-            Trasparenza, Valore e Investimento
-          </h2>
-
-          <h3 class="hero-desc">
-            <span class="hero-slash">↳</span> Il costo di un sito web non è una voce standard, ma dipende dagli obiettivi reali della tua attività. Un semplice sito vetrina, un portale aziendale complesso o un e-commerce richiedono strutture, tecnologie e strategie di marketing differenti.
-          </h3>
-          
-          <p class="hero-desc" style="margin-top: 16px;">
-            Il mio obiettivo è offrirti un investimento chiaro e mirato, progettato per generare ritorni concreti attraverso il traffico organico, la visibilità locale su Google Maps e la compatibilità con le nuove ricerche tramite intelligenza artificiale. Ogni progetto viene dimensionato sulle tue reali necessità aziendali, evitando sprechi di budget e puntando dritti ai risultati commerciali.
-          </p>
-
+        <h2>I prezzi a colpo d'occhio</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Tipo di sito</th><th>Prezzo</th><th>Ideale per</th></tr>
+            </thead>
+            <tbody>
+              {services.map((s) => (
+                <tr>
+                  <td><a href={`#${s.id}`}>{s.title}</a></td>
+                  <td>da {s.price}</td>
+                  <td>{s.ideal.replace(/\.$/, '')}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-      </div>
+        <p class="note">Tutti i prezzi sono di partenza. La cifra finale dipende da numero di pagine, funzioni richieste e materiali disponibili.</p>
 
-    </section>
+        <h2>Le 6 soluzioni: cosa offrono e quali sono i limiti</h2>
+        <p>
+          Non esiste il sito migliore in assoluto: esiste quello giusto per il tuo obiettivo.
+          Ecco le sei soluzioni che realizzo, con pregi e limiti di ognuna, senza giri di parole.
+        </p>
 
-    <!-- ============ PROCESSO ============ -->
-    <section class="section process-section">
-      <div class="container">
+        {services.map((s) => (
+          <section class="service" id={s.id}>
+            <p class="service-kicker">{s.kicker}</p>
+            <h3>{s.title} <span class="service-price">da {s.price}</span></h3>
+            <p>{s.desc}</p>
+            <p><strong>Ideale per:</strong> {s.ideal}</p>
 
-        <div class="section-head">
-          <span class="section-kicker">Come definiamo il budget</span>
-          <p class="section-intro">
-            Prima di parlare di cifre, analizziamo insieme la natura del progetto per capire di quali strumenti hai realmente bisogno per far crescere il tuo business. I fattori chiave che compongono il valore del sito includono:
-          </p>
+            <div class="proscons">
+              <div>
+                <h4>Punti di forza</h4>
+                <ul>{s.pros.map((p) => <li>{p}</li>)}</ul>
+              </div>
+              <div>
+                <h4>Limiti da conoscere</h4>
+                <ul>{s.limits.map((l) => <li>{l}</li>)}</ul>
+              </div>
+            </div>
+
+            <a href="#contatti" class="service-cta">{s.cta}</a>
+          </section>
+        ))}
+
+        <h2>Cosa fa cambiare il prezzo di un sito web</h2>
+        <p>Due siti che sembrano simili possono costare molto diversamente. I fattori che pesano di più sono questi:</p>
+        <ul>
+          <li><strong>Numero di pagine:</strong> più servizi presenti, più contenuti da progettare e scrivere.</li>
+          <li><strong>Livello di personalizzazione:</strong> un sito su misura richiede più lavoro di uno basato su una struttura semplice.</li>
+          <li><strong>Funzioni richieste:</strong> prenotazioni, pagamenti online, catalogo prodotti o aree riservate aumentano la complessità.</li>
+          <li><strong>Testi, foto e video:</strong> se hai già materiale di qualità il lavoro è più rapido, altrimenti va creato.</li>
+          <li><strong>Ottimizzazione SEO:</strong> un sito pensato fin dall'inizio per farsi trovare vale più di uno solo bello da vedere.</li>
+        </ul>
+
+        <h2>I costi oltre alla realizzazione del sito</h2>
+        <p>
+          Il prezzo di creazione non è l'unica voce. Un sito online ha alcuni costi ricorrenti da mettere in conto:
+        </p>
+        <ul>
+          <li><strong>Dominio:</strong> il nome del tuo sito (per esempio nomeazienda.it), che si rinnova ogni anno.</li>
+          <li><strong>Hosting:</strong> lo spazio su cui il sito è ospitato e sempre raggiungibile.</li>
+          <li><strong>Manutenzione e aggiornamenti:</strong> per mantenere il sito veloce, sicuro e funzionante nel tempo.</li>
+          <li><strong>Contenuti e SEO continuativa:</strong> articoli, foto e ottimizzazioni per continuare a crescere su Google.</li>
+        </ul>
+        <p>Nel preventivo ti indico sempre cosa è incluso e cosa no, così sai in anticipo quanto spenderai davvero.</p>
+
+        <h2>Perché diffidare dei siti a pochi euro</h2>
+        <p>
+          Trovi offerte a cifre bassissime, ma di solito si tratta di modelli standard identici a quelli di decine
+          di altre attività: lenti, difficili da personalizzare e non pensati per comparire su Google.
+          Un sito serve a portarti clienti, non solo a esistere. Per questo preferisco progettare da zero un sito
+          adatto alle esigenze reali della tua attività, ottimizzato per convertire i visitatori in clienti e
+          pronto anche per le nuove ricerche fatte con ChatGPT, Gemini e assistenti vocali.
+        </p>
+
+        <h2>Quale sito scegliere: la guida rapida</h2>
+        <ul>
+          <li>Ti serve solo essere presente online in modo curato: <strong>Sito Leggero</strong>.</li>
+          <li>Vuoi farti trovare per tutti i tuoi servizi e ispirare fiducia: <strong>Sito Completo</strong>.</li>
+          <li>Operi in un mercato molto competitivo e vuoi distinguerti: <strong>Sito Premium</strong>.</li>
+          <li>Vuoi vendere prodotti online: <strong>E-commerce</strong>.</li>
+          <li>Devi promuovere un evento, un corso o un'offerta: <strong>Landing Page</strong>.</li>
+          <li>Hai già un sito ma non ti rappresenta più: <strong>Restyle</strong>.</li>
+        </ul>
+
+        <h2>Un sito web ad Ancona e nelle Marche: perché scegliere un professionista locale</h2>
+        <p>
+          Chi cerca un servizio in zona, da Ancona a Pesaro, da Macerata a Fermo, da Ascoli Piceno a Senigallia,
+          scrive spesso su Google frasi come «parrucchiere ad Ancona» o «commercialista nelle Marche».
+          Un sito costruito con criteri di SEO locale aiuta la tua attività a comparire proprio in quei momenti.
+        </p>
+        <p>
+          Lavorare con un professionista del territorio significa conoscere il mercato locale, studiare i tuoi
+          concorrenti diretti e parlare con una persona sola dall'inizio alla fine, senza cambi di referente.
+        </p>
+
+        <h2>Domande frequenti</h2>
+        <div class="faq">
+          {faqs.map((f) => (
+            <details>
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
         </div>
 
-        <ol class="steps">
-          <li class="step">
-            <span class="step-index">01</span>
-            <div class="step-body">
-              <h4 class="step-title">Tipologia di Progetto</h4>
-              <p class="step-text">Dalla landing page essenziale al sito aziendale multi-pagina o e-commerce avanzato.</p>
-            </div>
-          </li>
-          <li class="step">
-            <span class="step-index">02</span>
-            <div class="step-body">
-              <h4 class="step-title">Integrazione Contenuti & Foto</h4>
-              <p class="step-text">Eventuale servizio fotografico dedicato e copy strategico orientato alla conversione.</p>
-            </div>
-          </li>
-          <li class="step">
-            <span class="step-index">03</span>
-            <div class="step-body">
-              <h4 class="step-title">Ottimizzazione SEO & GEO</h4>
-              <p class="step-text">Configurazione tecnica avanzata per farti trovare subito dai clienti della tua zona.</p>
-            </div>
-          </li>
-          <li class="step">
-            <span class="step-index">04</span>
-            <div class="step-body">
-              <h4 class="step-title">Personalizzazione & Funzionalità</h4>
-              <p class="step-text">Integrazioni specifiche, aree riservate o sistemi di prenotazione automatizzati.</p>
-            </div>
-          </li>
-        </ol>
-
+        <h2>Vuoi un preventivo per la tua attività?</h2>
+        <p>
+          Raccontami cosa fai e quali obiettivi hai: ti dirò con chiarezza quale soluzione ti serve e quanto costa
+          davvero, senza impegno. Compila il modulo qui sotto e ti rispondo personalmente.
+        </p>
+        <a href="https://wa.me/393924588449" class="service-cta">Richiedi un preventivo gratuito</a>
       </div>
-    </section>
+    </div>
+  </article>
 
-    <!-- ============ PREZZO ============ -->
-    <section class="section price-section">
-      <div class="container">
-        <div class="price-card">
-          <span class="section-kicker">Prezzi</span>
-          <p class="price-amount">A partire da 700 euro</p>
-          <p class="price-note">I prezzi variano in base agli obiettivi del progetto</p>
-          <p class="price-note price-note--muted">Pagamenti anche a rate*</p>
-        </div>
-      </div>
-    </section>
-
-  </main>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
   <Contact />
   <Footer />
 </Layout>
 
-
 <style>
+  .article { max-width: 1200px; }
 
-  /* ================= TOKEN ================= */
-  main {
-    --bg: #0b0b0c;
-    --ink: #f5f3ee;
-    --ink-dim: rgba(245, 243, 238, 0.62);
-    --ink-faint: rgba(245, 243, 238, 0.38);
-    --accent: var(--accent, #3b82f6);
-    --line: rgba(245, 243, 238, 0.12);
-    background: var(--bg);
-  }
-
-  .container {
-    max-width: 1040px;
-    margin: 0 auto;
-    padding: 0 24px;
-    position: relative;
-    z-index: 2;
-  }
-
-  .section { padding: 96px 0; }
-  .section--tight-bottom { padding-bottom: 56px; }
-
-  /* ================= HERO ================= */
-  .hero {
-    position: relative;
-    min-height: 78vh;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-  }
-
-  .hero-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
-
-  /* blob sfocati coerenti con lo sfondo esistente del sito */
-  .blob {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(70px);
-    opacity: 0.35;
-  }
-  .blob--a {
-    width: 420px;
-    height: 420px;
-    top: -120px;
-    left: -80px;
-    background: radial-gradient(circle at 30% 30%, #2dd4bf, transparent 70%);
-  }
-  .blob--b {
-    width: 380px;
-    height: 380px;
-    top: 10%;
-    right: -100px;
-    background: radial-gradient(circle at 60% 40%, #a855f7, transparent 70%);
-  }
-  .hero-grain { position: absolute; inset: 0; opacity: 0.04; }
-
-  .hero-badge {
-    position: absolute;
-    top: 32px;
-    right: 32px;
-    z-index: 3;
-    font-weight: 800;
+  .back {
+    display: inline-block;
     font-size: 14px;
-    letter-spacing: 0.04em;
-    color: var(--accent);
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-bottom: 40px;
   }
+  .back:hover { color: var(--blue); }
 
-  .hero-inner { max-width: 720px; }
-
-  .hero-title {
-    font-family: var(--font-display, sans-serif);
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 5vw, 48px);
     font-weight: 800;
-    text-transform: uppercase;
-    font-size: clamp(30px, 5.5vw, 72px);
-    line-height: 1;
-    letter-spacing: -0.02em;
-    color: var(--ink);
-    margin: 0 0 24px;
-  }
-  .title-line { display: block; }
-
-  .hero-tagline {
-    font-family: var(--font-serif, Georgia, 'Times New Roman', serif);
-    font-style: italic;
-    font-weight: 400;
-    font-size: clamp(19px, 2.4vw, 26px);
-    color: var(--accent);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--text);
     margin: 0 0 16px;
   }
 
-  .hero-desc {
-    font-family: var(--font-body, inherit);
-    font-weight: 400;
-    color: var(--ink-dim);
-    font-size: clamp(15px, 1.7vw, 17px);
-    line-height: 1.6;
-    max-width: 600px;
-    margin: 0;
-  }
-  .hero-slash { font-style: normal; color: var(--accent); margin-right: 6px; }
-
-  /* ================= SECTION HEAD ================= */
-  .section-kicker {
-    display: inline-block;
-    font-family: var(--font-display, sans-serif);
-    font-weight: 700;
-    font-size: 13px;
-    letter-spacing: 0.06em;
-    color: var(--accent);
-    margin-bottom: 14px;
+  .article-date {
+    display: block;
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 48px;
   }
 
-  .section-head { max-width: 620px; margin-bottom: 48px; }
-
-  .section-intro {
-    color: var(--ink-dim);
-    font-size: clamp(15px, 1.7vw, 17px);
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  /* ================= PROCESSO ================= */
-  .steps {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1px;
-    background: var(--line);
-    border: 1px solid var(--line);
-  }
-
-  .step {
-    background: var(--bg);
-    padding: 32px;
-    display: flex;
-    gap: 20px;
-  }
-
-  .step-index {
-    font-family: var(--font-display, sans-serif);
-    font-weight: 800;
-    font-size: 15px;
-    color: var(--accent);
-    flex-shrink: 0;
-    padding-top: 2px;
-  }
-
-  .step-title {
-    font-family: var(--font-display, sans-serif);
-    font-weight: 700;
+  .prose {
     font-size: 18px;
-    color: var(--ink);
+    line-height: 1.75;
+    color: var(--text-muted);
+  }
+  .prose h2 {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin: 56px 0 16px;
+  }
+  .prose p { margin: 0 0 24px; }
+  .prose ul { margin: 0 0 24px; padding-left: 24px; }
+  .prose li { margin-bottom: 8px; }
+  .prose strong { color: var(--text); font-weight: 600; }
+  .prose a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+
+  .note { font-size: 15px; }
+
+  /* Tabella prezzi */
+  .table-wrap { overflow-x: auto; margin-bottom: 16px; }
+  table { width: 100%; border-collapse: collapse; font-size: 16px; }
+  th, td {
+    text-align: left;
+    padding: 14px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  th { color: var(--text); font-weight: 600; }
+  td:nth-child(2) { white-space: nowrap; color: var(--text); font-weight: 600; }
+
+  /* Blocchi servizio */
+  .service {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    margin: 0 0 20px;
+    scroll-margin-top: 96px;
+  }
+  .service-kicker { font-size: 14px; margin: 0 0 8px !important; }
+  .service h3 {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin: 0 0 16px;
+  }
+  .service-price {
+    display: inline-block;
+    margin-left: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--blue);
+    background: rgba(59,130,246,0.12);
+    padding: 3px 12px;
+    border-radius: 999px;
+    vertical-align: middle;
+  }
+  .proscons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 8px 0 24px;
+  }
+  .proscons h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
     margin: 0 0 8px;
   }
+  .proscons ul { font-size: 16px; line-height: 1.6; margin: 0; padding-left: 20px; }
 
-  .step-text {
-    color: var(--ink-dim);
-    font-size: 15px;
-    line-height: 1.6;
-    margin: 0;
+  .service-cta,
+  .prose a.service-cta {
+    display: inline-block;
+    background: var(--blue);
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px 22px;
+    border-radius: 10px;
+    transition: opacity 0.2s ease;
   }
+  .service-cta:hover { opacity: 0.88; }
 
-  /* ================= PREZZO ================= */
-  .price-card {
-    border: 1px solid var(--line);
-    padding: 48px;
+  /* FAQ */
+  .faq details { border-bottom: 1px solid var(--border); padding: 18px 0; }
+  .faq summary {
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+    list-style: none;
   }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: '+'; float: right; color: var(--blue); }
+  .faq details[open] summary::after { content: '−'; }
+  .faq details p { margin: 12px 0 0; font-size: 17px; }
 
-  .price-amount {
-    font-family: var(--font-display, sans-serif);
-    font-weight: 800;
-    font-size: clamp(28px, 4vw, 40px);
-    color: var(--ink);
-    margin: 0 0 12px;
-  }
-
-  .price-note {
-    color: var(--ink-dim);
-    price-note: 15px;
-    margin: 0 0 4px;
-  }
-  .price-note--muted { color: var(--ink-faint); }
-
-  /* ================= RESPONSIVE ================= */
-  @media (max-width: 720px) {
-    .hero { min-height: 70vh; }
-    .steps { grid-template-columns: 1fr; }
-    .price-card { padding: 32px 24px; }
-  }
-
-  /* ================= ACCESSIBILITÀ ================= */
-  @media (prefers-reduced-motion: reduce) {
-    * { transition: none !important; animation: none !important; }
+  @media (max-width: 640px) {
+    .proscons { grid-template-columns: 1fr; }
+    .service { padding: 24px; }
   }
 </style>

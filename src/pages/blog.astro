@@ -1,0 +1,222 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import Contact from '../components/Contact.astro';
+
+const articles = [
+  {
+    title: "Quanto costa un sito web nel 2026?",
+    desc: "Prezzi reali, cosa incide sul costo e come evitare di spendere male.",
+    date: "2026-09-29",
+    href: "/quanto-costa-un-sito-web",
+    tag: "Siti web",
+    image: "/img/43.JPG",
+  },
+  {
+    title: "Come farsi trovare su Google Maps: guida per attività locali",
+    desc: "Cosa fare davvero per comparire tra i primi risultati quando i clienti cercano i tuoi servizi in zona.",
+    date: "2026-09-29",
+    href: "",
+    tag: "SEO locale",
+  },
+  {
+    title: "Perché un sito su misura converte più di un template",
+    desc: "Le differenze concrete tra un sito vetrina standard e uno progettato per trasformare visitatori in clienti.",
+    date: "2026-09-15",
+    href: "",
+    tag: "Siti web",
+  },
+  {
+    title: "Farsi consigliare da ChatGPT: da dove iniziare",
+    desc: "Come ottimizzare la tua attività per gli assistenti AI e vocali.",
+    date: "2026-09-01",
+    href: "",
+    tag: "AI",
+  },
+  {
+    title: "Recensioni online: come chiederle e come rispondere",
+    desc: "Un metodo semplice per costruire reputazione e fiducia.",
+    date: "2026-08-18",
+    href: "",
+    tag: "Reputazione",
+  },
+];
+
+const sorted = [...articles].sort((a, b) => b.date.localeCompare(a.date));
+
+const fmt = new Intl.DateTimeFormat('it-IT', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+---
+<Layout title="Blog | SEO, siti web e visibilità online" description="Articoli su SEO, siti web su misura e visibilità online per attività locali.">
+  <Navbar />
+
+  <section class="section" id="blog">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 16px;">
+        <h1 class="section-title">Blog</h1>
+      </div>
+      <p class="section-subtitle text-center" style="margin-bottom: 64px;">
+        Organizzio Articoli sui temi digitali.
+      </p>
+
+      <div class="bento">
+        {sorted.map((a) => (
+          <a
+            href={a.href}
+            class:list={["tile", { "has-image": a.image }]}
+            style={a.image ? `--bg-img: url('${a.image}')` : undefined}
+          >
+            <span class="tile-tag">{a.tag}</span>
+            <div>
+              <h2 class="tile-title">{a.title}</h2>
+              <p class="tile-desc">{a.desc}</p>
+            </div>
+            <time class="tile-date" datetime={a.date}>{fmt.format(new Date(a.date))}</time>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Contact />
+  <Footer />
+</Layout>
+
+<style>
+  .bento {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(220px, auto);
+    grid-auto-flow: dense;
+    gap: 16px;
+  }
+
+  .tile {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 28px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+
+  /* Strato di sfondo dietro il contenuto */
+  .tile::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(circle at 100% 0%, rgba(59, 130, 246, 0.18), transparent 60%);
+    transition: transform 0.5s ease;
+  }
+
+  /* Con immagine: foto + velo scuro per leggere bene il testo */
+  .tile.has-image::before {
+    background-image:
+      linear-gradient(to top, rgba(8, 12, 24, 0.92) 0%, rgba(8, 12, 24, 0.6) 55%, rgba(8, 12, 24, 0.35) 100%),
+      var(--bg-img);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .tile.has-image:hover::before {
+    transform: scale(1.05);
+  }
+
+  .tile:hover,
+  .tile:focus-visible {
+    border-color: rgba(59, 130, 246, 0.35);
+    background: var(--bg-card-hover);
+  }
+
+  .tile:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 3px;
+  }
+
+  /* Il più recente: grande */
+  .tile:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 2;
+    padding: 40px;
+  }
+  .tile:nth-child(1) .tile-title {
+    font-size: clamp(28px, 3.4vw, 40px);
+  }
+  .tile:nth-child(1) .tile-desc {
+    font-size: 17px;
+  }
+
+  /* Ogni quarto: largo */
+  .tile:nth-child(4n + 4) {
+    grid-column: span 2;
+  }
+
+  .tile-tag {
+    align-self: flex-start;
+    font-size: 13px;
+    color: var(--blue);
+    background: rgba(59, 130, 246, 0.12);
+    padding: 4px 12px;
+    border-radius: 999px;
+  }
+
+  .tile-title {
+    font-family: var(--font-display);
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin: 0 0 10px;
+  }
+
+  .tile-desc {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .tile-date {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  /* Testi su immagine: più chiari per la leggibilità */
+  .tile.has-image .tile-tag {
+    backdrop-filter: blur(6px);
+    background: rgba(59, 130, 246, 0.25);
+    color: #fff;
+  }
+  .tile.has-image .tile-title {
+    color: #fff;
+  }
+  .tile.has-image .tile-desc,
+  .tile.has-image .tile-date {
+    color: rgba(255, 255, 255, 0.78);
+  }
+
+  @media (max-width: 960px) {
+    .bento { grid-template-columns: repeat(2, 1fr); }
+    .tile:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+    .tile:nth-child(4n + 4) { grid-column: span 1; }
+  }
+
+  @media (max-width: 600px) {
+    .bento { grid-template-columns: 1fr; }
+    .tile:nth-child(n) { grid-column: span 1; grid-row: span 1; padding: 24px; }
+  }
+</style>

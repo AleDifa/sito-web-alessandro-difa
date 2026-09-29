@@ -24,3 +24,8 @@
   font-weight: 700;
   line-height: 1.4;
 }
+.line--italic,
+.line--italic .word,
+.line--italic .char {
+  font-style: italic;
+}

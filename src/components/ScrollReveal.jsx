@@ -13,7 +13,6 @@ const ScrollReveal = ({ lines }) => {
     "Realizzo siti web e landing page pensati per scalare il mercato per PMI e professionisti.",
     "Posiziono la tua attività in cima a Google e nei consigli delle IA.",
     "Integrazione con foto 3D e design avanzato per un'esperienza visiva unica."
-
   ];
 
   const textLines = lines && lines.length > 0 ? lines : defaultLines;
@@ -43,25 +42,35 @@ const ScrollReveal = ({ lines }) => {
   return (
     <div className="textRevealWrapper">
       <div ref={wrapperRef} className="text">
-        {textLines.map((lineText, lineKey) => (
-          <div className="line" key={lineKey}>
-            {/* 1. Divide la riga in parole */}
-            {lineText.split(' ').map((wordText, wordKey) => (
-              <React.Fragment key={wordKey}>
-                <span className="word">
-                  {/* 2. Divide la parola in caratteri */}
-                  {wordText.split('').map((char, charKey) => (
-                    <span className="char" key={charKey}>
-                      {char}
-                    </span>
-                  ))}
-                </span>
-                {/* Spazio normale tra le parole per consentire il va-a-capo naturale */}
-                {wordKey < lineText.split(' ').length - 1 && ' '}
-              </React.Fragment>
-            ))}
-          </div>
-        ))}
+        {textLines.map((line, lineKey) => {
+          // Supporta sia stringhe che oggetti { text, italic }
+          const lineText = typeof line === 'string' ? line : line.text;
+          const isItalic = typeof line === 'object' && line.italic;
+          const words = lineText.split(' ');
+
+          return (
+            <div
+              className={`line${isItalic ? ' line--italic' : ''}`}
+              key={lineKey}
+            >
+              {/* 1. Divide la riga in parole */}
+              {words.map((wordText, wordKey) => (
+                <React.Fragment key={wordKey}>
+                  <span className="word">
+                    {/* 2. Divide la parola in caratteri */}
+                    {wordText.split('').map((char, charKey) => (
+                      <span className="char" key={charKey}>
+                        {char}
+                      </span>
+                    ))}
+                  </span>
+                  {/* Spazio normale tra le parole per consentire il va-a-capo naturale */}
+                  {wordKey < words.length - 1 && ' '}
+                </React.Fragment>
+              ))}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

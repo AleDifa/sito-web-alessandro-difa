@@ -7,14 +7,14 @@ interface Props {
 }
 
 const {
-  title = "Web Design, siti Web SEO & GEO ad Ancona | Reputazione Online 360° - Alessandro DiFa",
-  description = "Creazione siti web performanti ottimizzati per SEO e GEO (AI), gestisco Google Business Profile e la reputazione online della tua azienda per farti trovare prima dei competitor, vendi di più.",
+  title = "Web Design, siti Web SEO ad Ancona | Reputazione Online 360° - Alessandro DiFa",
+  description = "Realizzo siti web, unendo nella creazione streategie marketing, posizionamento del brand e analisi dei competitors portando a valorizzare la presenza online a 360°",
 } = Astro.props;
 
 const schema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  "name": "Alessandro DiFa - web designer freelance, creazione Siti Web, SEO & Reputazione Online ad Ancona",
+  "name": "Alessandro DiFa - web designer freelance, creazione Siti Web, web marketing & contenuti ad Ancona",
   "image": "https://alessandrodifa.com/immagine-profilo.jpg",
   "description": description,
   "url": "https://alessandrodifa.com",
@@ -32,6 +32,7 @@ const schema = {
   ],
   "serviceType": [
     "Sviluppo Siti Web",
+    "strategie marketing",
     "SEO",
     "GEO (Generative Engine Optimization)",
     "Google Business Profile",
@@ -55,11 +56,7 @@ const schema = {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="it_IT" />
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
+    <meta property="og:locale" content="it_IT" />   
     <!-- Canonical -->
     <link rel="canonical" href="https://alessandrodifa.com/" />
     <!-- Schema.org -->
