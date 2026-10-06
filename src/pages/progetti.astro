@@ -1,4 +1,10 @@
 ---
+
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro'; 
+import Footer from '../components/Footer.astro'; 
+
+
 const projects = [
   {
     title: 'Aurora per le Marche',
@@ -18,7 +24,8 @@ const projects = [
   }
 ];
 ---
-
+<Layout title="I nostri servizi - Nome Azienda">
+  <Navbar />
 <section class="section" id="Progetti">
   <div class="container">
     <div class="text-center">
@@ -43,10 +50,13 @@ const projects = [
   </div>
 </section>
 
+  <Footer />
+</Layout>
+
 <style>
-  /* Contenitore principale */
+
+
   .section {
-    padding: 60px 20px;
     color: #ffffff;
   }
 

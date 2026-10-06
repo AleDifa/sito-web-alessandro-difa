@@ -6,10 +6,9 @@ const products = [
     kicker: 'Per chi vuole un sito di rappresentanza',
     price: 'A partire da 600€',
     title: 'Sito Leggero',
-    desc: 'Per chi vuole essere online per ottenere credibilit, senza impelagarsi. Una o due pagine ordinate, curate e rapide da consultare: vetrina digitale pronta per partire col piede giusto.',
+    desc: 'Per chi vuole essere online per ottenere credibilità, senza impelagarsi. Una o due pagine ordinate, curate e rapide da consultare: vetrina digitale pronta per partire col piede giusto.',
     ideal: 'consulenti indipendenti, freelance e piccole realtà locali.',
     cta: 'Nave in porto',
-    href: '#contatti',
   },
   {
     kicker: 'Per chi vuole competere',
@@ -33,7 +32,7 @@ const products = [
     title: 'Negozio online, E-commerce',
     desc: 'Costruisco ogni negozio online che sia sempre aperto h24 e semplice da usare, veloce e in armonia con la tua immagine. Ogni particolare parla del tuo marchio.',
     ideal: 'botteghe, marchi artigianali e progetti creativi che desiderano vendere con personalità.',
-    cta:  'Carica la stiva e salpa, al resto ci penso io!',
+    cta: 'Carica la stiva e salpa, al resto ci penso io!',
   },
   {
     kicker: 'Per le tue iniziative speciali',
@@ -54,68 +53,71 @@ const products = [
 ];
 ---
 
-  <main>
+<div class="servizi">
 
-    <section class="hero section section--tight-bottom">
-      <div class="container">
-        <div class="hero-inner">
+  <section class="hero section section--tight-bottom">
+    <div class="container">
+      <div class="hero-inner">
 
-          <h1 class="hero-title">
-            <span class="title-line">CREAZIONE SITI WEB</span>
-          </h1>
+        <h1 class="hero-title">
+          CREAZIONE <br> SITI WEB
+        </h1>
 
-          <h2 class="hero-tagline">
-            Creatività, Marketing e Strategia: siti web che ti fanno trovare
-          </h2>
+        <h2 class="hero-tagline">
+          Creatività, Marketing e Strategia: siti web che ti fanno trovare
+        </h2>
 
-          <h3 class="hero-desc">
-            <span class="hero-slash">↳</span>
-            Ti aiuto a creare la tua presenza digitale online, diversificandoti dalla concorrenza, ottimizzando il sito per farti apparire nelle ricerche che gli utenti fanno su Google ed alle AI come ChatGPT e Gemini.
-            Parto dallo studiare i punti di forza e debolezza per costruire un immagine online che trasmetta i tuoi valori e la tua presenza in maniera professionale.
-            <br>
-            Se siamo vicini posso realizzare scatti e materiale video personalizzato per il tuo brand.
-          </h3>
+        <p class="hero-desc">
+          <span class="hero-slash" aria-hidden="true">↳</span>
+          Ti aiuto a creare la tua presenza digitale online, diversificandoti dalla concorrenza, ottimizzando il sito per farti apparire nelle ricerche che gli utenti fanno su Google e alle AI come ChatGPT e Gemini.
+          Parto dallo studiare i punti di forza e debolezza per costruire un'immagine online che trasmetta i tuoi valori e la tua presenza in maniera professionale.
+          <br>
+          Se siamo vicini posso realizzare scatti e materiale video personalizzato per il tuo brand.
+        </p>
 
-        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="products section section--tight-top">
-      <div class="container container--wide">
-        <div class="products-grid">
-          {products.map((p) => (
-            <article class="card">
-              <div class="card-top">
-                <p class="card-kicker">{p.kicker}</p>
-                <p class="card-price">{p.price}</p>
-                <h3 class="card-title">{p.title}</h3>
-                <p class="card-desc">{p.desc}</p>
-                <p class="card-ideal"><span aria-hidden="true">✦</span> Ideale per: {p.ideal}</p>
-              </div>
-              <a class="card-btn" href={p.href}>{p.cta}</a>
-            </article>
-          ))}
-        </div>
+  <section class="products section section--tight-top">
+    <div class="container container--wide">
+      <div class="products-grid">
+        {products.map((p) => (
+          <article class="card">
+            <div class="card-top">
+              <p class="card-kicker">{p.kicker}</p>
+              <p class="card-price">{p.price}</p>
+              <h3 class="card-title">{p.title}</h3>
+              <p class="card-desc">{p.desc}</p>
+              <p class="card-ideal"><span aria-hidden="true">✦</span> Ideale per: {p.ideal}</p>
+            </div>
+            <a class="card-btn" href="#contatti">{p.cta}</a>
+          </article>
+        ))}
       </div>
-    </section>
 
-<div class="cta-wrap"> 
-  <a class="cta-main" href="https://wa.me/393924588449">Parliamo della tua idea, del tuo progetto: <br>prenota una consulenza gratuita di 30 minuti</a>
+      <div class="cta-wrap">
+        <a class="cta-main" href="https://wa.me/393924588449">
+          Parliamo della tua idea, del tuo progetto: <br>prenota una consulenza gratuita di 30 minuti
+        </a>
+      </div>
+    </div>
+  </section>
+
 </div>
-
-  </main>
 
 <style>
   /* ================= TOKEN ================= */
-  main {
-    --bg: #0b0b0c;
+  .servizi {
+    --bg: #090203;
     --ink: #f5f3ee;
     --ink-dim: rgba(245, 243, 238, 0.62);
     --line: rgba(245, 243, 238, 0.12);
     --brand: var(--accent, #3b82f6);
     --card-bg: #131315;
+    --sea: #7dd3e0;
+    --teal: #2dd4bf;
     --grad: linear-gradient(90deg, #0e7490 0%, #2dd4bf 100%);
-    --rose: #d98aa5;
     background: var(--bg);
   }
 
@@ -123,8 +125,6 @@ const products = [
     max-width: 1040px;
     margin: 0 auto;
     padding: 0 24px;
-    position: relative;
-    z-index: 2;
   }
   .container--wide { max-width: 1180px; }
 
@@ -133,27 +133,22 @@ const products = [
   .section--tight-top { padding-top: 0; }
 
   /* ================= HERO ================= */
-  .hero {
-    position: relative;
-    min-height: 78vh;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
+  .hero-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
   }
-
-  .hero-inner { max-width: 720px; }
 
   .hero-title {
     font-family: var(--font-display, sans-serif);
     font-weight: 800;
     text-transform: uppercase;
-    font-size: clamp(30px, 5.5vw, 72px);
+    font-size: clamp(30px, 7vw, 72px);
     line-height: 1;
     letter-spacing: -0.02em;
     color: var(--ink);
     margin: 0 0 24px;
   }
-  .title-line { display: block; }
 
   .hero-tagline {
     font-family: var(--font-serif, Georgia, 'Times New Roman', serif);
@@ -167,12 +162,12 @@ const products = [
   .hero-desc {
     font-family: var(--font-body, inherit);
     font-weight: 400;
-    color: var(--ink-dim);
     font-size: clamp(15px, 1.7vw, 17px);
     line-height: 1.6;
+    color: var(--ink-dim);
     margin: 0;
   }
-  .hero-slash { font-style: normal; color: var(--brand); margin-right: 6px; }
+  .hero-slash { color: var(--brand); margin-right: 6px; }
 
   /* ================= PRODOTTI ================= */
   .products-grid {
@@ -182,7 +177,6 @@ const products = [
   }
 
   .card {
-    position: relative; 
     background: var(--card-bg);
     border: 1px solid var(--line);
     border-radius: 8px;
@@ -193,6 +187,11 @@ const products = [
     align-items: center;
     text-align: center;
     gap: 28px;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: var(--sea);
   }
 
   .card-kicker {
@@ -207,7 +206,7 @@ const products = [
   .card-price {
     font-style: italic;
     font-size: 15px;
-    color: var(--blue);
+    color: var(--teal);
     margin: 0 0 18px;
   }
 
@@ -235,7 +234,7 @@ const products = [
     line-height: 1.6;
     margin: 0;
   }
-  .card-ideal span { color: var(--green); font-style: normal; }
+  .card-ideal span { color: var(--teal); font-style: normal; }
 
   .card-btn {
     display: inline-block;
@@ -244,68 +243,59 @@ const products = [
     font-family: var(--font-display, sans-serif);
     font-weight: 800;
     font-size: 11.5px;
+    line-height: 1.4;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     text-decoration: none;
+    text-align: center;
     padding: 12px 28px;
     border-radius: 14px;
     transition: transform 0.2s ease, filter 0.2s ease;
-
   }
-  .card-btn::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 8px; /* stesso raggio della .card */
-}
   .card-btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
 
-.card { transition: transform 0.25s ease, border-color 0.25s ease; }
-.card:hover {
-  transform: translateY(-4px);
-  border-color: var(--sea, #7dd3e0);
-}
-
-
-
   /* ================= CTA PRINCIPALE ================= */
-.cta-wrap {
-  display: flex;
-  justify-content: center;
-  margin-top: 56px;
-}
+  .cta-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 56px;
+  }
 
-.cta-main {
-  display: inline-block;
-  background: var(--grad);
-  color: #fff;
-  font-family: var(--font-display, sans-serif);
-  font-weight: 800;
-  font-size: 14px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-align: center;
-  text-decoration: none;
-  padding: 18px 40px;
-  border-radius: 999px;
-  transition: transform 0.2s ease, filter 0.2s ease;
-      margin-left: 5%;
-    margin-right: 5%;
-}
-.cta-main:hover { transform: translateY(-2px); filter: brightness(1.1); }
+  .cta-main {
+    display: inline-block;
+    background: var(--grad);
+    color: #fff;
+    font-family: var(--font-display, sans-serif);
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    padding: 18px 40px;
+    border-radius: 999px;
+    transition: transform 0.2s ease, filter 0.2s ease;
+  }
+  .cta-main:hover { transform: translateY(-2px); filter: brightness(1.1); }
 
+  /* ================= FOCUS ================= */
+  .card-btn:focus-visible,
+  .cta-main:focus-visible {
+    outline: 2px solid var(--sea);
+    outline-offset: 3px;
+  }
 
   /* ================= RESPONSIVE ================= */
   @media (max-width: 960px) {
     .products-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
-  @media (max-width: 720px) {
-    .hero { min-height: 70vh; }
-  }
-
   @media (max-width: 620px) {
+    .section { padding: 64px 0; }
+    .section--tight-bottom { padding-bottom: 40px; }
     .products-grid { grid-template-columns: 1fr; }
+    .cta-main { padding: 16px 24px; font-size: 12.5px; }
   }
 
   /* ================= ACCESSIBILITÀ ================= */
