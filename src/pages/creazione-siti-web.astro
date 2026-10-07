@@ -1,130 +1,208 @@
 ---
-import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+
+const contactHref = '/#contatti';
 
 const products = [
   {
+    id: 'sito-leggero',
     kicker: 'Per chi vuole un sito di rappresentanza',
     price: 'A partire da 600€',
     title: 'Sito Leggero',
-    desc: 'Per chi vuole essere online per ottenere credibilit, senza impelagarsi. Una o due pagine ordinate, curate e rapide da consultare: vetrina digitale pronta per partire col piede giusto.',
+    desc: 'Per chi vuole essere online per ottenere credibilità, senza impelagarsi. Una o due pagine ordinate, curate e rapide da consultare: vetrina digitale pronta per partire col piede giusto.',
+    includes: ['Una o due pagine', 'Design curato e responsive', 'Ottimizzazione di base per Google', 'Modulo di contatto'],
     ideal: 'consulenti indipendenti, freelance e piccole realtà locali.',
-    cta: 'Nave in porto',
-    href: '#contatti',
+    cta: 'Richiedi il Sito Leggero',
   },
   {
+    id: 'sito-completo',
     kicker: 'Per chi vuole competere',
     price: 'A partire da 1.200€',
     title: 'Sito Completo',
     desc: 'Per chi deve presentare al meglio la propria attività. Un sito articolato e semplice da gestire, che valorizza servizi e prodotti in modo chiaro ed elegante.',
+    includes: ['Più pagine e sezioni servizi', 'SEO strutturata per Google e assistenti IA', 'Sito semplice da aggiornare', 'Integrazione con Google Maps'],
     ideal: 'chi desidera essere trovato online, consigliato nelle ricerche dall\'IA e Google e guadagnare la fiducia dei clienti.',
-    cta: 'Navighiamo in mare aperto',
+    cta: 'Richiedi il Sito Completo',
   },
   {
+    id: 'sito-premium',
     kicker: 'Per chi mira più lontano',
     price: 'A partire da 2.000€',
     title: 'Sito Premium',
     desc: 'Per chi ambisce a un vero salto di qualità online. Un impianto professionale e su misura, ideato per aziende che puntano a vendere, farsi conoscere e restare impresse.',
+    includes: ['Progetto grafico su misura', 'Analisi dei concorrenti e posizionamento', 'Animazioni e dettagli distintivi', 'Strategia di contenuti e SEO avanzata'],
     ideal: 'studi professionali, agenzie e aziende che vogliono vendere o comunicare in un mercato caratterizzato da competitor.',
-    cta: 'Salpiamo a vele spiegate',
+    cta: 'Richiedi il Sito Premium',
   },
   {
+    id: 'e-commerce',
     kicker: 'La casa digitale del tuo marchio',
     price: 'A partire da 2.500€',
     title: 'Negozio online, E-commerce',
     desc: 'Costruisco ogni negozio online che sia sempre aperto h24 e semplice da usare, veloce e in armonia con la tua immagine. Ogni particolare parla del tuo marchio.',
+    includes: ['Catalogo prodotti e carrello', 'Pagamenti e spedizioni configurati', 'Schede prodotto ottimizzate per la ricerca', 'Gestione ordini semplice'],
     ideal: 'botteghe, marchi artigianali e progetti creativi che desiderano vendere con personalità.',
-    cta:  'Carica la stiva e salpa, al resto ci penso io!',
+    cta: 'Richiedi l\'E-commerce',
   },
   {
+    id: 'landing-page',
     kicker: 'Per le tue iniziative speciali',
     price: 'A partire da 400€',
     title: 'Landing Page',
     desc: 'Una sola schermata, un unico traguardo: convincere il visitatore a rispondere “sì”. Per un evento, un corso o un lancio di prodotto, la tua pagina sarà limpida, convincente e di forte impatto visivo.',
+    includes: ['Una pagina con un solo obiettivo', 'Testi orientati alla conversione', 'Modulo o pulsante di azione', 'Pronta per campagne pubblicitarie'],
     ideal: 'campagne di advertising, offerte e lanci mirati.',
-    cta: 'Approda alla tua landing',
+    cta: 'Richiedi la Landing Page',
   },
   {
+    id: 'restyle',
     kicker: 'Quando il tuo sito non ti rappresenta più',
     price: 'A partire da 400€',
-    title: 'Restyle',
+    title: 'Restyle del sito',
     desc: 'Dai nuova vita al tuo sito, rendendolo più attraente e allineato all’identità del tuo marchio.',
+    includes: ['Revisione grafica del sito esistente', 'Miglioramento di velocità e leggibilità', 'Allineamento con identità e valori del brand'],
     ideal: 'chi cerca un rinnovamento in linea con la propria crescita professionale.',
-    cta: 'Rimetti a nuovo lo scafo',
+    cta: 'Richiedi il Restyle',
   },
+];
+
+const steps = [
+  { title: 'Ascolto e analisi', text: 'Parto dai tuoi obiettivi, dal tuo settore e dai concorrenti, per individuare punti di forza e debolezza.' },
+  { title: 'Progetto e strategia', text: 'Definisco struttura, messaggi e posizionamento, così il sito racconta i tuoi valori e parla ai clienti giusti.' },
+  { title: 'Realizzazione', text: 'Sviluppo il sito su misura, curando design, velocità e ottimizzazione per Google e per le AI.' },
+  { title: 'Online e supporto', text: 'Pubblico il sito e resto a disposizione per aggiornamenti, correzioni e prossimi passi.' },
+];
+
+const faqs = [
+  { q: 'Il sito comparirà su Google e su ChatGPT?', a: 'Costruisco ogni sito con struttura, testi e dati tecnici pensati per essere letti da Google e dagli assistenti IA. Nessuno può garantire una posizione precisa, ma le basi per farti trovare sono parte del lavoro.' },
+  { q: 'Posso aggiornare il sito da solo?', a: 'Sì. I siti sono pensati per essere semplici da gestire, e ti spiego come modificare testi e contenuti senza dipendere da me.' },
+  { q: 'Quanto costa un sito web?', a: 'I prezzi indicati sono punti di partenza. Il costo finale dipende da pagine, funzioni e personalizzazione, e lo definiamo insieme in un preventivo chiaro prima di iniziare.' },
+  { q: 'Realizzi anche foto e video per il mio sito?', a: 'Se siamo vicini, sì: posso realizzare scatti e video personalizzati per il tuo brand, così il sito mostra la tua attività reale.' },
 ];
 ---
 
-  <main>
+<Layout
+  title="Creazione siti web: pacchetti e prezzi | Alessandro DiFa"
+  description="Siti web su misura, e-commerce e landing page: scegli il pacchetto più adatto, con SEO per Google e assistenti IA."
+>
+<Navbar />
+<main>
 
-    <section class="hero section section--tight-bottom">
-      <div class="container">
-        <div class="hero-inner">
+  <section class="hero section section--tight-bottom">
+    <div class="container">
+      <div class="hero-inner">
 
-          <h1 class="hero-title">
-            <span class="title-line">CREAZIONE SITI WEB</span>
-          </h1>
+        <h1 class="hero-title">
+          <span class="title-line">Creazione siti web</span>
+        </h1>
 
-          <h2 class="hero-tagline">
-            Creatività, Marketing e Strategia: siti web che ti fanno trovare
-          </h2>
+        <h2 class="hero-tagline">
+          Creatività, Marketing e Strategia: siti web che ti fanno trovare
+        </h2>
 
-          <h3 class="hero-desc">
-            <span class="hero-slash">↳</span>
-            Ti aiuto a creare la tua presenza digitale online, diversificandoti dalla concorrenza, ottimizzando il sito per farti apparire nelle ricerche che gli utenti fanno su Google ed alle AI come ChatGPT e Gemini.
-            Parto dallo studiare i punti di forza e debolezza per costruire un immagine online che trasmetta i tuoi valori e la tua presenza in maniera professionale.
-            <br>
-            Se siamo vicini posso realizzare scatti e materiale video personalizzato per il tuo brand.
-          </h3>
+        <p class="hero-desc">
+          <span class="hero-slash" aria-hidden="true">↳</span>
+          Ti aiuto a creare la tua presenza digitale online, diversificandoti dalla concorrenza e ottimizzando il sito per farti apparire nelle ricerche che gli utenti fanno su Google e con le AI come ChatGPT e Gemini.
+          Parto dallo studio di punti di forza e debolezza per costruire un'immagine online che trasmetta i tuoi valori e la tua presenza in maniera professionale.
+          <br />
+          Se siamo vicini posso realizzare scatti e materiale video personalizzato per il tuo brand.
+        </p>
 
-        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="products section section--tight-top">
-      <div class="container container--wide">
-        <div class="products-grid">
-          {products.map((p) => (
-            <article class="card">
-              <div class="card-top">
-                <p class="card-kicker">{p.kicker}</p>
-                <p class="card-price">{p.price}</p>
-                <h3 class="card-title">{p.title}</h3>
-                <p class="card-desc">{p.desc}</p>
-                <p class="card-ideal"><span aria-hidden="true">✦</span> Ideale per: {p.ideal}</p>
-              </div>
-              <a class="card-btn" href={p.href}>{p.cta}</a>
-            </article>
-          ))}
-        </div>
+  <section class="products section section--tight-top" aria-labelledby="pacchetti-title">
+    <div class="container container--wide">
+      <h2 id="pacchetti-title" class="block-title">Scegli il pacchetto più adatto</h2>
+
+      <div class="products-grid">
+        {products.map((p) => (
+          <article class="card" id={p.id}>
+            <div class="card-top">
+              <p class="card-kicker">{p.kicker}</p>
+              <p class="card-price">{p.price}</p>
+              <h3 class="card-title">{p.title}</h3>
+              <p class="card-desc">{p.desc}</p>
+
+              <ul class="card-includes">
+                {p.includes.map((item) => <li>{item}</li>)}
+              </ul>
+
+              <p class="card-ideal"><span aria-hidden="true">✦</span> Ideale per: {p.ideal}</p>
+            </div>
+            <a class="card-btn" href={contactHref}>{p.cta}</a>
+          </article>
+        ))}
       </div>
-    </section>
+    </div>
+  </section>
 
-<div class="cta-wrap"> 
-  <a class="cta-main" href="https://wa.me/393924588449">Parliamo della tua idea, del tuo progetto: <br>prenota una consulenza gratuita di 30 minuti</a>
-</div>
+  <section class="process section section--tight-top" aria-labelledby="processo-title">
+    <div class="container">
+      <h2 id="processo-title" class="block-title">Come lavoro</h2>
 
-  </main>
+      <ol class="steps">
+        {steps.map((s, i) => (
+          <li class="step">
+            <span class="step-num">{String(i + 1).padStart(2, '0')}</span>
+            <div>
+              <h3 class="step-title">{s.title}</h3>
+              <p class="step-text">{s.text}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="faq section section--tight-top" aria-labelledby="faq-title">
+    <div class="container">
+      <h2 id="faq-title" class="block-title">Domande frequenti</h2>
+
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <details class="faq-item">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-wrap">
+    <a class="cta-main" href="https://wa.me/393924588449">
+      Parliamo della tua idea, del tuo progetto: <br />prenota una consulenza gratuita di 30 minuti
+    </a>
+  </div>
+
+</main>
+</Layout>
 
 <style>
   /* ================= TOKEN ================= */
   main {
-    --bg: #0b0b0c;
+    --bg: #090203;
     --ink: #f5f3ee;
     --ink-dim: rgba(245, 243, 238, 0.62);
     --line: rgba(245, 243, 238, 0.12);
     --brand: var(--accent, #3b82f6);
     --card-bg: #131315;
-    --grad: linear-gradient(90deg, #0e7490 0%, #2dd4bf 100%);
-    --rose: #d98aa5;
+    --sea: #7dd3e0;
+    --teal: #60a5fa;
+    --price: #60a5fa;
+    --grad: linear-gradient(90deg, #60a5fa 0%, #1855ff 100%);
     background: var(--bg);
   }
 
   .container {
+    position: relative;
+    z-index: 2;
     max-width: 1040px;
     margin: 0 auto;
     padding: 0 24px;
-    position: relative;
-    z-index: 2;
   }
   .container--wide { max-width: 1180px; }
 
@@ -132,18 +210,29 @@ const products = [
   .section--tight-bottom { padding-bottom: 56px; }
   .section--tight-top { padding-top: 0; }
 
+  .block-title {
+    margin: 0 0 40px;
+    text-align: center;
+    font-family: var(--font-display, sans-serif);
+    font-weight: 800;
+    font-size: clamp(24px, 3.4vw, 36px);
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+
   /* ================= HERO ================= */
   .hero {
     position: relative;
-    min-height: 78vh;
     display: flex;
     align-items: center;
+    min-height: 78vh;
     overflow: hidden;
   }
 
   .hero-inner { max-width: 720px; }
 
   .hero-title {
+    margin: 0 0 24px;
     font-family: var(--font-display, sans-serif);
     font-weight: 800;
     text-transform: uppercase;
@@ -151,28 +240,26 @@ const products = [
     line-height: 1;
     letter-spacing: -0.02em;
     color: var(--ink);
-    margin: 0 0 24px;
   }
   .title-line { display: block; }
 
   .hero-tagline {
+    margin: 0 0 16px;
     font-family: var(--font-serif, Georgia, 'Times New Roman', serif);
     font-style: italic;
     font-weight: 400;
     font-size: clamp(19px, 2.4vw, 26px);
     color: var(--brand);
-    margin: 0 0 16px;
   }
 
   .hero-desc {
+    margin: 0;
     font-family: var(--font-body, inherit);
-    font-weight: 400;
-    color: var(--ink-dim);
     font-size: clamp(15px, 1.7vw, 17px);
     line-height: 1.6;
-    margin: 0;
+    color: var(--ink-dim);
   }
-  .hero-slash { font-style: normal; color: var(--brand); margin-right: 6px; }
+  .hero-slash { margin-right: 6px; font-style: normal; color: var(--brand); }
 
   /* ================= PRODOTTI ================= */
   .products-grid {
@@ -182,64 +269,87 @@ const products = [
   }
 
   .card {
-    position: relative; 
-    background: var(--card-bg);
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    padding: 36px 28px 32px;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    text-align: center;
     gap: 28px;
+    padding: 36px 28px 32px;
+    text-align: center;
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    scroll-margin-top: 100px; /* evita che la navbar copra la card quando arrivi dalla home */
+    transition: transform 0.25s ease, border-color 0.25s ease;
   }
+  .card:hover,
+  .card:target {
+    border-color: var(--sea);
+  }
+  .card:hover { transform: translateY(-4px); }
 
   .card-kicker {
+    margin: 0 0 18px;
     font-family: var(--font-display, sans-serif);
     font-weight: 700;
     font-size: 14px;
     text-transform: uppercase;
     color: var(--ink);
-    margin: 0 0 18px;
   }
 
   .card-price {
+    margin: 0 0 18px;
     font-style: italic;
     font-size: 15px;
-    color: var(--blue);
-    margin: 0 0 18px;
+    color: var(--price);
   }
 
   .card-title {
+    margin: 0 0 10px;
     font-family: var(--font-display, sans-serif);
     font-weight: 700;
     font-size: 18px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--ink);
-    margin: 0 0 10px;
   }
 
   .card-desc {
-    color: var(--ink-dim);
+    margin: 0 0 20px;
     font-size: 14.5px;
     line-height: 1.6;
-    margin: 0 0 20px;
+    color: var(--ink-dim);
   }
 
+  .card-includes {
+    margin: 0 0 20px;
+    padding: 0;
+    list-style: none;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .card-includes li {
+    padding: 6px 0;
+    border-top: 1px solid var(--line);
+  }
+  .card-includes li:last-child { border-bottom: 1px solid var(--line); }
+
   .card-ideal {
+    margin: 0;
     font-style: italic;
-    color: var(--ink-dim);
     font-size: 14px;
     line-height: 1.6;
-    margin: 0;
+    color: var(--ink-dim);
   }
-  .card-ideal span { color: var(--green); font-style: normal; }
+  .card-ideal span { font-style: normal; color: var(--sea); }
 
   .card-btn {
     display: inline-block;
+    padding: 12px 28px;
     background: var(--grad);
+    border-radius: 14px;
     color: #fff;
     font-family: var(--font-display, sans-serif);
     font-weight: 800;
@@ -247,53 +357,114 @@ const products = [
     letter-spacing: 0.1em;
     text-transform: uppercase;
     text-decoration: none;
-    padding: 12px 28px;
-    border-radius: 14px;
     transition: transform 0.2s ease, filter 0.2s ease;
-
   }
+  /* Rende cliccabile tutta la card */
   .card-btn::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 8px; /* stesso raggio della .card */
-}
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+  }
   .card-btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
 
-.card { transition: transform 0.25s ease, border-color 0.25s ease; }
-.card:hover {
-  transform: translateY(-4px);
-  border-color: var(--sea, #7dd3e0);
-}
+  /* ================= PROCESSO ================= */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
 
+  .step {
+    display: flex;
+    gap: 20px;
+    padding: 28px;
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+  }
 
+  .step-num {
+    font-family: var(--font-display, sans-serif);
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 1;
+    color: var(--teal);
+  }
+
+  .step-title {
+    margin: 0 0 8px;
+    font-family: var(--font-display, sans-serif);
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--ink);
+  }
+
+  .step-text {
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--ink-dim);
+  }
+
+  /* ================= FAQ ================= */
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    padding: 18px 24px;
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+  }
+
+  .faq-item summary {
+    cursor: pointer;
+    font-family: var(--font-display, sans-serif);
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--ink);
+  }
+
+  .faq-item p {
+    margin: 12px 0 0;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--ink-dim);
+  }
 
   /* ================= CTA PRINCIPALE ================= */
-.cta-wrap {
-  display: flex;
-  justify-content: center;
-  margin-top: 56px;
-}
+  .cta-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 0 5%;
+    padding-bottom: 96px;
+  }
 
-.cta-main {
-  display: inline-block;
-  background: var(--grad);
-  color: #fff;
-  font-family: var(--font-display, sans-serif);
-  font-weight: 800;
-  font-size: 14px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-align: center;
-  text-decoration: none;
-  padding: 18px 40px;
-  border-radius: 999px;
-  transition: transform 0.2s ease, filter 0.2s ease;
-      margin-left: 5%;
-    margin-right: 5%;
-}
-.cta-main:hover { transform: translateY(-2px); filter: brightness(1.1); }
-
+  .cta-main {
+    display: inline-block;
+    padding: 18px 40px;
+    background: var(--grad);
+    border-radius: 999px;
+    color: #fff;
+    text-align: center;
+    font-family: var(--font-display, sans-serif);
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 0.2s ease, filter 0.2s ease;
+  }
+  .cta-main:hover { transform: translateY(-2px); filter: brightness(1.1); }
 
   /* ================= RESPONSIVE ================= */
   @media (max-width: 960px) {
@@ -302,10 +473,12 @@ const products = [
 
   @media (max-width: 720px) {
     .hero { min-height: 70vh; }
+    .steps { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 620px) {
     .products-grid { grid-template-columns: 1fr; }
+    .cta-main { padding: 16px 24px; }
   }
 
   /* ================= ACCESSIBILITÀ ================= */

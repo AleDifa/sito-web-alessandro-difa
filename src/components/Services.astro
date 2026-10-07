@@ -1,61 +1,45 @@
 ---
-import FallBeamBackground from '../components/lightswind/fall-beam-background.tsx';
-
 const services = [
   {
     title: "Realizzazione Siti Web Artigianali",
-    desc: "Sviluppo siti web su misura tramite codice o CMS (WordPress). Garantisco il massimo controllo su prestazioni , indicizzazioni sulle ricerche Google e posizionamento sui motori di ricerca e assistenti IA come ChatGPT.",
+    desc: "Sviluppo siti web su misura tramite codice o CMS (WordPress). Garantisco il massimo controllo su prestazioni, indicizzazione sulle ricerche Google e posizionamento sui motori di ricerca e assistenti IA come ChatGPT.",
     tags: ["Web Design", "Sviluppo Web", "Landing Page"],
-    color: "#3b82f6",
-    link: '/creazione-siti-web/'
-
+    link: "/creazione-siti-web/",
   },
   {
     title: "Sviluppo E-Commerce su Misura",
     desc: "Progettazione di e-commerce performanti su WordPress, Shopify o custom code. Aperto 24h su 24h per vendere i tuoi prodotti e servizi a qualsiasi target, ovunque.",
     tags: ["WordPress", "Shopify", "E-Commerce"],
-    color: "#eab308",
-    link: '/creazione-ecommerce/'
+    link: "/creazione-ecommerce/",
   },
   {
     title: "Servizi Fotografici e Video",
     desc: "Riprese e foto professionali fatte da me, per raccontare la tua attività e valorizzare il tuo sito, i social e il materiale promozionale.",
     tags: ["Fotografia", "Video Making", "Brand Content"],
-    color: "#a855f7",
-    link: '/servizio-foto-video/'
-
+    link: "/servizio-foto-video/",
   },
   {
     title: "Analisi di Mercato e Strategia Marketing",
     desc: "Analisi di marketing strategica: dallo studio del settore e dei concorrenti alla definizione delle migliori leve di posizionamento per far distinguere la tua azienda sul mercato.",
     tags: ["Market Research", "Analisi Competitor", "Posizionamento"],
-    color: "#06b6d4",
-    link: '/analisi-di-mercato-e-strategia-360/'
-
+    link: "/analisi-di-mercato-e-strategia-360/",
   },
   {
     title: "Ottimizzazione Google Business Profile",
     desc: "Gestione e ottimizzazione completa della scheda Google Maps per scalare i risultati della ricerca locale e intercettare nuovi clienti nella tua zona.",
     tags: ["Google Maps", "Local SEO", "Local Marketing"],
-    color: "#22c55e",
-    link: '/ottimizzazione-google-business-profile/'
-
-  }
+    link: "/ottimizzazione-google-business-profile/",
+  },
 ];
-
 ---
 
 <section class="section" id="servizi">
   <div class="container">
-      <div class="beam-background">
-          <FallBeamBackground 
-           client:load       
-           />
-      </div>
 
     <div class="text-center" style="margin-bottom: 16px;">
       <h2 class="section-title">Tutti i Servizi</h2>
     </div>
+
     <div class="section-subtitle text-center">
       <p>Sviluppo siti web ed e-commerce ottimizzati per posizionarti al primo posto su Google, Google Maps e ChatGPT.</p>
       <p>Analisi di mercato e piani di marketing: scopri i tuoi punti di forza e debolezza per conquistare il tuo spazio nel settore di riferimento.</p>
@@ -68,70 +52,60 @@ const services = [
           <div class="service-number">{String(i + 1).padStart(2, "0")}.</div>
 
           <div class="service-content">
-            <div class="service-head">
-              <h3 class="service-title">
-            {s.link ? (
+            <h3 class="service-title">
               <a href={s.link} class="service-link">{s.title}</a>
-            ) : (
-              s.title
-            )}
-          </h3>
-            </div>
+            </h3>
 
             <div class="tags">
-              {s.tags.map(t => <span class="tag">{t}</span>)}
+              {s.tags.map((t) => <span class="tag">{t}</span>)}
             </div>
 
             <p class="service-desc">{s.desc}</p>
-
           </div>
         </div>
-
       ))}
     </div>
-        <button class="mio-bottone" onclick="gtag('event', 'click_bottone_servizi'); window.location.href='/Servizi/';">
-        Scopri Tutti i Servizi
-      </button>
-</div>
+
+    <button
+      class="mio-bottone"
+      onclick="gtag('event', 'click_bottone_servizi'); window.location.href='/servizi/';"
+    >
+      Scopri Tutti i Servizi
+    </button>
+
+  </div>
+
+  <!-- Striscia di chiusura -->
 </section>
+  <div class="texture-finale" aria-hidden="true"></div>
 
 <style>
-.container {
-    position: relative; /* scoped solo a questa sezione, non tocca il global */
+  /* ── Sezione ── */
+  .section {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background: url("/img/deserto.png") center / 100% 100% no-repeat;
   }
-.beam-background{
-  position: absolute !important;
-  inset: 0;
+
+  .section > .container {
+    width: 100%;
+  }
+
+  /* ── Texture finale ── */
+.texture-finale {
   width: 100%;
-  height: 100%;
-  z-index: 1;
-  pointer-events: none; /* Impedisce di bloccare la selezione del testo o i click */
+  height: 90px;
+  background-image: url("/img/texture-egitto.svg");
+  background-repeat: repeat-x;
+  background-position: center;
+  background-size: auto 100%;
+  opacity: 0.6;
+  pointer-events: none;
 }
 
-.section:has(.beam-background) .container > * {
-  position: relative;
-  z-index: 2;
-}
-
-.mio-bottone {
-  display: block;
-  margin: 48px auto 0;
-  padding: 14px 36px;
-  border: none;
-  border-radius: 22px;
-  background: #60a5fa;
-  color: #fff;
-  font-size: 17px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: filter 0.2s ease, transform 0.2s ease;
-}
-
-.mio-bottone:hover {
-  filter: brightness(1.08);
-  transform: translateY(-1px);
-}
-
+  /* ── Lista servizi ── */
   .services-list {
     display: flex;
     flex-direction: column;
@@ -140,26 +114,35 @@ const services = [
     margin: 0 auto;
   }
 
+  .section-subtitle p {
+    margin-bottom: 5px;
+  }
+
   .service-row {
+    position: relative;
     display: grid;
     grid-template-columns: 100px 1fr;
     gap: 24px;
     align-items: start;
+    padding: 32px;
+    overflow: hidden;
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 32px;
-    position: relative;
-    overflow: hidden;
     transition: transform 0.25s ease, border-color 0.25s ease;
   }
-.service-row:hover { transform: translateY(-3px); border-color: var(--border-hover); }
+
+  .service-row:hover {
+    transform: translateY(-3px);
+    border-color: var(--border-hover);
+  }
+
   .service-number {
     font-family: var(--font-display);
     font-size: 42px;
     font-weight: 800;
-    color: var(--text);
     line-height: 1;
+    color: var(--text);
   }
 
   .service-content {
@@ -167,45 +150,32 @@ const services = [
     flex-direction: column;
     gap: 14px;
   }
-  .section-subtitle p {
-  margin-bottom: 5px; /* Spazio verticale tra i singoli paragrafi */
-}
-
-  .service-head {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
 
   .service-title {
+    margin: 0;
     font-family: var(--font-display);
     font-size: 22px;
     font-weight: 700;
-    color: var(--text);
     line-height: 1.25;
-    margin: 0;
+    color: var(--text);
   }
 
   .service-link {
-  color: inherit;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
 
-.service-link:hover {
-  color: #60a5fa;
-}
+  .service-link:hover {
+    color: #60a5fa;
+  }
 
-.service-link::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-}
-
-.service-row:hover {
-  border-color: var(--border-hover);
-}
+  /* Rende cliccabile l'intera riga */
+  .service-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
 
   .tags {
     display: flex;
@@ -214,30 +184,58 @@ const services = [
   }
 
   .tag {
+    padding: 6px 16px;
     font-size: 13px;
     font-weight: 600;
     color: var(--text);
     border: 1px solid var(--border-hover);
     border-radius: 999px;
-    padding: 6px 16px;
   }
 
   .service-desc {
-    font-size: 15px;
-    color: var(--text);
-    opacity: 0.75;
-    line-height: 1.65;
     max-width: 720px;
     margin: 0;
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--text);
+    opacity: 0.75;
   }
 
+  /* ── Bottone ── */
+  .mio-bottone {
+    display: block;
+    margin: 48px auto 0;
+    padding: 14px 36px;
+    border: none;
+    border-radius: 22px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: filter 0.2s ease, transform 0.2s ease;
+  }
+
+  .mio-bottone:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+  }
+
+  /* ── Mobile ── */
   @media (max-width: 640px) {
     .service-row {
       grid-template-columns: 1fr;
       padding: 24px;
     }
+
     .service-number {
       font-size: 32px;
+    }
+
+    .texture-finale {
+      height: 40px;
+    }
+
+    .section {
+      padding-bottom: 60px;
     }
   }
 </style>

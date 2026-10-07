@@ -579,23 +579,17 @@ GOOGLE MAPS
 </section>
 
 <style>
-.gb-section[data-astro-cid-mjnxe2iz] {
-  position: relative;
-  overflow: hidden;
-  background: url("/img/test.png");
-  background-repeat: no-repeat;
-}
 
 /* Sottotitolo specifico forzato in nero */
-.gb-section[data-astro-cid-mjnxe2iz] {
+.section {
   position: relative;
   overflow: hidden;
-  background: url("/img/test.png");
-  background-repeat: no-repeat;
-  background-size: cover;          /* Forza l'immagine a coprire l'intera area */
-  background-position: center;     /* Centra l'immagine per evitare tagli asimmetrici */
+  background: url("/img/test.png") center / 100% 100% no-repeat;
+  aspect-ratio: 1920 / 800;   /* <-- larghezza / altezza reali di test.png */
+  min-height: fit-content;
+  display: flex;
+  align-items: center;        /* centra il contenuto verticalmente */
 }
-
 
 
 .gb-glow {
@@ -874,6 +868,12 @@ GOOGLE MAPS
 
 /* ── Breakpoint 900px ── */
 @media (max-width: 900px) {
+  .section {
+    aspect-ratio: auto;
+    background-size: cover;        /* su mobile va bene tagliare un po' */
+    padding: 80px 0;
+  }
+  
   .gb-grid { grid-template-columns: repeat(2, 1fr); }
   .gb-visual { grid-template-columns: 1fr; }
   .gb-map-mock { height: 260px; }

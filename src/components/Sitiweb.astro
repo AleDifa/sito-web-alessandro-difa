@@ -8,7 +8,7 @@ const products = [
     title: 'Sito Leggero',
     desc: 'Per chi vuole essere online per ottenere credibilità, senza impelagarsi. Una o due pagine ordinate, curate e rapide da consultare: vetrina digitale pronta per partire col piede giusto.',
     ideal: 'consulenti indipendenti, freelance e piccole realtà locali.',
-    cta: 'Nave in porto',
+    cta: 'Light',
   },
   {
     kicker: 'Per chi vuole competere',
@@ -16,7 +16,7 @@ const products = [
     title: 'Sito Completo',
     desc: 'Per chi deve presentare al meglio la propria attività. Un sito articolato e semplice da gestire, che valorizza servizi e prodotti in modo chiaro ed elegante.',
     ideal: 'chi desidera essere trovato online, consigliato nelle ricerche dall\'IA e Google e guadagnare la fiducia dei clienti.',
-    cta: 'Navighiamo in mare aperto',
+    cta: 'full',
   },
   {
     kicker: 'Per chi mira più lontano',
@@ -24,7 +24,7 @@ const products = [
     title: 'Sito Premium',
     desc: 'Per chi ambisce a un vero salto di qualità online. Un impianto professionale e su misura, ideato per aziende che puntano a vendere, farsi conoscere e restare impresse.',
     ideal: 'studi professionali, agenzie e aziende che vogliono vendere o comunicare in un mercato caratterizzato da competitor.',
-    cta: 'Salpiamo a vele spiegate',
+    cta: 'full elite',
   },
   {
     kicker: 'La casa digitale del tuo marchio',
@@ -32,7 +32,7 @@ const products = [
     title: 'Negozio online, E-commerce',
     desc: 'Costruisco ogni negozio online che sia sempre aperto h24 e semplice da usare, veloce e in armonia con la tua immagine. Ogni particolare parla del tuo marchio.',
     ideal: 'botteghe, marchi artigianali e progetti creativi che desiderano vendere con personalità.',
-    cta: 'Carica la stiva e salpa, al resto ci penso io!',
+    cta: 'full e-commerce',
   },
   {
     kicker: 'Per le tue iniziative speciali',
@@ -40,15 +40,15 @@ const products = [
     title: 'Landing Page',
     desc: 'Una sola schermata, un unico traguardo: convincere il visitatore a rispondere “sì”. Per un evento, un corso o un lancio di prodotto, la tua pagina sarà limpida, convincente e di forte impatto visivo.',
     ideal: 'campagne di advertising, offerte e lanci mirati.',
-    cta: 'Approda alla tua landing',
+    cta: 'One page',
   },
   {
     kicker: 'Quando il tuo sito non ti rappresenta più',
     price: 'A partire da 400€',
-    title: 'Restyle',
+    title: 'a change',
     desc: 'Dai nuova vita al tuo sito, rendendolo più attraente e allineato all’identità del tuo marchio.',
     ideal: 'chi cerca un rinnovamento in linea con la propria crescita professionale.',
-    cta: 'Rimetti a nuovo lo scafo',
+    cta: 'Restyle',
   },
 ];
 ---
@@ -95,10 +95,14 @@ const products = [
           </article>
         ))}
       </div>
+       
+      <div class="scritta-sotto-servizi" style="margin: 15px; text-align: center;">
+        <p>Parliamo della tua idea, del tuo progetto prenota una chiamata di consocenza</p>
 
+      </div>
       <div class="cta-wrap">
         <a class="cta-main" href="https://wa.me/393924588449">
-          Parliamo della tua idea, del tuo progetto: <br>prenota una consulenza gratuita di 30 minuti
+          Call gratuita di 30 minuti
         </a>
       </div>
     </div>
@@ -116,8 +120,8 @@ const products = [
     --brand: var(--accent, #3b82f6);
     --card-bg: #131315;
     --sea: #7dd3e0;
-    --teal: #2dd4bf;
-    --grad: linear-gradient(90deg, #0e7490 0%, #2dd4bf 100%);
+    --teal: #60a5fa;
+    --grad: linear-gradient(90deg, #60a5fa 0%, #1855ff 100%);
     background: var(--bg);
   }
 
@@ -258,7 +262,7 @@ const products = [
   .cta-wrap {
     display: flex;
     justify-content: center;
-    margin-top: 56px;
+    margin-top: 46px;
   }
 
   .cta-main {

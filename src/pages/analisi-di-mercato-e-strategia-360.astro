@@ -1,0 +1,326 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+
+const offers = [
+  {
+    id: 'lezioni-1-1',
+    kicker: 'Per chi vuole imparare',
+    title: 'Lezioni di marketing 1:1',
+    desc: 'Percorsi individuali per imparare a costruire da solo la strategia della tua attività, con esempi concreti sul tuo settore. Dal mercato ai prezzi, dai social alle vendite, sul ritmo che serve a te.',
+    includes: ['Lezioni personalizzate sui tuoi obiettivi', 'Casi ed esempi reali applicati al tuo business', 'Materiali e schemi di lavoro da riutilizzare', 'Possibilità di scegliere solo i moduli che ti servono'],
+    ideal: 'imprenditori, freelance, studenti e professionisti che vogliono gestire il marketing in autonomia.',
+    cta: 'Prenota una lezione',
+  },
+  {
+    id: 'analisi-strategica',
+    kicker: 'Per chi vuole un piano pronto',
+    title: 'Analisi strategica e piano di marketing',
+    desc: 'Studio il tuo mercato, i tuoi clienti e i tuoi concorrenti per individuare punti di forza e debolezza e costruire un piano di marketing chiaro, con azioni da mettere in pratica.',
+    includes: ['Analisi del settore e dei concorrenti', 'Segmentazione e definizione del target', 'Posizionamento del brand', 'Piano d’azione con obiettivi e KPI da monitorare'],
+    ideal: 'aziende e attività che vogliono distinguersi dalla concorrenza e crescere con una direzione precisa.',
+    cta: 'Richiedi l’analisi',
+  },
+];
+
+const modules = [
+  { n: '01', title: 'Analisi di mercato', topics: ['Mission e vision', 'Segmentazione', 'Modello di Abell', 'Concorrenza interna'] },
+  { n: '02', title: 'Il valore', topics: ['Soddisfazione del cliente', 'Fedelizzazione'] },
+  { n: '03', title: 'Concorrenza', topics: ['Le 5 forze di Porter', 'SWOT e PEST', 'Posizionamento'] },
+  { n: '04', title: 'Clienti e CRM', topics: ['Customer satisfaction', 'Clienti e social'] },
+  { n: '05', title: 'Social network', topics: ['Piano editoriale', 'Comunicazione sui social', 'Monitoraggio e SWOT'] },
+  { n: '06', title: 'Servizi e prodotti', topics: ['Gestione clienti', 'Modelli organizzativi', 'Blueprint', 'Ciclo di vita del prodotto'] },
+  { n: '07', title: 'Prezzo', topics: ['Neuromarketing', 'Strategie di prezzo', 'Evitare la guerra dei prezzi'] },
+  { n: '08', title: 'Marketing mix', topics: ['Le 7 P'] },
+  { n: '09', title: 'Vendite', topics: ['Processo d’acquisto'] },
+  { n: '10', title: 'Valutazione economica', topics: ['Controllo e analisi', 'KPI', 'Modelli ed esempi'] },
+];
+
+const steps = [
+  { title: 'Primo confronto', text: 'In una call gratuita capiamo il tuo punto di partenza, il tuo settore e che cosa vuoi ottenere.' },
+  { title: 'Scelta del percorso', text: 'Decidiamo insieme se ti servono lezioni, un’analisi strategica o una combinazione delle due.' },
+  { title: 'Lavoro sul tuo caso', text: 'Applichiamo metodi e strumenti al tuo mercato, ai tuoi clienti e ai tuoi concorrenti.' },
+  { title: 'Piano e risultati', text: 'Ricevi indicazioni chiare e un piano d’azione con obiettivi misurabili da seguire nel tempo.' },
+];
+
+const faqs = [
+  { q: 'Che differenza c’è tra lezioni 1:1 e analisi strategica?', a: 'Con le lezioni impari a fare marketing da solo, con il mio supporto. Con l’analisi strategica faccio io lo studio del mercato e ti consegno un piano. Possiamo anche unire i due percorsi.' },
+  { q: 'Servono conoscenze di marketing per iniziare?', a: 'No. Partiamo dal tuo livello e dal tuo settore, e il programma si adatta a ciò che ti serve davvero.' },
+  { q: 'Le lezioni si svolgono online o in presenza?', a: 'Online, e in presenza se siamo vicini.' },
+  { q: 'L’analisi serve anche per il mio sito web?', a: 'Sì. Capire mercato, target e posizionamento rende il sito più efficace e più facile da trovare su Google e con le AI. Per questo i due servizi funzionano bene insieme.' },
+];
+---
+
+<Layout
+  title="Consulenza Marketing e Analisi di Mercato: lezioni 1:1 e strategia 360° | Alessandro DiFa"
+  description="Lezioni di marketing 1:1 e analisi strategica per la tua attività: mercato, concorrenti, posizionamento, prezzi e piano d’azione con KPI."
+>
+<Navbar />
+<main>
+
+  <section class="hero section section--tight-bottom">
+    <div class="container">
+      <div class="hero-inner">
+        <h1 class="hero-title">
+          <span class="title-line">Consulenza marketing e analisi di mercato</span>
+        </h1>
+
+        <h2 class="hero-tagline">Lezioni 1:1 e strategia 360° per far crescere il tuo brand</h2>
+
+        <p class="hero-desc">
+          <span class="hero-slash" aria-hidden="true">↳</span>
+          Studio il tuo mercato, i tuoi clienti e i tuoi concorrenti per individuare i tuoi punti di forza e trasformarli in una strategia chiara.
+          Puoi scegliere di farti affiancare con lezioni individuali, oppure affidarmi l’analisi e la costruzione del piano di marketing.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight-top" aria-labelledby="offerte-title">
+    <div class="container container--wide">
+      <h2 id="offerte-title" class="block-title">Come posso aiutarti</h2>
+
+      <div class="offers-grid">
+        {offers.map((o) => (
+          <article class="card" id={o.id}>
+            <div class="card-top">
+              <p class="card-kicker">{o.kicker}</p>
+              <h3 class="card-title">{o.title}</h3>
+              <p class="card-desc">{o.desc}</p>
+              <ul class="card-includes">
+                {o.includes.map((item) => <li>{item}</li>)}
+              </ul>
+              <p class="card-ideal"><span aria-hidden="true">✦</span> Ideale per: {o.ideal}</p>
+            </div>
+            <a class="card-btn" href="/#contatti">{o.cta}</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight-top" aria-labelledby="programma-title">
+    <div class="container container--wide">
+      <h2 id="programma-title" class="block-title">Il programma: 10 moduli per una strategia completa</h2>
+
+      <div class="modules-grid">
+        {modules.map((m) => (
+          <article class="module">
+            <span class="module-num">{m.n}</span>
+            <h3 class="module-title">{m.title}</h3>
+            <ul class="module-topics">
+              {m.topics.map((t) => <li>{t}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight-top" aria-labelledby="processo-title">
+    <div class="container">
+      <h2 id="processo-title" class="block-title">Come funziona</h2>
+
+      <ol class="steps">
+        {steps.map((s, i) => (
+          <li class="step">
+            <span class="step-num">{String(i + 1).padStart(2, '0')}</span>
+            <div>
+              <h3 class="step-title">{s.title}</h3>
+              <p class="step-text">{s.text}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--tight-top" aria-labelledby="faq-title">
+    <div class="container">
+      <h2 id="faq-title" class="block-title">Domande frequenti</h2>
+
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <details class="faq-item">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-wrap">
+    <a class="cta-main" href="https://wa.me/393924588449">
+      Parliamo della tua idea, del tuo progetto: <br />prenota una consulenza gratuita di 30 minuti
+    </a>
+  </div>
+
+</main>
+</Layout>
+
+<style>
+  /* ================= TOKEN ================= */
+  main {
+    --bg: #090203;
+    --ink: #f5f3ee;
+    --ink-dim: rgba(245, 243, 238, 0.62);
+    --line: rgba(245, 243, 238, 0.12);
+    --brand: var(--accent, #3b82f6);
+    --card-bg: #131315;
+    --sea: #7dd3e0;
+    --teal: #60a5fa;
+    --grad: linear-gradient(90deg, #60a5fa 0%, #1855ff 100%);
+    background: var(--bg);
+  }
+
+  .container { position: relative; z-index: 2; max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  .container--wide { max-width: 1180px; }
+
+  .section { padding: 96px 0; }
+  .section--tight-bottom { padding-bottom: 56px; }
+  .section--tight-top { padding-top: 0; }
+
+  .block-title {
+    margin: 0 0 40px;
+    text-align: center;
+    font-family: var(--font-display, sans-serif);
+    font-weight: 800;
+    font-size: clamp(24px, 3.4vw, 36px);
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+
+  /* ================= HERO ================= */
+  .hero { position: relative; display: flex; align-items: center; min-height: 70vh; overflow: hidden; }
+  .hero-inner { max-width: 760px; }
+
+  .hero-title {
+    margin: 0 0 24px;
+    font-family: var(--font-display, sans-serif);
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: clamp(28px, 5vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .title-line { display: block; }
+
+  .hero-tagline {
+    margin: 0 0 16px;
+    font-family: var(--font-serif, Georgia, 'Times New Roman', serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(19px, 2.4vw, 26px);
+    color: var(--brand);
+  }
+
+  .hero-desc { margin: 0; font-size: clamp(15px, 1.7vw, 17px); line-height: 1.6; color: var(--ink-dim); }
+  .hero-slash { margin-right: 6px; color: var(--brand); }
+
+  /* ================= OFFERTE ================= */
+  .offers-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 28px;
+    padding: 36px 28px 32px;
+    text-align: center;
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    scroll-margin-top: 100px;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+  }
+  .card:hover, .card:target { border-color: var(--sea); }
+  .card:hover { transform: translateY(-4px); }
+
+  .card-kicker { margin: 0 0 18px; font-family: var(--font-display, sans-serif); font-weight: 700; font-size: 14px; text-transform: uppercase; color: var(--ink); }
+  .card-title { margin: 0 0 14px; font-family: var(--font-display, sans-serif); font-weight: 700; font-size: 19px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); }
+  .card-desc { margin: 0 0 20px; font-size: 14.5px; line-height: 1.6; color: var(--ink-dim); }
+
+  .card-includes { margin: 0 0 20px; padding: 0; list-style: none; font-size: 14px; line-height: 1.5; color: var(--ink); }
+  .card-includes li { padding: 6px 0; border-top: 1px solid var(--line); }
+  .card-includes li:last-child { border-bottom: 1px solid var(--line); }
+
+  .card-ideal { margin: 0; font-style: italic; font-size: 14px; line-height: 1.6; color: var(--ink-dim); }
+  .card-ideal span { font-style: normal; color: var(--sea); }
+
+  .card-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--grad);
+    border-radius: 14px;
+    color: #fff;
+    font-family: var(--font-display, sans-serif);
+    font-weight: 800;
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 0.2s ease, filter 0.2s ease;
+  }
+  .card-btn::after { content: ''; position: absolute; inset: 0; border-radius: 8px; }
+  .card-btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
+
+  /* ================= PROGRAMMA ================= */
+  .modules-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+  .module { padding: 24px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 8px; }
+  .module-num { font-family: var(--font-display, sans-serif); font-weight: 800; font-size: 28px; line-height: 1; color: var(--teal); }
+  .module-title { margin: 10px 0 12px; font-family: var(--font-display, sans-serif); font-weight: 700; font-size: 17px; color: var(--ink); }
+  .module-topics { margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.7; color: var(--ink-dim); }
+
+  /* ================= PROCESSO ================= */
+  .steps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin: 0; padding: 0; list-style: none; }
+  .step { display: flex; gap: 20px; padding: 28px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 8px; }
+  .step-num { font-family: var(--font-display, sans-serif); font-weight: 800; font-size: 32px; line-height: 1; color: var(--teal); }
+  .step-title { margin: 0 0 8px; font-family: var(--font-display, sans-serif); font-weight: 700; font-size: 17px; color: var(--ink); }
+  .step-text { margin: 0; font-size: 14.5px; line-height: 1.6; color: var(--ink-dim); }
+
+  /* ================= FAQ ================= */
+  .faq-list { display: flex; flex-direction: column; gap: 12px; max-width: 760px; margin: 0 auto; }
+  .faq-item { padding: 18px 24px; background: var(--card-bg); border: 1px solid var(--line); border-radius: 8px; }
+  .faq-item summary { cursor: pointer; font-family: var(--font-display, sans-serif); font-weight: 700; font-size: 16px; color: var(--ink); }
+  .faq-item p { margin: 12px 0 0; font-size: 14.5px; line-height: 1.6; color: var(--ink-dim); }
+
+  /* ================= CTA ================= */
+  .cta-wrap { display: flex; justify-content: center; margin: 0 5%; padding-bottom: 96px; }
+  .cta-main {
+    display: inline-block;
+    padding: 18px 40px;
+    background: var(--grad);
+    border-radius: 999px;
+    color: #fff;
+    text-align: center;
+    font-family: var(--font-display, sans-serif);
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 0.2s ease, filter 0.2s ease;
+  }
+  .cta-main:hover { transform: translateY(-2px); filter: brightness(1.1); }
+
+  /* ================= RESPONSIVE ================= */
+  @media (max-width: 960px) {
+    .modules-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 720px) {
+    .offers-grid, .steps { grid-template-columns: 1fr; }
+    .hero { min-height: 60vh; }
+  }
+  @media (max-width: 560px) {
+    .modules-grid { grid-template-columns: 1fr; }
+    .cta-main { padding: 16px 24px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
