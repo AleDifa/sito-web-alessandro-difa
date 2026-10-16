@@ -10,8 +10,6 @@ const introLines = [
 ---
 
 <section class="intro-section">
-  <div class="intro-gradient-overlay"></div>
-
   <div class="intro-content">
     <ScrollReveal client:load lines={introLines} />
   </div>
@@ -24,18 +22,7 @@ const introLines = [
   background: transparent;
 }
 
-/* Overlay sfumato non interattivo */
-.intro-gradient-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(180deg, rgba(8,0,0,0) 0%, rgba(8,0,0,1) 90%);
-  pointer-events: none;
-}
-
 .intro-content {
-  position: relative;
-  z-index: 2;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;

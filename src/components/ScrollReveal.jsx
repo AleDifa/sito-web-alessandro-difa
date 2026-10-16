@@ -17,20 +17,22 @@ const ScrollReveal = ({ lines }) => {
   const textLines = lines && lines.length > 0 ? lines : defaultLines;
 
   useEffect(() => {
+    // isMobile DEVE essere dichiarato qui, dentro l'effect
+    const isMobile = window.matchMedia('(max-width: 600px)').matches;
+
     const ctx = gsap.context(() => {
       const chars = wrapperRef.current.querySelectorAll('.char');
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: wrapperRef.current,
-          start: 'center center',
-          end: () => `+=${window.innerHeight * 3}`,
-          scrub: 1,
+          start: 'top top',
+          end: isMobile ? '+=320%' : '+=220%',
+          scrub: isMobile ? 0.8 : 1.5,
           pin: true,
-          pinSpacing: true,
           anticipatePin: 1,
           invalidateOnRefresh: true,
-          markers: true, // RIMUOVI quando funziona
+          markers: false,
         },
       });
 
@@ -39,18 +41,10 @@ const ScrollReveal = ({ lines }) => {
         { opacity: 0.15 },
         { opacity: 1, ease: 'none', stagger: 0.1 }
       );
-      tl.to({}, { duration: 1 }); // piccola pausa finale col testo completo
+      tl.to({}, { duration: 1 }); // pausa finale a testo completo
     }, wrapperRef);
 
-    // ricalcola quando font e layout sono pronti
-    const refresh = () => ScrollTrigger.refresh();
-    if (document.fonts?.ready) document.fonts.ready.then(refresh);
-    window.addEventListener('load', refresh);
-
-    return () => {
-      window.removeEventListener('load', refresh);
-      ctx.revert();
-    };
+    return () => ctx.revert();
   }, [lines]);
 
   return (

@@ -1,25 +1,18 @@
-/* ---------- Scroll distance + sticky ---------- */
+/* Il wrapper è alto 100vh: è lui che viene pinnato, con il testo centrato */
 .textRevealWrapper {
-  height: 300vh; /* distanza di scroll: 400vh o 500vh per rallentare ancora */
-}
-
-.textRevealSticky {
-  position: sticky;
-  top: 0;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
-/* ---------- Testo ---------- */
 .line {
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.8rem;
   display: block;
   width: 100%;
 }
 
 .word {
-  /* Mantiene le lettere della parola unite su un unico blocco */
   display: inline-block;
   white-space: nowrap;
 }
@@ -28,6 +21,7 @@
   opacity: 0.15;
   display: inline-block;
   will-change: opacity;
+  color: #F5F3EE;
 }
 
 .text {
@@ -36,9 +30,9 @@
   margin: 0 auto;
   text-align: center;
   font-family: var(--font-display, 'Baskervville'), serif;
-  font-size: clamp(2rem, 6vw, 3.6rem);
-  font-weight: 400; /* Baskervville rende al meglio col peso regular (400) */
-  line-height: 1.4;
+  font-size: clamp(1.4rem, 5vw, 3.6rem);
+  font-weight: 400;
+  line-height: 1.3;
 }
 
 .line--italic,
