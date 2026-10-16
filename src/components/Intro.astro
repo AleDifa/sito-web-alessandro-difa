@@ -13,19 +13,14 @@ const introLines = [
   <div class="intro-gradient-overlay"></div>
 
   <div class="intro-content">
-    <ScrollReveal client:visible lines={introLines} />
+    <ScrollReveal client:load lines={introLines} />
   </div>
 </section>
 
 <style>
 .intro-section {
   position: relative;
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  padding: 80px 0;
+  padding: 0;
   background: transparent;
 }
 

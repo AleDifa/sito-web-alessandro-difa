@@ -8,7 +8,6 @@ gsap.registerPlugin(ScrollTrigger);
 const ScrollReveal = ({ lines }) => {
   const wrapperRef = useRef(null);
 
-  // Fallback se non vengono passate righe
   const defaultLines = [
     "Realizzo siti web e landing page pensati per scalare il mercato per PMI e professionisti.",
     "Posiziono la tua attività in cima a Google e nei consigli delle IA.",
@@ -18,32 +17,46 @@ const ScrollReveal = ({ lines }) => {
   const textLines = lines && lines.length > 0 ? lines : defaultLines;
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
-      const chars = gsap.utils.toArray('.char');
+    const ctx = gsap.context(() => {
+      const chars = wrapperRef.current.querySelectorAll('.char');
 
-      gsap.timeline({
+      const tl = gsap.timeline({
         scrollTrigger: {
           trigger: wrapperRef.current,
-          start: 'top center',
-          end: 'bottom center',
-          scrub: true,
-          pin: false,
-        }
-      }).to(chars, {
-        opacity: 1,
-        stagger: 0.08,
-        ease: 'power1.inOut'
+          start: 'center center',
+          end: () => `+=${window.innerHeight * 3}`,
+          scrub: 1,
+          pin: true,
+          pinSpacing: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+          markers: true, // RIMUOVI quando funziona
+        },
       });
+
+      tl.fromTo(
+        chars,
+        { opacity: 0.15 },
+        { opacity: 1, ease: 'none', stagger: 0.1 }
+      );
+      tl.to({}, { duration: 1 }); // piccola pausa finale col testo completo
     }, wrapperRef);
 
-    return () => ctx.revert();
+    // ricalcola quando font e layout sono pronti
+    const refresh = () => ScrollTrigger.refresh();
+    if (document.fonts?.ready) document.fonts.ready.then(refresh);
+    window.addEventListener('load', refresh);
+
+    return () => {
+      window.removeEventListener('load', refresh);
+      ctx.revert();
+    };
   }, [lines]);
 
   return (
-    <div className="textRevealWrapper">
-      <div ref={wrapperRef} className="text">
+    <div ref={wrapperRef} className="textRevealWrapper">
+      <div className="text">
         {textLines.map((line, lineKey) => {
-          // Supporta sia stringhe che oggetti { text, italic }
           const lineText = typeof line === 'string' ? line : line.text;
           const isItalic = typeof line === 'object' && line.italic;
           const words = lineText.split(' ');
@@ -53,18 +66,15 @@ const ScrollReveal = ({ lines }) => {
               className={`line${isItalic ? ' line--italic' : ''}`}
               key={lineKey}
             >
-              {/* 1. Divide la riga in parole */}
               {words.map((wordText, wordKey) => (
                 <React.Fragment key={wordKey}>
                   <span className="word">
-                    {/* 2. Divide la parola in caratteri */}
                     {wordText.split('').map((char, charKey) => (
                       <span className="char" key={charKey}>
                         {char}
                       </span>
                     ))}
                   </span>
-                  {/* Spazio normale tra le parole per consentire il va-a-capo naturale */}
                   {wordKey < words.length - 1 && ' '}
                 </React.Fragment>
               ))}

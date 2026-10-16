@@ -1,3 +1,17 @@
+/* ---------- Scroll distance + sticky ---------- */
+.textRevealWrapper {
+  height: 300vh; /* distanza di scroll: 400vh o 500vh per rallentare ancora */
+}
+
+.textRevealSticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+/* ---------- Testo ---------- */
 .line {
   margin-bottom: 1.2rem;
   display: block;
@@ -18,11 +32,11 @@
 
 .text {
   width: 100%;
-  max-width: calc(100% - 20px); /* Corretto il trattino mancante nella sottrazione */
+  max-width: calc(100% - 20px);
   margin: 0 auto;
   text-align: center;
-  font-family: var(--font-display, 'Baskervville'), serif; /* <-- AGGIUNTO QUI */
-  font-size: clamp(2rem, 6vw, 3.6rem); 
+  font-family: var(--font-display, 'Baskervville'), serif;
+  font-size: clamp(2rem, 6vw, 3.6rem);
   font-weight: 400; /* Baskervville rende al meglio col peso regular (400) */
   line-height: 1.4;
 }
