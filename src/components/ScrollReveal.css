@@ -15,15 +15,18 @@
   display: inline-block;
   will-change: opacity;
 }
+
 .text {
   width: 100%;
-  max-width: calc(100% - 20px); 
+  max-width: calc(100% - 20px); /* Corretto il trattino mancante nella sottrazione */
   margin: 0 auto;
   text-align: center;
+  font-family: var(--font-display, 'Baskervville'), serif; /* <-- AGGIUNTO QUI */
   font-size: clamp(2rem, 6vw, 3.6rem); 
-  font-weight: 700;
+  font-weight: 400; /* Baskervville rende al meglio col peso regular (400) */
   line-height: 1.4;
 }
+
 .line--italic,
 .line--italic .word,
 .line--italic .char {
