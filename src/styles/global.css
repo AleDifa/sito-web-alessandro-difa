@@ -44,7 +44,7 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-body);
-  font-size: 16px;
+  font-size: 14.5px;
   line-height: 1.6;
   overflow-x: hidden;
   /* ── AGGIUNTO: impedisce al body di allargarsi oltre il viewport ── */
