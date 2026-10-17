@@ -1,5 +1,4 @@
 ---
-
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro'; 
 import Footer from '../components/Footer.astro'; 
@@ -11,7 +10,7 @@ const projects = [
     description: `Sviluppo web e posizionamento strategico per l'associazione tramite <strong> analisi SWOT dei punti di forza e debolezza </strong>. 
     
     Implementazione di strategie di visibilità sulle intelligenze artificiali per i candidati in vista delle elezioni e gestione completa delle campagne social su Facebook e Instagram.`,
-    image: './img/aurora_per_le_marche.JPG',
+    image: './img/auroraperlemarchesitoweb.png',
     link: 'https://www.auroraperlemarche.eu/'
   },
   {
@@ -19,7 +18,7 @@ const projects = [
     description: `Realizzazione di un sito web istituzionale sviluppato su linee guida grafiche fornite dal cliente. 
     
     Include l'implementazione dell'area utenti con funzionalità di registrazione.`,
-    image: './img/conero_surf_club.JPG',
+    image: './img/conero-surf-club-sito-web.png',
     link: 'https://conerosurfclub.it/'
   }
 ];
@@ -29,14 +28,13 @@ const projects = [
 <section class="section" id="Progetti">
   <div class="container">
     <div class="text-center">
-      <h2 class="section-title"
-      >Portfolio</h2>
+      <h2 class="section-title">Portfolio</h2>
       <h3 class="section-subtitle">I miei Lavori</h3>
     </div>
 
     <div class="projects-grid">
       {projects.map((project) => (
-        <a href={project.link} class="project-card">
+        <a href={project.link} class="project-card" target="_blank" rel="noopener noreferrer">
           <div class="image-wrapper">
             <img src={project.image} alt={project.title} loading="lazy" />
           </div>
@@ -54,8 +52,6 @@ const projects = [
 </Layout>
 
 <style>
-
-
   .section {
     color: #ffffff;
   }
@@ -68,7 +64,8 @@ const projects = [
     line-height: 1.25;
     margin: 0;
   }
-.project-description {
+
+  .project-description {
     font-size: 15px;
     color: var(--text);
     opacity: 0.75;
@@ -78,17 +75,18 @@ const projects = [
     white-space: pre-line;
   }
 
-.section-subtitle {
-  margin-bottom: 20px;
-  font-weight: 400;
-}
-  /* Grid 4 colonne */
+  .section-subtitle {
+    margin-bottom: 20px;
+    font-weight: 400;
+  }
+
+  /* Grid 2 colonne */
   .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    max-width: 750px; /* <--- Limita la larghezza massima della griglia */
-    margin: 0 auto;   /* <--- Centra la griglia nella sezione */
+    gap: 32px;
+    max-width: 960px;
+    margin: 0 auto;
   }
 
   /* Card singolo progetto */
@@ -110,23 +108,30 @@ const projects = [
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
   }
 
-  /* Immagine */
-  .image-wrapper {
+  /* --- EFFETTO HOVER SCROLL DELL'IMMAGINE --- */
+.image-wrapper {
     width: 100%;
-    aspect-ratio: 5 / 5;
+    height: 480px;
     overflow: hidden;
+    position: relative;
+    background-color: #1a1f2c;
   }
 
   .image-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
+    width: 100%; /* Se togli questo o lo cambi con la larghezza reale, l'immagine non si rimpicciolisce */
+    width: 100%; 
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 28s linear;
   }
 
+  /* Quando vai in hover sulla card, l'immagine slitta verso l'alto */
   .project-card:hover .image-wrapper img {
-    transform: scale(1.04);
+   transform: translateY(calc(-100% + 480px));
   }
+  /* ------------------------------------------- */
 
   /* Contenuto e Descrizione */
   .project-info {
@@ -156,17 +161,11 @@ const projects = [
       grid-template-columns: repeat(2, 1fr);
     }
   }
-@media (max-width: 640px) {
-  .projects-grid {
-    grid-template-columns: 1fr; /* una colonna sotto l'altra */
-    max-width: 400px;           /* opzionale: card non troppo larga */
+
+  @media (max-width: 640px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+      max-width: 400px;
+    }
   }
-  .service-row {
-    grid-template-columns: 1fr;
-    padding: 24px;
-  }
-  .service-number {
-    font-size: 32px;
-  }
-}
 </style>
