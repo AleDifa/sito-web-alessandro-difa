@@ -9,21 +9,20 @@
     <ul class="nav-links">
       <li><a href="/#Hero">Home</a></li>
       <li><a href="/chi-sono">Chi Sono</a></li>
-      
+
       <li class="dropdown">
         <a href="/servizi" class="dropbtn">
           Servizi <span class="arrow" style="color:rgb(139, 7, 117);">&#9660;</span>
         </a>
         <ul class="dropdown-content">
-<li><a href="/creazione-siti-web">01 Creazione Siti Web</a></li>
-<li><a href="/siti-ecommerce">02 Creazione E-commerce</a></li>
-<li><a href="/servizio-foto-video">03 Servizi Fotografici e Video</a></li>
-<li><a href="/analisi-di-mercato-e-strategia-360">04 Analisi di Mercato e Strategia Marketing 360°</a></li>
-<li><a href="/ottimizzazione-google-business-profile">05 Creazione Profilo Google Maps</a></li>
-<li><a href="/analisi-dati-social-media">06 Analisi Dati Social Media</a></li>
-<li><a href="/analisi-dati-powerbi">07 Analisi Dati di Business Intelligence con PowerBI </a></li>
-
-</ul>
+          <li><a href="/creazione-siti-web">01 Creazione Siti Web</a></li>
+          <li><a href="/siti-ecommerce">02 Creazione E-commerce</a></li>
+          <li><a href="/servizio-foto-video">03 Servizi Fotografici e Video</a></li>
+          <li><a href="/gestione-social-media">04 Gestione Social Media</a></li>
+          <li><a href="/analisi-di-mercato-e-strategia-360">05 Analisi di Mercato e Strategia Marketing 360°</a></li>
+          <li><a href="/ottimizzazione-google-business-profile">06 Ottimizzazione Google Business Profile</a></li>
+          <li><a href="/analisi-dati-powerbi">07 Analisi Dati con Power BI</a></li>
+        </ul>
       </li>
 
       <li><a href="/progetti">Progetti</a></li>
@@ -41,7 +40,25 @@
   <ul>
     <li><a href="/#Hero" class="mobile-link">Home</a></li>
     <li><a href="/chi-sono" class="mobile-link">Chi Sono</a></li>
-    <li><a href="/servizi" class="mobile-link">Servizi</a></li>
+
+    <li class="mobile-dropdown" id="mobileDropdown">
+      <div class="mobile-dropdown-row">
+        <a href="/servizi" class="mobile-link">Servizi</a>
+        <button class="mobile-arrow-btn" id="mobileServicesBtn" aria-label="Mostra i servizi" aria-expanded="false">
+          <span class="arrow" style="color:rgb(139, 7, 117);">&#9660;</span>
+        </button>
+      </div>
+      <ul class="mobile-submenu" id="mobileSubmenu">
+        <li><a href="/creazione-siti-web" class="mobile-link mobile-sublink">01 Creazione Siti Web</a></li>
+        <li><a href="/siti-ecommerce" class="mobile-link mobile-sublink">02 Creazione E-commerce</a></li>
+        <li><a href="/servizio-foto-video" class="mobile-link mobile-sublink">03 Servizi Fotografici e Video</a></li>
+        <li><a href="/gestione-social-media" class="mobile-link mobile-sublink">04 Gestione Social Media</a></li>
+        <li><a href="/analisi-di-mercato-e-strategia-360" class="mobile-link mobile-sublink">05 Analisi di mercato: concorrenti, prezzi e come farti scegliere</a></li>
+        <li><a href="/ottimizzazione-google-business-profile" class="mobile-link mobile-sublink">06 Ottimizzazione Google Business Profile</a></li>
+        <li><a href="/analisi-dati-powerbi" class="mobile-link mobile-sublink">07 Analisi Dati con Power BI</a></li>
+      </ul>
+    </li>
+
     <li><a href="/progetti" class="mobile-link">Progetti</a></li>
     <li><a href="/blog" class="mobile-link">Blog</a></li>
     <li><a href="#contatti" class="mobile-link">Contatti</a></li>
@@ -79,7 +96,7 @@
 }
 
 .nav-logo-icon {
-  height: 52px;      
+  height: 52px;
   display: flex;
   align-items: center;
 }
@@ -113,7 +130,7 @@
   background: rgba(255,255,255,0.06);
 }
 
-/* STILI SPECIFICI DROPDOWN */
+/* STILI SPECIFICI DROPDOWN (DESKTOP) */
 .dropdown {
   position: relative;
   display: inline-block;
@@ -128,7 +145,6 @@
 .arrow {
   font-size: 10px;
   transition: transform 0.2s ease;
-
 }
 
 /* Rotazione della freccia al passaggio del mouse */
@@ -145,7 +161,7 @@
   border: 1px solid var(--border, #333);
   border-radius: var(--radius-xs, 6px);
   list-style: none;
-  min-width: 210px;
+  min-width: 250px;
   box-shadow: 0px 8px 16px rgba(0,0,0,0.4);
   z-index: 10;
   padding: 6px 0;
@@ -204,6 +220,9 @@
   opacity: 0;
   transition: all 0.3s ease;
   pointer-events: none;
+  /* Se i servizi aperti superano lo schermo, il menu scorre */
+  max-height: calc(100vh - 64px);
+  overflow-y: auto;
 }
 
 .mobile-menu.open {
@@ -233,6 +252,53 @@
 
 .mobile-link:hover { color: var(--text, #fff); }
 
+/* MOBILE DROPDOWN SERVIZI */
+.mobile-dropdown-row {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid var(--border, #333);
+}
+
+.mobile-dropdown-row .mobile-link {
+  flex: 1;
+  border-bottom: none;
+}
+
+.mobile-arrow-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 8px 0 20px;
+  display: flex;
+  align-items: center;
+}
+
+.mobile-arrow-btn .arrow {
+  font-size: 12px;
+  transition: transform 0.2s ease;
+}
+
+.mobile-dropdown.open .arrow {
+  transform: rotate(180deg);
+}
+
+.mobile-menu .mobile-submenu {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 0 0 16px;
+  gap: 0;
+  transition: max-height 0.3s ease;
+}
+
+.mobile-dropdown.open .mobile-submenu {
+  max-height: 600px;
+}
+
+.mobile-sublink {
+  font-size: 14px;
+  padding: 10px 0;
+}
+
 @media (max-width: 900px) {
   .nav-links, .nav-cta { display: none; }
   .nav-hamburger { display: flex; }
@@ -242,12 +308,42 @@
 <script>
   const btn = document.getElementById('hamburger');
   const menu = document.getElementById('mobileMenu');
+  const servicesBtn = document.getElementById('mobileServicesBtn');
+  const mobileDropdown = document.getElementById('mobileDropdown');
 
+  // Chiude il menu e richiude anche l'elenco dei servizi
+  function closeMenu() {
+    menu?.classList.remove('open');
+    mobileDropdown?.classList.remove('open');
+    servicesBtn?.setAttribute('aria-expanded', 'false');
+  }
+
+  // Apri/chiudi con il pulsante hamburger
   btn?.addEventListener('click', () => {
     menu?.classList.toggle('open');
   });
 
+  // Chiudi quando si tocca un link del menu
   document.querySelectorAll('.mobile-link').forEach(link => {
-    link.addEventListener('click', () => menu?.classList.remove('open'));
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Apri/chiudi l'elenco dei servizi da mobile
+  servicesBtn?.addEventListener('click', () => {
+    const isOpen = mobileDropdown?.classList.toggle('open');
+    servicesBtn.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  // Chiudi toccando fuori dal menu (ma non sul pulsante hamburger)
+  document.addEventListener('click', (e) => {
+    const target = e.target as Node;
+    if (!menu?.classList.contains('open')) return;
+    if (menu.contains(target) || btn?.contains(target)) return;
+    closeMenu();
+  });
+
+  // Chiudi con il tasto Esc
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
   });
 </script>
