@@ -4,227 +4,450 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import Contact from '../components/Contact.astro';
 
-const stats = [
-  { value: "7", suffix: "anni", label: "di esperienza" },
-  { value: "20", suffix: "+", label: "clienti soddisfatti" },
-  { value: "∞", suffix: "", label: "progetti conclusi" },
+// ⚠️ Verifica nome e cognome: vengono usati in title, testi e dati strutturati
+const nome = "Alessandro DiFa";
+const citta = "Ancona";
+const linkedin = "https://www.linkedin.com/in/alessandro-difa/";
+
+const siteUrl = Astro.site?.origin ?? "";
+const pageUrl = `${siteUrl}/chi-sono`;
+
+// SEO: title ~55-60 caratteri, description ~150-160 caratteri
+const seoTitle = `Chi sono | ${nome}, Web Designer e SEO ad ${citta}`;
+const seoDescription = `Sono ${nome}, web designer e consulente SEO ad ${citta}. Creo siti web veloci e faccio trovare la tua attività su Google, unendo creatività e dati.`;
+
+const foto = [
+  { src: "/img/foto-profilo.png", alt: `${nome}, web designer e consulente SEO ad ${citta}`, w: 600, h: 800 },
+  { src: "/img/moto-ale.jpeg", alt: `${nome} in moto`, w: 400, h: 200 },
+  { src: "/img/15Capture.PNG", alt: `${nome} durante una consulenza SEO con un cliente`, w: 600, h: 400 },
 ];
+
+const competenze = [
+  {
+    icon: "🖥️",
+    titolo: "Realiazzione di Siti web ad Ancona e nelle Marche",
+    testo: "Costruiti per trasformare i visitatori in richieste di contatto.",
+  },
+  {
+    icon: "🔎",
+    titolo: "Migliorare la tua posizione su Google e Google Maps",
+    testo: `Per farti trovare da chi cerca i tuoi servizi ad ${citta} e dintorni.`,
+  },
+  {
+    icon: "📊",
+    titolo: "Gestione Social Media e concorrenza",
+    testo: "Studio cosa fanno i tuoi concorrenti e misuro i risultati, così ogni scelta si basa sui numeri e non sulle sensazioni.",
+  },
+];
+
+const brand = ["Toyota", "Stellantis", "Ford", "Alpitour", "Ministero della Sicurezza Energetica"];
+
+const metodo = [
+  { n: "01", titolo: "Ascolto e analisi", testo: "Capisco la tua attività, i tuoi clienti e cosa cercano su Google." },
+  { n: "02", titolo: "Strategia e sviluppo", testo: "Progetto e realizzo il sito con struttura, contenuti e parole chiave giuste." },
+  { n: "03", titolo: "Misura e crescita", testo: "Monitoro posizionamento e conversioni e miglioro nel tempo." },
+];
+
+// Dati strutturati: ProfilePage + Person (aiuta Google a capire chi sei)
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  url: pageUrl,
+  name: seoTitle,
+  mainEntity: {
+    "@type": "Person",
+    name: nome,
+    jobTitle: "Web Designer e Consulente SEO",
+    url: siteUrl || undefined,
+    image: `${siteUrl}${foto[0].src}`,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: citta,
+      addressRegion: "Marche",
+      addressCountry: "IT",
+    },
+    knowsAbout: ["Web design", "SEO", "SEO locale", "Sviluppo siti web", "Web analytics", "Marketing digitale"],
+    sameAs: [linkedin],
+  },
+};
 ---
 
-<Layout title="Chi Sono">
+<Layout title={seoTitle} description={seoDescription}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
   <Navbar />
 
-  <section class="section" id="chi-sono">
-    <div class="container">
+  <main>
+    <!-- HERO -->
+    <section class="section hero" id="chi-sono" aria-labelledby="titolo-chi-sono">
+      <div class="glow" aria-hidden="true"></div>
+      <div class="container">
+        <div class="intro-block">
+          <p class="eyebrow">Chi sono</p>
+          <h1 class="section-title" id="titolo-chi-sono">
+            Ciao, sono {nome.split(" ")[0]}:
+            <span class="accent">web designer e consulente SEO</span> ad {citta}
+          </h1>
+          <p class="lead">
+            Strategia di marketing, creatività e tecnologia in un'unica figura. Creo siti web
+            che funzionano e faccio in modo che la tua attività compaia su Google quando i
+            clienti cercano i tuoi servizi.
+          </p>
 
-      <!-- INTRO -->
-      <div class="intro-block">
-        <p class="eyebrow">Chi sono</p>
-        <h1 class="section-title">
-          Strategia marketing, creatività e tecnologia in un'unica figura
-        </h1>
-        <p class="location">📍 Based in Ancona</p>
-      </div>
-
-      <!-- FOTO -->
-      <div class="photo-section">
-        <div class="photo-placeholder">
-          <img src="/img/foto-profilo.png" alt="Foto Profilo Alessandro" />
         </div>
 
+        <!-- FOTO BENTO -->
+        <div class="bento">
+          {foto.map((f, i) => (
+            <figure class={`bento-item bento-${i + 1}`}>
+              <img
+                src={f.src}
+                alt={f.alt}
+                width={f.w}
+                height={f.h}
+                loading={i === 0 ? "eager" : "lazy"}
+                fetchpriority={i === 0 ? "high" : "auto"}
+                decoding="async"
+              />
+            </figure>
+          ))}
+        </div>
       </div>
+    </section>
 
-      <!-- STATS 
-      <div class="stats-grid">
-        {stats.map((s) => (
-          <div class="stat-card">
-            <div class="stat-value">{s.value}<span class="stat-suffix">{s.suffix}</span></div>
-            <div class="stat-label">{s.label}</div>
+    <!-- STORIA -->
+    <section class="section" aria-labelledby="titolo-storia">
+      <div class="container text-block">
+        <h2 id="titolo-storia" class="h2">Esperienza in grandi aziende</h2>
+        <p>
+          Porto in ogni progetto un background maturato in contesti internazionali e settori
+          complessi, unendo la parte tecnica dello sviluppo web a una reale visione di business.
+          Ho lavorato a progetti per:
+        </p>
+        <ul class="brand-list" aria-label="Aziende ed enti con cui ho lavorato">
+          {brand.map((b) => <li>{b}</li>)}
+        </ul>
+        <p>
+          Il mio approccio unisce creatività e numeri: studio i tuoi concorrenti, analizzo i dati
+          e ottimizzo il sito per trasformare le visite in <strong>clienti veri</strong> e
+          decisioni concrete.
+        </p>
+        <div class="cta-wrap left">
+          <a href={linkedin} target="_blank" rel="noopener noreferrer me" class="button ghost" style= "margin-top: 30px;">
+            Vedi il mio profilo LinkedIn ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- COSA FACCIO -->
+    <section class="section" aria-labelledby="titolo-servizi">
+      <div class="container">
+        <h2 id="titolo-servizi" class="h2 center">Di cosa mi occupo</h2>
+        <div class="cards">
+          {competenze.map((c) => (
+            <article class="card">
+              <span class="card-icon" aria-hidden="true">{c.icon}</span>
+              <h3>{c.titolo}</h3>
+              <p>{c.testo}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+
+    <!-- CTA -->
+    <section class="section" aria-labelledby="titolo-cta">
+      <div class="container">
+        <div class="cta-box">
+          <h2 id="titolo-cta" class="h2">Vuoi più clienti?</h2>
+          <p>Scopri come posso aiutarti con un sito web professionale e una strategia marketing su misura.</p>
+          <div class="cta-row">
+            <a href="/servizi" class="button">Scopri i servizi di web design e SEO</a>
+            <a href="#contatti" class="button ghost">Chiamata gratis conoscitiva</a>
           </div>
-        ))}
-      </div>-->
-
-      <!-- CTA -->
-      <div class="cta-wrap">
-        <a href="https://www.linkedin.com/in/alessandro-difa/" target="_blank" rel="noopener noreferrer" class="button">
-          Background professionale LinkedIn
-        </a>
+        </div>
       </div>
+    </section>
 
-      <!-- TESTO LIBERO -->
-      <div class="text-block">
-        <p>
-          Realizzo siti web e faccio in modo che la tua attività compaia su Google quando i clienti cercano i tuoi servizi. Porto in ogni progetto un background maturato in contesti internazionali e settori complessi (Toyota, Stellantis, Ford, Alpitour, Ministero dell'Ambiente e Sicurezza), unendo la parte tecnica a una reale visione di business.
-        </p>
-        <hr class="separator" />
-        <p>
-          Il mio approccio unisce creatività e numeri: studio cosa fanno i tuoi concorrenti e analizzo i dati per trasformare i visitatori del sito in clienti veri e decisioni concrete.
-        </p>
-      </div>
-
+    <!-- CONTATTI -->
+    <div id="contatti">
+      <Contact />
     </div>
-  </section>
-
-  <div class="cta-wrap">
-    <a href="/servizi" class="button">Scopri tutti i Servizi</a>
-  </div>
-
-  <!-- CONTATTI -->
-  <Contact />
+  </main>
 
   <Footer />
 </Layout>
 
 <style>
+  .section { position: relative; }
+
+  /* HERO */
+  .hero { overflow: hidden; }
+  .glow {
+    position: absolute;
+    inset: -20% 0 auto 50%;
+    width: 900px;
+    height: 600px;
+    transform: translateX(-50%);
+    background: radial-gradient(closest-side, rgba(0, 102, 232, 0.28), transparent);
+    filter: blur(40px);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero .container { position: relative; z-index: 1; }
+
   .intro-block {
-    max-width: 780px;
-    margin: 0 auto 40px;
+    max-width: 820px;
+    margin: 0 auto 48px;
     text-align: center;
     padding: 0 16px;
-  }
-
-  .separator {
-    border: none;
-    border-top: 1px solid var(--border, rgba(255, 255, 255, 0.1));
-    margin: 20px 0;
   }
 
   .eyebrow {
-    font-size: 14px;
+    display: inline-block;
+    font-size: 13px;
     font-weight: 600;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--blue-light, #60a5fa);
-    margin-bottom: 12px;
+    background: rgba(96, 165, 250, 0.1);
+    border: 1px solid rgba(96, 165, 250, 0.25);
+    padding: 6px 14px;
+    border-radius: 9999px;
+    margin-bottom: 18px;
   }
 
-  .location {
-    margin-top: 16px;
-    font-size: 14px;
+  .accent {
+    background: linear-gradient(90deg, #60a5fa, #0066e8 50%, #a78bfa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .lead {
+    margin: 18px auto 0;
+    max-width: 640px;
+    font-size: 17px;
+    line-height: 1.7;
     color: var(--text);
-    opacity: 0.7;
+    opacity: 0.85;
   }
 
-  .photo-section {
+  /* BENTO */
+  .bento {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
-    max-width: 300px;
-    margin: 0 auto 40px;
+    grid-template-columns: 1.2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 14px;
+    max-width: 820px;
+    height: 520px;
+    margin: 0 auto 24px;
     padding: 0 16px;
   }
-
-  .photo-placeholder {
-    width: 100%;
-    aspect-ratio: 3 / 4;
+  .bento-item {
+    margin: 0;
     border-radius: var(--radius, 16px);
     overflow: hidden;
+    border: 1px solid var(--border, rgba(255, 255, 255, 0.1));
+    background: var(--bg-card, #121212);
   }
-
-  .photo-placeholder img {
+  .bento-1 { grid-row: 1 / span 2; }
+  .bento-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: 20% 20%;
     display: block;
+    transition: transform 0.5s ease;
   }
+  .bento-item:hover img { transform: scale(1.04); }
 
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    max-width: 650px;
-    margin: 0 auto 40px;
+  /* TITOLI */
+  .h2 {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3vw, 32px);
+    line-height: 1.2;
+    margin: 0 0 20px;
+    color: var(--text, #fff);
+  }
+  .center { text-align: center; }
+
+  /* TESTO */
+  .text-block {
+    max-width: 780px;
+    margin: 0 auto;
     padding: 0 16px;
   }
+  .text-block p {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--text);
+    opacity: 0.85;
+  }
 
-  .stat-card {
-    text-align: center;
+  .brand-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0;
+    margin: 20px 0 24px;
+  }
+  .brand-list li {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 10px;
     background: var(--bg-card, #121212);
     border: 1px solid var(--border, rgba(255, 255, 255, 0.1));
+    color: var(--text);
+  }
+
+  /* CARDS */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+  .card {
+    padding: 28px 24px;
+    border-radius: var(--radius, 16px);
+    background: var(--bg-card, #121212);
+    border: 1px solid var(--border, rgba(255, 255, 255, 0.1));
+    transition: transform 0.25s ease, border-color 0.25s ease;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(96, 165, 250, 0.5);
+  }
+  .card-icon {
+    display: inline-grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
     border-radius: 12px;
-    padding: 16px 12px;
+    background: rgba(0, 102, 232, 0.15);
+    margin-bottom: 16px;
   }
-
-  .stat-value {
-    font-family: var(--font-display);
-    font-size: 26px;
-    font-weight: 700;
-    color: var(--text, #fff);
-    line-height: 1.1;
-  }
-
-  .stat-suffix {
+  .card h3, .step h3 {
     font-size: 18px;
-    margin-left: 2px;
+    margin: 0 0 8px;
+    color: var(--text, #fff);
+  }
+  .card p, .step p {
+    font-size: 15px;
+    line-height: 1.65;
+    margin: 0;
+    color: var(--text);
+    opacity: 0.8;
   }
 
-  .stat-label {
-    margin-top: 4px;
-    font-size: 12px;
-    color: var(--text, #fff);
-    opacity: 0.7;
+  /* METODO */
+  .steps {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+  .step {
+    padding: 24px;
+    border-left: 2px solid #0066e8;
+  }
+  .step-n {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--blue-light, #60a5fa);
+    margin-bottom: 8px;
+  }
+
+  /* CTA */
+  .cta-box {
+    max-width: 820px;
+    margin: 0 auto 20px;
+    padding: 40px 24px;
+    text-align: center;
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(0, 102, 232, 0.25), rgba(167, 139, 250, 0.15));
+    border: 1px solid rgba(96, 165, 250, 0.3);
+  }
+  .cta-box p {
+    color: var(--text);
+    opacity: 0.85;
+    margin: 0 0 24px;
+  }
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
   }
 
   .cta-wrap {
     display: flex;
     justify-content: center;
     margin-bottom: 40px;
-    padding: 0 16px;
   }
+  .cta-wrap.left { justify-content: flex-start; margin-bottom: 0; }
 
   .button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 10px 24px;
-    border: none;
+    padding: 12px 26px;
+    border: 1px solid transparent;
     border-radius: 9999px;
     background: #0066e8;
     color: #ffffff;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 500;
     text-decoration: none;
     cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.2s ease;
+    transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
     white-space: nowrap;
   }
-
   .button:hover {
     background: #0052ba;
     transform: translateY(-1px);
   }
-
-  .text-block {
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 0 16px;
+  .button.ghost {
+    background: transparent;
+    border-color: var(--border, rgba(255, 255, 255, 0.25));
+    color: var(--text, #fff);
+  }
+  .button.ghost:hover {
+    border-color: #60a5fa;
+    background: rgba(96, 165, 250, 0.1);
   }
 
-  .text-block p {
-    font-size: 15px;
-    line-height: 1.7;
-    color: var(--text);
-    opacity: 0.85;
+  @media (max-width: 860px) {
+    .cards, .steps { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 640px) {
-    .stats-grid {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
+    .bento {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 340px 180px;
+      height: auto;
+      gap: 10px;
     }
-    .stat-card {
-      padding: 12px 6px;
-    }
-    .stat-value {
-      font-size: 20px;
-    }
-    .stat-label {
-      font-size: 11px;
-    }
-    .button {
-      white-space: normal;
-    }
+    .bento-1 { grid-column: 1 / span 2; grid-row: 1; }
+    .lead { font-size: 16px; }
+    .button { white-space: normal; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bento-item img, .card, .button { transition: none; }
   }
 </style>

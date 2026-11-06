@@ -1,0 +1,311 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import Contact from '../components/Contact.astro';
+
+const nome = "Alessandro Di Fa";
+const citta = "Ancona";
+
+const siteUrl = Astro.site?.origin ?? "";
+const pageUrl = `${siteUrl}/social-media/`;
+
+// SEO: title ~60 caratteri, description ~155 caratteri
+const seoTitle = `Gestione Social Media | Instagram, Facebook, LinkedIn`;
+const seoDescription = `Gestione social media ad ${citta}: strategia, piano editoriale e testi per Instagram, Facebook e LinkedIn. Più visibilità e clienti per la tua attività.`;
+
+const tags = ["Social Media", "Analytics", "Performance"];
+
+const faq = [
+  {
+    q: "Quali social gestisci?",
+    a: "Instagram, Facebook e LinkedIn. Scegliamo insieme quelli più utili per la tua attività.",
+  },
+  {
+    q: "Devo occuparmi io dei contenuti?",
+    a: "No: strategia, piano editoriale e testi li curo io. Ti chiedo solo approvazione e materiale fotografico quando serve.",
+  },
+  {
+    q: `Lavori solo ad ${citta}?`,
+    a: `Ho base ad ${citta}, ma seguo clienti anche da remoto.`,
+  },
+];
+
+// Dati strutturati: Service + FAQPage + Breadcrumb
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Gestione Social Media",
+    serviceType: "Social media management",
+    url: pageUrl,
+    description: seoDescription,
+    provider: {
+      "@type": "Person",
+      name: nome,
+      address: { "@type": "PostalAddress", addressLocality: citta, addressRegion: "Marche", addressCountry: "IT" },
+    },
+    areaServed: { "@type": "City", name: citta },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
+      { "@type": "ListItem", position: 2, name: "Servizi", item: `${siteUrl}/servizi` },
+      { "@type": "ListItem", position: 3, name: "Gestione Social Media", item: pageUrl },
+    ],
+  },
+];
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <Navbar />
+
+  <main>
+    <!-- HERO -->
+    <section class="section hero" aria-labelledby="titolo-social">
+      <div class="glow" aria-hidden="true"></div>
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a> <span>/</span> <a href="/servizi">Servizi</a> <span>/</span>
+          <span aria-current="page">Social Media</span>
+        </nav>
+
+        <div class="intro-block">
+          <p class="eyebrow">Servizio</p>
+          <h1 class="section-title" id="titolo-social">
+            <span class="accent">Gestione social media</span>
+          </h1>
+          <p class="lead">
+            Creazione contenuti per Facebook, Instagram e LinkedIn
+          </p>
+          <ul class="badges" aria-label="Aree del servizio">
+            {tags.map((t) => <li class="badge">{t}</li>)}
+          </ul>
+          <div class="cta-row">
+            <a href="#contatti" class="button">Richiedi una consulenza gratuita</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" aria-labelledby="titolo-faq">
+      <div class="container faq-wrap">
+        <h2 id="titolo-faq" class="h2 center">Domande frequenti</h2>
+        {faq.map((f) => (
+          <details class="faq">
+            <summary><h3>{f.q}</h3></summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" aria-labelledby="titolo-cta">
+      <div class="container">
+        <div class="cta-box">
+          <h2 id="titolo-cta" class="h2">Pronto a far crescere i tuoi social?</h2>
+          <div class="cta-row">
+            <a href="#contatti" class="button">Contattami</a>
+            <a href="/servizi" class="button ghost">Tutti i servizi</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="contatti">
+      <Contact />
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .section { position: relative; }
+
+  /* HERO */
+  .hero { overflow: hidden; }
+  .glow {
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    width: 900px;
+    height: 600px;
+    transform: translateX(-50%);
+    background: radial-gradient(closest-side, rgba(0, 102, 232, 0.28), transparent);
+    filter: blur(40px);
+    pointer-events: none;
+  }
+  .hero .container { position: relative; z-index: 1; }
+
+  .breadcrumb {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    font-size: 13px;
+    margin-bottom: 24px;
+    color: var(--text);
+    opacity: 0.6;
+  }
+  .breadcrumb a { color: inherit; text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  .intro-block {
+    max-width: 760px;
+    margin: 0 auto 24px;
+    text-align: center;
+    padding: 0 16px;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--blue-light, #60a5fa);
+    background: rgba(96, 165, 250, 0.1);
+    border: 1px solid rgba(96, 165, 250, 0.25);
+    padding: 6px 14px;
+    border-radius: 9999px;
+    margin-bottom: 18px;
+  }
+
+  .accent {
+    background: linear-gradient(90deg, #60a5fa, #0066e8 50%, #a78bfa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .lead {
+    margin: 16px auto 0;
+    max-width: 560px;
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--text);
+    opacity: 0.85;
+  }
+
+  .badges {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 0;
+    margin: 22px 0 28px;
+  }
+  .badge {
+    font-size: 13px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    background: var(--bg-card, #121212);
+    border: 1px solid var(--border, rgba(255, 255, 255, 0.1));
+    color: var(--text);
+  }
+
+  /* TITOLI */
+  .h2 {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3vw, 32px);
+    line-height: 1.2;
+    margin: 0 0 24px;
+    color: var(--text, #fff);
+  }
+  .center { text-align: center; }
+
+  h3 {
+    font-size: 17px;
+    margin: 0;
+    color: var(--text, #fff);
+  }
+
+  /* FAQ */
+  .faq-wrap { max-width: 720px; margin: 0 auto; padding: 0 16px; }
+  .faq {
+    border-bottom: 1px solid var(--border, rgba(255, 255, 255, 0.1));
+    padding: 16px 0;
+  }
+  .faq summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after {
+    content: "+";
+    font-size: 22px;
+    color: var(--blue-light, #60a5fa);
+    transition: transform 0.2s ease;
+  }
+  .faq[open] summary::after { transform: rotate(45deg); }
+  .faq summary h3 { margin: 0; }
+  .faq p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 10px 0 0;
+    color: var(--text);
+    opacity: 0.8;
+  }
+
+  /* CTA */
+  .cta-box {
+    max-width: 820px;
+    margin: 0 auto 40px;
+    padding: 40px 24px;
+    text-align: center;
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(0, 102, 232, 0.25), rgba(167, 139, 250, 0.15));
+    border: 1px solid rgba(96, 165, 250, 0.3);
+  }
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 26px;
+    border: 1px solid transparent;
+    border-radius: 9999px;
+    background: #0066e8;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  }
+  .button:hover { background: #0052ba; transform: translateY(-1px); }
+  .button.ghost {
+    background: transparent;
+    border-color: var(--border, rgba(255, 255, 255, 0.25));
+    color: var(--text, #fff);
+  }
+  .button.ghost:hover { border-color: #60a5fa; background: rgba(96, 165, 250, 0.1); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .button, .faq summary::after { transition: none; }
+  }
+</style>
