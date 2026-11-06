@@ -9,10 +9,7 @@ const ScrollReveal = ({ lines }) => {
   const wrapperRef = useRef(null);
 
   const defaultLines = [
-    "Realizzo siti web e landing page pensati per scalare il mercato per PMI e professionisti.",
-    "Posiziono la tua attività in cima a Google e nei consigli delle IA.",
-    "Integrazione con foto 3D e design avanzato per un'esperienza visiva unica."
-  ];
+ ];
 
   const textLines = lines && lines.length > 0 ? lines : defaultLines;
 

@@ -1,6 +1,7 @@
 ---
 ---
 
+<!-- ========== GOOGLE SEARCH ========== -->
 <section class="rank-hero" id="google-search">
   <div class="rank-glow rank-glow-1"></div>
   <div class="rank-glow rank-glow-2"></div>
@@ -9,9 +10,6 @@
     <div class="rank-layout">
 
       <div class="rank-content">
-        <div class="badge-row animate-fade-up">
-        </div>
-
         <h2 class="rank-title animate-fade-up delay-1">
           Porta il tuo sito
           in <span class="rank-title-highlight">1° posizione</span> su Google.
@@ -68,7 +66,7 @@
                 <div class="serp-up-chip">▲ +19</div>
               </div>
 
-              <div class="serp-row serp-row-comp">
+              <div class="serp-row serp-row-a">
                 <div class="serp-rank-icon">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/></svg>
                 </div>
@@ -79,7 +77,7 @@
                 </div>
               </div>
 
-              <div class="serp-row serp-row-comp">
+              <div class="serp-row serp-row-b">
                 <div class="serp-rank-icon">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/></svg>
                 </div>
@@ -92,7 +90,7 @@
             </div>
           </div>
 
-          <div class="float-chip float-chip-1">🏆 #1 su Google</div>
+          <div class="float-chip">🏆 #1 su Google</div>
         </div>
       </div>
 
@@ -100,420 +98,79 @@
   </div>
 </section>
 
-<style>
 
-  :global(html), :global(body) {
-  overflow-x: hidden;
-  width: 100%;
-}
-
-
-  .rank-hero {
-    width: 100%;
-    box-sizing: border-box;
-    position: relative;
-    overflow: hidden;
-    padding: clamp(60px, 10vw, 120px) 20px;
-  }
-
-  .rank-glow { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; }
-  .rank-glow-1 { width: 520px; height: 520px; top: -160px; right: -120px; background: radial-gradient(circle, rgba(59,130,246,0.14) 0%, transparent 70%); }
-  .rank-glow-2 { width: 420px; height: 420px; bottom: -120px; left: -100px; background: radial-gradient(circle, rgba(29,78,216,0.09) 0%, transparent 70%); }
-
-  .rank-layout {
-    max-width: 891px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(16px, 2.5vw, 32px);
-    align-items: center;
-    position: relative;
-    z-index: 1;
-  }
-
-  .rank-content { max-width: 540px; }
-
-  .badge-row { display: flex; flex-wrap: wrap; gap: 10px; }
-  .badge-outline {
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--text-muted);
-  }
-
-  .rank-title {
-    font-family: var(--font-display);
-    font-size: clamp(26px, 3.4vw, 40px);
-    font-weight: 800;
-    line-height: 1.2;
-    letter-spacing: -0.03em;
-    color: var(--text);
-    margin: 20px 0 20px;
-  }
-.rank-title-highlight {
-  background: linear-gradient(135deg, #0044ff, #ffffff);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-}
-
-  .rank-desc {
-    color: var(--text-muted);
-    font-size: 16px;
-    line-height: 1.65;
-    margin-bottom: 32px;
-  }
-
-  .rank-stats { display: flex; align-items: center; gap: 0; margin-top: 40px; }
-  .rstat { display: flex; flex-direction: column; gap: 4px; padding-right: 28px; }
-  .rstat-num { font-family: var(--font-display); font-size: 30px; font-weight: 800; color: var(--text); letter-spacing: -0.02em; }
-  .rstat-label { font-size: 12.5px; color: var(--text-muted); }
-  .rstat-divider { width: 1px; height: 34px; background: var(--border); margin: 0 20px; flex-shrink: 0; }
-
-  /* ---------- SERP visual ---------- */
-  .rank-visual { display: flex; justify-content: flex-start; }
-  .serp-tilt {
-    position: relative;
-    width: 100%;
-    max-width: 420px;
-    perspective: 1200px;
-  }
-
-  .serp-card {
-    background: rgba(255,255,255,0.035);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 15px 15px 10px;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    transform-style: preserve-3d;
-    transition: transform 0.15s ease-out;
-    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.5);
-  }
-
-  .serp-topbar { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; margin-bottom: 18px; }
-  .serp-logo { font-family: var(--font-display); font-weight: 700; font-size: 15px; letter-spacing: -0.01em; flex-shrink: 0; }
-  .g1 { color: #4285F4; } .g2 { color: #EA4335; } .g3 { color: #FBBC05; } .g4 { color: #34A853; }
-
-  .serp-searchbar {
-    align-self: stretch;
-    width: 100%;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(0,0,0,0.25);
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    padding: 8px 14px;
-    color: var(--text-muted);
-    font-size: 12.5px;
-    min-width: 0;
-  }
-  .serp-typed { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: rgba(240,240,240,0.85); }
-  .serp-caret { width: 1px; height: 12px; background: rgba(147,197,253,0.8); display: inline-block; animation: caretBlink 0.9s step-end infinite; }
-  @keyframes caretBlink { 0%,50% { opacity: 1; } 51%,100% { opacity: 0; } }
-
-  .serp-results { 
-    position: relative; 
-    height: 380px; }
-
-  .serp-row {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    height: 130px;
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 12px;
-    border-radius: 12px;
-    border: 1px solid transparent;
-    box-sizing: border-box;
-    overflow: hidden;
-    background: rgba(255,255,255,0.015);
-  }
-
-  .serp-row-you {
-    z-index: 2;
-    animation: climbYou 7s cubic-bezier(.65,0,.35,1) infinite alternate;
-  }
-
- .serp-row-comp:nth-of-type(2) { z-index: 1; animation: climbCompA 7s cubic-bezier(.65,0,.35,1) infinite alternate; }
-.serp-row-comp:nth-of-type(3) { z-index: 1; animation: climbCompB 7s cubic-bezier(.65,0,.35,1) infinite alternate; }
-
-/* posizioni: con height 100px + gap 10px, 3 righe stanno in 320px */
-
-/* La tua riga che sale al primo posto */
-@keyframes climbYou {
-  0%, 32% {
-    transform: translateY(260px); /* Posizione 3 (in fondo): 130px * 2 */
-  }
-  50%, 100% {
-    transform: translateY(0px);   /* Posizione 1 (in alto) */
-  }
-}
-
-/* Competitor A che scende dal 1° al 2° posto */
-@keyframes climbCompA {
-  0%, 32% {
-    transform: translateY(0px);   /* Posizione 1 (in alto) */
-  }
-  50%, 100% {
-    transform: translateY(130px); /* Posizione 2 (in mezzo): 130px * 1 */
-  }
-}
-
-/* Competitor B che scende dal 2° al 3° posto */
-@keyframes climbCompB {
-  0%, 32% {
-    transform: translateY(130px); /* Posizione 2 (in mezzo): 130px * 1 */
-  }
-  50%, 100% {
-    transform: translateY(260px); /* Posizione 3 (in fondo): 130px * 2 */
-  }
-}
-  .serp-rank { position: relative; width: 26px; height: 22px; flex-shrink: 0; margin-top: 2px; }
-  .rank-num {
-    position: absolute; inset: 0;
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--font-display); font-weight: 800; font-size: 15px;
-    border-radius: 6px;
-  }
-  .rank-num-from { color: rgba(240,240,240,0.35); animation: fadeSwapOut 7s cubic-bezier(.65,0,.35,1) infinite alternate; }
-  .rank-num-to   { color: #93c5fd; opacity: 0; animation: fadeSwapIn 7s cubic-bezier(.65,0,.35,1) infinite alternate; }
-  @keyframes fadeSwapOut { 0%,32% { opacity: 1; } 50%,100% { opacity: 0; } }
-  @keyframes fadeSwapIn  { 0%,50% { opacity: 0; } 68%,100% { opacity: 1; } }
-
-  .serp-rank-icon { width: 22px; height: 22px; flex-shrink: 0; margin-top: 2px; color: rgba(240,240,240,0.25); }
-
-  .serp-body { 
-    display: flex; 
-    flex-direction: column; 
-    min-width: 0; }
- 
-
-  .serp-url { font-size: 11.5px; color: #93c5fd; }
-  .serp-url.muted { color: rgba(240,240,240,0.3); }
-  .serp-title { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--text); }
-  .serp-title.muted { color: rgba(240,240,240,0.45); font-weight: 600; }
-  .serp-desc { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
-  .serp-desc.muted { color: rgba(240,240,240,0.28); }
-
-  .serp-up-chip {
-    position: absolute;
-    top: 10px; right: 10px;
-    font-size: 10.5px; font-weight: 700;
-    color: #93c5fd;
-    background: rgba(59,130,246,0.15);
-    border: 1px solid rgba(59,130,246,0.3);
-    border-radius: 100px;
-    padding: 2px 8px;
-    opacity: 0;
-    animation: chipIn 7s cubic-bezier(.65,0,.35,1) infinite alternate;
-  }
-  @keyframes chipIn { 0%,55% { opacity: 0; transform: translateY(-4px); } 70%,100% { opacity: 1; transform: translateY(0); } }
-
-
-  
-  @keyframes drawPath { to { stroke-dashoffset: 0; } }
-
-  .float-chip {
-    position: absolute;
-    font-family: var(--font-display);
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--text);
-    background: rgba(20,20,22,0.85);
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    padding: 8px 14px;
-    backdrop-filter: blur(6px);
-    box-shadow: 0 10px 24px -8px rgba(0,0,0,0.5);
-    white-space: nowrap;
-    animation: floatChip 5s ease-in-out infinite;
-  }
-  .float-chip-1 { top: -18px; left: -18px; animation-delay: 0s; }
-  @keyframes floatChip { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-
-  @media (max-width: 960px) {
-    .rank-layout { grid-template-columns: 1fr; }
-    .rank-content { max-width: 100%; text-align: center; }
-    .badge-row { justify-content: center; }
-    .rank-stats { display: flex; align-items: center; gap: 0; margin-top: 40px; }
-    .rank-visual { margin-top: 12px; }
-  }
-
-  @media (max-width: 680px) {
-    .rank-stats { display: none; }
-  }
-
-  @media (max-width: 480px) {
-  .rank-stats {
-    flex-wrap: wrap;
-    justify-content: center;
-    row-gap: 20px;
-  }
-  .rstat { padding-right: 16px; }
-  .rstat-divider { margin: 0 12px; }
-}
-
-
-  
-</style>
-
-<script is:inline>
-  (function () {
-    // Typing effect nella barra di ricerca
-    const el = document.getElementById('serpTyped');
-    if (el) {
-      const phrases = ['ristornate pesce Ancona', 'massaggiatore vicino a me', 'personal trainer Pesaro'];
-      let pIndex = 0, cIndex = 0, deleting = false;
-
-      function tick() {
-        const phrase = phrases[pIndex];
-        el.textContent = deleting ? phrase.slice(0, cIndex--) : phrase.slice(0, cIndex++);
-
-        let delay = deleting ? 40 : 80;
-        if (!deleting && cIndex === phrase.length + 1) { delay = 1400; deleting = true; }
-        else if (deleting && cIndex < 0) { deleting = false; cIndex = 0; pIndex = (pIndex + 1) % phrases.length; delay = 400; }
-
-        setTimeout(tick, delay);
-      }
-      tick();
-    }
-
-    // Tilt 3D al passaggio del mouse
-    const tilt = document.getElementById('serpTilt');
-    const card = tilt ? tilt.querySelector('.serp-card') : null;
-    if (tilt && card) {
-      tilt.addEventListener('mousemove', (e) => {
-        const rect = tilt.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width - 0.5;
-        const y = (e.clientY - rect.top) / rect.height - 0.5;
-        card.style.transform = `rotateY(${x * 10}deg) rotateX(${-y * 10}deg)`;
-      });
-      tilt.addEventListener('mouseleave', () => {
-        card.style.transform = 'rotateY(0deg) rotateX(0deg)';
-      });
-    }
-
-    // Counter animati quando entrano in viewport
-    const counters = document.querySelectorAll('.counter');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const target = entry.target;
-        const end = parseInt(target.getAttribute('data-count'), 10);
-        const duration = 1200;
-        const start = performance.now();
-
-        function step(now) {
-          const progress = Math.min((now - start) / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3);
-          target.textContent = Math.round(eased * end);
-          if (progress < 1) requestAnimationFrame(step);
-        }
-        requestAnimationFrame(step);
-        observer.unobserve(target);
-      });
-    }, { threshold: 0.4 });
-
-    counters.forEach((c) => observer.observe(c));
-  })();
-
-  
-</script>
-
-
-<!--
-
-
-GOOGLE MAPS
- 
--->
-
-
-<section class="section gb-section" id="google-business">
+<!-- ========== GOOGLE MAPS ========== -->
+<section class="gb-section" id="google-business">
   <div class="gb-glow"></div>
+
   <div class="container">
+    <h2 class="gb-title animate-fade-up delay-1">Google <br> Maps</h2>
 
-    <div class="gb-header text-center">
-      <h2 class="section-title" style="margin-bottom:56px;">
-        <span class="rank-title-google-maps animate-fade-up delay-1" style= "color: #842020"
-              >Google <br> Maps</span>
-      </h2>
-    
-    </div>
-
-    <!-- Google Maps mock visual -->
-    <div class="gb-visual rank-layout">
+    <div class="gb-visual">
       <div class="gb-map-mock">
-        <div class="map-bg">
-          <svg class="map-svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-            <rect width="400" height="300" fill="#1a2332" />
-            <g transform="rotate(-25 200 150)">
-              <!-- Strade verticali (diventano diagonali dopo la rotazione) -->
-              <line x1="-90" y1="-100" x2="-90" y2="450" class="mroad" />
-              <line x1="-20" y1="-100" x2="-20" y2="450" class="mroad mroad-thin" />
-              <line x1="50"  y1="-100" x2="50"  y2="450" class="mroad mroad-major" />
-              <line x1="120" y1="-100" x2="120" y2="450" class="mroad mroad-thin" />
-              <line x1="190" y1="-100" x2="190" y2="450" class="mroad" />
-              <line x1="260" y1="-100" x2="260" y2="450" class="mroad mroad-thin" />
-              <line x1="330" y1="-100" x2="330" y2="450" class="mroad mroad-major" />
-              <line x1="400" y1="-100" x2="400" y2="450" class="mroad mroad-thin" />
+        <svg class="map-svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <rect width="400" height="300" fill="#1a2332" />
+          <g transform="rotate(-25 200 150)">
+            <!-- Strade verticali -->
+            <line x1="-90" y1="-100" x2="-90" y2="450" class="mroad" />
+            <line x1="-20" y1="-100" x2="-20" y2="450" class="mroad mroad-thin" />
+            <line x1="50"  y1="-100" x2="50"  y2="450" class="mroad mroad-major" />
+            <line x1="120" y1="-100" x2="120" y2="450" class="mroad mroad-thin" />
+            <line x1="190" y1="-100" x2="190" y2="450" class="mroad" />
+            <line x1="260" y1="-100" x2="260" y2="450" class="mroad mroad-thin" />
+            <line x1="330" y1="-100" x2="330" y2="450" class="mroad mroad-major" />
+            <line x1="400" y1="-100" x2="400" y2="450" class="mroad mroad-thin" />
 
-              <!-- Strade orizzontali -->
-              <line x1="-100" y1="-60" x2="450" y2="-60" class="mroad mroad-thin" />
-              <line x1="-100" y1="10"  x2="450" y2="10"  class="mroad" />
-              <line x1="-100" y1="80"  x2="450" y2="80"  class="mroad mroad-thin" />
-              <line x1="-100" y1="150" x2="450" y2="150" class="mroad mroad-major" />
-              <line x1="-100" y1="220" x2="450" y2="220" class="mroad mroad-thin" />
-              <line x1="-100" y1="290" x2="450" y2="290" class="mroad" />
-              <line x1="-100" y1="360" x2="450" y2="360" class="mroad mroad-thin" />
+            <!-- Strade orizzontali -->
+            <line x1="-100" y1="-60" x2="450" y2="-60" class="mroad mroad-thin" />
+            <line x1="-100" y1="10"  x2="450" y2="10"  class="mroad" />
+            <line x1="-100" y1="80"  x2="450" y2="80"  class="mroad mroad-thin" />
+            <line x1="-100" y1="150" x2="450" y2="150" class="mroad mroad-major" />
+            <line x1="-100" y1="220" x2="450" y2="220" class="mroad mroad-thin" />
+            <line x1="-100" y1="290" x2="450" y2="290" class="mroad" />
+            <line x1="-100" y1="360" x2="450" y2="360" class="mroad mroad-thin" />
 
-              <!-- Isolati / edifici -->
-              <rect x="-70" y="-40" width="42" height="30" rx="2" class="mbldg" />
-              <rect x="-70" y="20"  width="38" height="26" rx="2" class="mbldg" />
-              <rect x="0"   y="-45" width="30" height="60" rx="2" class="mbldg mbldg-lg" />
-              <rect x="65"  y="-40" width="34" height="24" rx="2" class="mbldg" />
-              <rect x="65"  y="20"  width="34" height="20" rx="2" class="mbldg" />
-              <rect x="130" y="-45" width="40" height="70" rx="2" class="mbldg mbldg-lg" />
-              <rect x="200" y="-40" width="36" height="26" rx="2" class="mbldg" />
-              <rect x="200" y="24"  width="24" height="18" rx="2" class="mbldg mbldg-sm" />
-              <rect x="270" y="-45" width="30" height="30" rx="2" class="mbldg" />
-              <rect x="340" y="-45" width="40" height="80" rx="2" class="mbldg mbldg-lg" />
+            <!-- Edifici -->
+            <rect x="-70" y="-40" width="42" height="30" rx="2" class="mbldg" />
+            <rect x="-70" y="20"  width="38" height="26" rx="2" class="mbldg" />
+            <rect x="0"   y="-45" width="30" height="60" rx="2" class="mbldg mbldg-lg" />
+            <rect x="65"  y="-40" width="34" height="24" rx="2" class="mbldg" />
+            <rect x="65"  y="20"  width="34" height="20" rx="2" class="mbldg" />
+            <rect x="130" y="-45" width="40" height="70" rx="2" class="mbldg mbldg-lg" />
+            <rect x="200" y="-40" width="36" height="26" rx="2" class="mbldg" />
+            <rect x="200" y="24"  width="24" height="18" rx="2" class="mbldg mbldg-sm" />
+            <rect x="270" y="-45" width="30" height="30" rx="2" class="mbldg" />
+            <rect x="340" y="-45" width="40" height="80" rx="2" class="mbldg mbldg-lg" />
 
-              <rect x="-70" y="90"  width="46" height="34" rx="2" class="mbldg" />
-              <rect x="-15" y="90"  width="24" height="20" rx="2" class="mbldg mbldg-sm" />
-              <rect x="60"  y="90"  width="34" height="50" rx="2" class="mbldg mbldg-lg" />
-              <rect x="130" y="95"  width="36" height="24" rx="2" class="mbldg" />
-              <rect x="130" y="130" width="20" height="14" rx="2" class="mbldg mbldg-sm" />
-              <rect x="200" y="90"  width="34" height="50" rx="2" class="mbldg mbldg-lg" />
-              <rect x="270" y="95"  width="28" height="24" rx="2" class="mbldg" />
-              <rect x="340" y="90"  width="36" height="50" rx="2" class="mbldg" />
+            <rect x="-70" y="90"  width="46" height="34" rx="2" class="mbldg" />
+            <rect x="-15" y="90"  width="24" height="20" rx="2" class="mbldg mbldg-sm" />
+            <rect x="60"  y="90"  width="34" height="50" rx="2" class="mbldg mbldg-lg" />
+            <rect x="130" y="95"  width="36" height="24" rx="2" class="mbldg" />
+            <rect x="130" y="130" width="20" height="14" rx="2" class="mbldg mbldg-sm" />
+            <rect x="200" y="90"  width="34" height="50" rx="2" class="mbldg mbldg-lg" />
+            <rect x="270" y="95"  width="28" height="24" rx="2" class="mbldg" />
+            <rect x="340" y="90"  width="36" height="50" rx="2" class="mbldg" />
 
-              <rect x="-70" y="160" width="40" height="26" rx="2" class="mbldg" />
-              <rect x="-15" y="165" width="26" height="45" rx="2" class="mbldg mbldg-lg" />
-              <rect x="60"  y="160" width="34" height="24" rx="2" class="mbldg" />
-              <rect x="60"  y="195" width="20" height="16" rx="2" class="mbldg mbldg-sm" />
-              <rect x="130" y="160" width="40" height="50" rx="2" class="mbldg mbldg-lg" />
-              <rect x="200" y="165" width="34" height="26" rx="2" class="mbldg" />
-              <rect x="270" y="230" width="26" height="18" rx="2" class="mbldg-accent" />
-              <rect x="340" y="160" width="36" height="24" rx="2" class="mbldg" />
+            <rect x="-70" y="160" width="40" height="26" rx="2" class="mbldg" />
+            <rect x="-15" y="165" width="26" height="45" rx="2" class="mbldg mbldg-lg" />
+            <rect x="60"  y="160" width="34" height="24" rx="2" class="mbldg" />
+            <rect x="60"  y="195" width="20" height="16" rx="2" class="mbldg mbldg-sm" />
+            <rect x="130" y="160" width="40" height="50" rx="2" class="mbldg mbldg-lg" />
+            <rect x="200" y="165" width="34" height="26" rx="2" class="mbldg" />
+            <rect x="270" y="230" width="26" height="18" rx="2" class="mbldg-accent" />
+            <rect x="340" y="160" width="36" height="24" rx="2" class="mbldg" />
 
-              <rect x="-70" y="230" width="42" height="50" rx="2" class="mbldg mbldg-lg" />
-              <rect x="-15" y="230" width="24" height="20" rx="2" class="mbldg mbldg-sm" />
-              <rect x="60"  y="230" width="34" height="24" rx="2" class="mbldg" />
-              <rect x="130" y="230" width="36" height="26" rx="2" class="mbldg" />
-              <rect x="200" y="235" width="20" height="16" rx="2" class="mbldg mbldg-sm" />
-              <rect x="340" y="230" width="38" height="24" rx="2" class="mbldg" />
+            <rect x="-70" y="230" width="42" height="50" rx="2" class="mbldg mbldg-lg" />
+            <rect x="-15" y="230" width="24" height="20" rx="2" class="mbldg mbldg-sm" />
+            <rect x="60"  y="230" width="34" height="24" rx="2" class="mbldg" />
+            <rect x="130" y="230" width="36" height="26" rx="2" class="mbldg" />
+            <rect x="200" y="235" width="20" height="16" rx="2" class="mbldg mbldg-sm" />
+            <rect x="340" y="230" width="38" height="24" rx="2" class="mbldg" />
 
-              <circle cx="330" cy="150" r="16" class="mpark" />
-            </g>
-          </svg>
-        </div>
+            <circle cx="330" cy="150" r="16" class="mpark" />
+          </g>
+        </svg>
+
         <!-- Pin principale -->
         <div class="map-pin main-pin">
           <div class="pin-card">
@@ -528,29 +185,23 @@ GOOGLE MAPS
             <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           </div>
         </div>
-        <!-- Pin secondari (concorrenti) -->
-        <div class="map-pin secondary-pin" style="top:55%;left:20%">
-          <div class="pin-icon-sm red"></div>
-        </div>
-        <div class="map-pin secondary-pin" style="top:65%;left:70%">
-          <div class="pin-icon-sm red"></div>
-        </div>
-        <div class="map-pin secondary-pin" style="top:70%;left:55%">
-          <div class="pin-icon-sm red"></div>
-        </div>
+
+        <!-- Pin concorrenti -->
+        <div class="map-pin" style="top:55%;left:20%"><div class="pin-icon-sm"></div></div>
+        <div class="map-pin" style="top:65%;left:70%"><div class="pin-icon-sm"></div></div>
+        <div class="map-pin" style="top:70%;left:55%"><div class="pin-icon-sm"></div></div>
       </div>
-   
-      <div class="gb-results rank-visual">
-  <p class="section-subtitle-center" >
-       La tua attività in cima alle ricerche locali per farti scegliere prima di chiunque altro. </p>
-    
+
+      <div class="gb-results">
+        <p class="section-subtitle-center">
+          La tua attività in cima alle ricerche locali per farti scegliere prima di chiunque altro.
+        </p>
+
         <div class="gbr-label">
-          
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="#ea4335"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34a853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#fbbc05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.47 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#ea4335"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285f4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34a853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#fbbc05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.47 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#ea4335"/></svg>
           Google Maps
         </div>
-        
-        
+
         <div class="gbr-item gbr-item--first">
           <span class="gbr-pos">1°</span>
           <div>
@@ -578,326 +229,383 @@ GOOGLE MAPS
   </div>
 </section>
 
+
 <style>
+  :global(html), :global(body) {
+    overflow-x: hidden;
+    width: 100%;
+  }
 
-/* Sottotitolo specifico forzato in nero */
-.section {
-  position: relative;
-  overflow: hidden;
-  background: url("/img/test.png") center / 100% 100% no-repeat;
-  aspect-ratio: 1920 / 800;   /* <-- larghezza / altezza reali di test.png */
-  min-height: fit-content;
-  display: flex;
-  align-items: center;        /* centra il contenuto verticalmente */
-}
+  /* ================= GOOGLE SEARCH ================= */
+  .rank-hero {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(60px, 10vw, 120px) 20px;
+  }
 
-.rank-title-google-maps{
+  .rank-glow { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; }
+  .rank-glow-1 { width: 520px; height: 520px; top: -160px; right: -120px; background: radial-gradient(circle, rgba(59,130,246,0.14) 0%, transparent 70%); }
+  .rank-glow-2 { width: 420px; height: 420px; bottom: -120px; left: -100px; background: radial-gradient(circle, rgba(29,78,216,0.09) 0%, transparent 70%); }
+
+  .rank-layout {
+    max-width: 891px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(16px, 2.5vw, 32px);
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .rank-content { max-width: 540px; }
+
+  .rank-title {
     font-family: var(--font-display);
-    font-size: clamp(30px, 7vw, 72px);
+    font-size: clamp(26px, 3.4vw, 40px);
     font-weight: 800;
     line-height: 1.2;
     letter-spacing: -0.03em;
-    margin: 20px 0 20px;
-    text-transform: uppercase;   
-}
-
-.gb-glow {
-  position: absolute;
-  width: 800px;
-  height: 400px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(ellipse, rgba(59,130,246,0.06) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.gb-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-bottom: 64px;
-}
-
-.gb-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 24px;
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-  transition: all 0.25s ease;
-}
-
-.gb-card:hover {
-  border-color: rgba(59,130,246,0.25);
-  background: var(--bg-card-hover);
-  transform: translateY(-2px);
-}
-
-.gb-icon {
-  width: 40px;
-  height: 40px;
-  background: rgba(59,130,246,0.12);
-  color: #60a5fa;
-  border-radius: var(--radius-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.gb-card-title {
-  font-family: var(--font-display);
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 6px;
-}
-
-.gb-card-desc {
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-
-/* ── Map visual ── */
-.gb-visual {
-  margin-bottom: 64px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-
-.gb-map-mock {
-  position: relative;
-  height: 300px;
-  overflow: hidden;
-}
-
-.map-bg {
-  position: absolute;
-  inset: 0;
-  background: #1a2332;
-}
-
-.map-svg { 
-  position: absolute; 
-  inset: 0; 
-  width: 100%; 
-  height: 100%; 
-  display: block; 
-}
-
-.mroad { stroke: rgba(255,255,255,0.12); stroke-width: 3; }
-.mroad-thin { stroke: rgba(255,255,255,0.06); stroke-width: 1.4; }
-.mroad-major { stroke: rgba(255,255,255,0.2); stroke-width: 5; }
-
-.mbldg { fill: rgba(255,255,255,0.045); stroke: rgba(255,255,255,0.06); stroke-width: 1; }
-.mbldg-sm { fill: rgba(255,255,255,0.035); }
-.mbldg-lg { fill: rgba(255,255,255,0.07); stroke: rgba(255,255,255,0.09); }
-.mbldg-accent { fill: rgba(250,204,21,0.12); stroke: rgba(250,204,21,0.18); stroke-width: 1; }
-.mpark { fill: rgba(52,168,83,0.08); stroke: rgba(52,168,83,0.15); stroke-width: 1; }
-
-.map-pin {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 2;
-}
-
-.main-pin {
-  top: 40%;
-  left: 42%;
-  transform: translateX(-50%);
-}
-
-.pin-card {
-  background: white;
-  border-radius: 8px;
-  padding: 8px 12px;
-  min-width: 140px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-  margin-bottom: 2px;
-}
-
-.pin-card-arrow {
-  width: 0;
-  height: 0;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 7px solid white;
-  margin-bottom: 1px;
-  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.15));
-}
-
-.pin-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2px;
-}
-
-.pin-card-name {
-  font-size: 12px;
-  font-weight: 700;
-  color: #111;
-}
-
-.pin-card-rating {
-  font-size: 11px;
-  color: #f59e0b;
-  font-weight: 600;
-}
-
-.pin-card-cat {
-  font-size: 10px;
-  color: #4285f4;
-  font-weight: 500;
-}
-
-.pin-icon {
-  width: 40px;
-  height: 40px;
-  background: #4285f4;
-  border-radius: 50% 50% 50% 0;
-  transform: rotate(-45deg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 16px rgba(66,133,244,0.5);
-  animation: pinBounce 2s ease-in-out infinite;
-}
-
-.pin-icon svg { 
-  transform: rotate(45deg); 
-}
-
-@keyframes pinBounce {
-  0%, 100% { transform: rotate(-45deg) translateY(0); }
-  50% { transform: rotate(-45deg) translateY(-4px); }
-}
-
-.secondary-pin {
-  position: absolute;
-}
-
-.pin-icon-sm {
-  width: 16px;
-  height: 16px;
-  border-radius: 50% 50% 50% 0;
-  transform: rotate(-45deg);
-}
-
-.pin-icon-sm.red { 
-  background: #ea4335; 
-  opacity: 0.6; 
-}
-
-/* Results panel */
-.gb-results {
-  padding: 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.gbr-label {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 4px;
-}
-
-.gbr-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 14px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  transition: border-color 0.2s;
-}
-
-.gbr-item--first {
-  border-color: rgba(59,130,246,0.3);
-  background: rgba(59,130,246,0.07);
-}
-
-.gbr-pos {
-  font-family: var(--font-display);
-  font-size: 18px;
-  font-weight: 800;
-  color: var(--blue);
-  min-width: 28px;
-}
-
-.gbr-pos.muted { 
-  color: var(--text-subtle); 
-  font-size: 15px; 
-}
-
-.gbr-name {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 2px;
-}
-
-.gbr-name.muted { 
-  color: var(--text-muted); 
-  font-weight: 400; 
-}
-
-.gbr-info {
-  font-size: 12px;
-  color: var(--text-subtle);
-}
-
-.gbr-badge {
-  margin-left: auto;
-  background: rgba(59,130,246,0.15);
-  border: 1px solid rgba(59,130,246,0.3);
-  color: var(--blue-light);
-  font-size: 11px;
-  font-weight: 600;
-  padding: 3px 8px;
-  border-radius: 100px;
-  white-space: nowrap;
-}
-
-/* ── Breakpoint 900px ── */
-@media (max-width: 900px) {
-  .section {
-    aspect-ratio: auto;
-    background-size: cover;        /* su mobile va bene tagliare un po' */
-    padding: 80px 0;
+    color: var(--text);
+    margin: 0 0 20px;
   }
-  
-  .gb-grid { grid-template-columns: repeat(2, 1fr); }
-  .gb-visual { grid-template-columns: 1fr; }
-  .gb-map-mock { height: 260px; }
-  .main-pin { top: 50%; left: 50%; }
-}
+  .rank-title-highlight {
+    background: linear-gradient(135deg, #0044ff, #ffffff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 
-/* ── Breakpoint 580px ── */
-@media (max-width: 580px) {
-  .gb-grid { grid-template-columns: 1fr; }
-  .gb-card { flex-direction: column; }
-  .gb-map-mock { height: 240px; }
-  .main-pin { top: 25%; left: 50%; }
-  .pin-card { min-width: 120px; padding: 6px 10px; }
-  .pin-card-name { font-size: 11px; }
-  .pin-card-cat { font-size: 9px; }
-  .pin-icon { width: 34px; height: 34px; }
-}
+  .rank-desc { color: var(--text-muted); font-size: 16px; line-height: 1.65; margin: 0; }
+
+  .rank-stats { display: flex; align-items: center; margin-top: 40px; }
+  .rstat { display: flex; flex-direction: column; gap: 4px; }
+  .rstat-num { font-family: var(--font-display); font-size: 30px; font-weight: 800; color: var(--text); letter-spacing: -0.02em; }
+  .rstat-label { font-size: 12.5px; color: var(--text-muted); }
+  .rstat-divider { width: 1px; height: 34px; background: var(--border); margin: 0 24px; flex-shrink: 0; }
+
+  /* SERP card */
+  .serp-tilt { position: relative; width: 100%; max-width: 420px; perspective: 1200px; }
+
+  .serp-card {
+    background: rgba(255,255,255,0.035);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 15px 15px 10px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transform-style: preserve-3d;
+    transition: transform 0.15s ease-out;
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.5);
+  }
+
+  .serp-topbar { display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; }
+  .serp-logo { font-family: var(--font-display); font-weight: 700; font-size: 15px; }
+  .g1 { color: #4285F4; } .g2 { color: #EA4335; } .g3 { color: #FBBC05; } .g4 { color: #34A853; }
+
+  .serp-searchbar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,0,0,0.25);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 8px 14px;
+    color: var(--text-muted);
+    font-size: 12.5px;
+  }
+  .serp-typed { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: rgba(240,240,240,0.85); }
+  .serp-caret { width: 1px; height: 12px; background: rgba(147,197,253,0.8); animation: caretBlink 0.9s step-end infinite; }
+  @keyframes caretBlink { 50% { opacity: 0; } }
+
+  /* 3 righe da 130px: posizioni 0 / 130 / 260 */
+  .serp-results { position: relative; height: 380px; }
+
+  .serp-row {
+    --anim: 7s cubic-bezier(.65,0,.35,1) infinite alternate;
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 130px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 12px;
+    box-sizing: border-box;
+    overflow: hidden;
+    background: rgba(255,255,255,0.015);
+  }
+  .serp-row-you { z-index: 2; animation: climbYou var(--anim); }
+  .serp-row-a   { animation: moveA var(--anim); }
+  .serp-row-b   { animation: moveB var(--anim); }
+
+  @keyframes climbYou { 0%, 32% { transform: translateY(260px); } 50%, 100% { transform: translateY(0); } }
+  @keyframes moveA    { 0%, 32% { transform: translateY(0); }     50%, 100% { transform: translateY(130px); } }
+  @keyframes moveB    { 0%, 32% { transform: translateY(130px); } 50%, 100% { transform: translateY(260px); } }
+
+  .serp-rank { position: relative; width: 26px; height: 22px; flex-shrink: 0; margin-top: 2px; }
+  .rank-num {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 800; font-size: 15px;
+  }
+  .rank-num-from { color: rgba(240,240,240,0.35); animation: fadeOut 7s cubic-bezier(.65,0,.35,1) infinite alternate; }
+  .rank-num-to   { color: #93c5fd; opacity: 0; animation: fadeIn 7s cubic-bezier(.65,0,.35,1) infinite alternate; }
+  @keyframes fadeOut { 0%,32% { opacity: 1; } 50%,100% { opacity: 0; } }
+  @keyframes fadeIn  { 0%,50% { opacity: 0; } 68%,100% { opacity: 1; } }
+
+  .serp-rank-icon { width: 22px; height: 22px; flex-shrink: 0; margin-top: 2px; color: rgba(240,240,240,0.25); }
+
+  .serp-body { display: flex; flex-direction: column; min-width: 0; }
+  .serp-url { font-size: 11.5px; color: #93c5fd; }
+  .serp-title { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--text); }
+  .serp-desc { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
+  .serp-url.muted   { color: rgba(240,240,240,0.3); }
+  .serp-title.muted { color: rgba(240,240,240,0.45); font-weight: 600; }
+  .serp-desc.muted  { color: rgba(240,240,240,0.28); }
+
+  .serp-up-chip {
+    position: absolute;
+    top: 10px; right: 10px;
+    font-size: 10.5px; font-weight: 700;
+    color: #93c5fd;
+    background: rgba(59,130,246,0.15);
+    border: 1px solid rgba(59,130,246,0.3);
+    border-radius: 100px;
+    padding: 2px 8px;
+    opacity: 0;
+    animation: chipIn 7s cubic-bezier(.65,0,.35,1) infinite alternate;
+  }
+  @keyframes chipIn { 0%,55% { opacity: 0; transform: translateY(-4px); } 70%,100% { opacity: 1; transform: translateY(0); } }
+
+  .float-chip {
+    position: absolute;
+    top: -18px; left: -18px;
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text);
+    background: rgba(20,20,22,0.85);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 8px 14px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 10px 24px -8px rgba(0,0,0,0.5);
+    white-space: nowrap;
+    animation: floatChip 5s ease-in-out infinite;
+  }
+  @keyframes floatChip { 50% { transform: translateY(-8px); } }
+
+  @media (max-width: 960px) {
+    .rank-layout { grid-template-columns: 1fr; }
+    .rank-content { max-width: 100%; text-align: center; }
+    .rank-stats { justify-content: center; }
+    .rank-visual { display: flex; justify-content: center; margin-top: 12px; }
+  }
+
+  @media (max-width: 680px) {
+    .rank-stats { display: none; }
+  }
+
+
+  /* ================= GOOGLE MAPS ================= */
+  /* Altezza data dal contenuto (niente aspect-ratio): così il titolo non viene più tagliato */
+  .gb-section {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(60px, 8vw, 120px) 20px;
+    background: url("/img/test.png") center / 100% 100% no-repeat;
+  }
+
+  .gb-glow {
+    position: absolute;
+    width: 800px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(ellipse, rgba(59,130,246,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .gb-title {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: clamp(30px, 7vw, 72px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: #842020;
+    margin: 0 0 56px;
+  }
+
+  .gb-visual {
+    position: relative;
+    z-index: 1;
+    max-width: 891px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  /* Mappa */
+  .gb-map-mock { position: relative; height: 300px; overflow: hidden; background: #1a2332; }
+  .map-svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+  .mroad       { stroke: rgba(255,255,255,0.12); stroke-width: 3; }
+  .mroad-thin  { stroke: rgba(255,255,255,0.06); stroke-width: 1.4; }
+  .mroad-major { stroke: rgba(255,255,255,0.2);  stroke-width: 5; }
+  .mbldg       { fill: rgba(255,255,255,0.045); stroke: rgba(255,255,255,0.06); stroke-width: 1; }
+  .mbldg-sm    { fill: rgba(255,255,255,0.035); }
+  .mbldg-lg    { fill: rgba(255,255,255,0.07); stroke: rgba(255,255,255,0.09); }
+  .mbldg-accent { fill: rgba(250,204,21,0.12); stroke: rgba(250,204,21,0.18); stroke-width: 1; }
+  .mpark       { fill: rgba(52,168,83,0.08); stroke: rgba(52,168,83,0.15); stroke-width: 1; }
+
+  .map-pin { position: absolute; display: flex; flex-direction: column; align-items: center; z-index: 2; }
+  .main-pin { top: 40%; left: 42%; transform: translateX(-50%); }
+
+  .pin-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 8px 12px;
+    min-width: 140px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    margin-bottom: 2px;
+  }
+  .pin-card-arrow {
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 7px solid #fff;
+    margin-bottom: 1px;
+  }
+  .pin-card-header { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 2px; }
+  .pin-card-name   { font-size: 12px; font-weight: 700; color: #111; }
+  .pin-card-rating { font-size: 11px; font-weight: 600; color: #f59e0b; }
+  .pin-card-cat    { font-size: 10px; font-weight: 500; color: #4285f4; }
+
+  .pin-icon {
+    width: 40px;
+    height: 40px;
+    background: #4285f4;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(66,133,244,0.5);
+    animation: pinBounce 2s ease-in-out infinite;
+  }
+  .pin-icon svg { transform: rotate(45deg); }
+  @keyframes pinBounce { 50% { transform: rotate(-45deg) translateY(-4px); } }
+
+  .pin-icon-sm {
+    width: 16px;
+    height: 16px;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    background: #ea4335;
+    opacity: 0.6;
+  }
+
+  /* Classifica */
+  .gb-results { padding: 28px; display: flex; flex-direction: column; gap: 12px; }
+
+  .gbr-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+  }
+
+  .gbr-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+  }
+  .gbr-item--first { border-color: rgba(59,130,246,0.3); background: rgba(59,130,246,0.07); }
+
+  .gbr-pos { font-family: var(--font-display); font-size: 18px; font-weight: 800; color: var(--blue); min-width: 28px; }
+  .gbr-pos.muted { color: var(--text-subtle); font-size: 15px; }
+  .gbr-name { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+  .gbr-name.muted { color: var(--text-muted); font-weight: 400; }
+  .gbr-info { font-size: 12px; color: var(--text-subtle); }
+
+  .gbr-badge {
+    margin-left: auto;
+    background: rgba(59,130,246,0.15);
+    border: 1px solid rgba(59,130,246,0.3);
+    color: var(--blue-light);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 100px;
+  }
+
+  @media (max-width: 900px) {
+    .gb-section { background-size: cover; padding: 80px 20px; }
+    .gb-visual { grid-template-columns: 1fr; }
+    .gb-map-mock { height: 260px; }
+    .main-pin { top: 50%; left: 50%; }
+  }
+
+  @media (max-width: 580px) {
+    .gb-map-mock { height: 240px; }
+    .main-pin { top: 25%; }
+    .pin-card { min-width: 120px; padding: 6px 10px; }
+    .pin-card-name { font-size: 11px; }
+    .pin-card-cat { font-size: 9px; }
+    .pin-icon { width: 34px; height: 34px; }
+  }
 </style>
+
+<script is:inline>
+  (function () {
+    // Effetto digitazione nella barra di ricerca
+    const el = document.getElementById('serpTyped');
+    if (el) {
+      const phrases = ['ristorante pesce Ancona', 'massaggiatore vicino a me', 'personal trainer Pesaro'];
+      let p = 0, c = 0, deleting = false;
+
+      (function tick() {
+        const phrase = phrases[p];
+        el.textContent = phrase.slice(0, deleting ? c-- : c++);
+
+        let delay = deleting ? 40 : 80;
+        if (!deleting && c > phrase.length) { delay = 1400; deleting = true; }
+        else if (deleting && c < 0) { deleting = false; c = 0; p = (p + 1) % phrases.length; delay = 400; }
+
+        setTimeout(tick, delay);
+      })();
+    }
+
+    // Tilt 3D al passaggio del mouse
+    const tilt = document.getElementById('serpTilt');
+    const card = tilt && tilt.querySelector('.serp-card');
+    if (card) {
+      tilt.addEventListener('mousemove', (e) => {
+        const r = tilt.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform = `rotateY(${x * 10}deg) rotateX(${-y * 10}deg)`;
+      });
+      tilt.addEventListener('mouseleave', () => { card.style.transform = ''; });
+    }
+  })();
+</script>
