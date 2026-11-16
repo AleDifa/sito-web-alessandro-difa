@@ -1,69 +1,107 @@
 <canvas id="fluid-canvas" class="fluid-canvas"></canvas>
 
 <script type="module">
-  import WebGLFluid from 'webgl-fluid';
-
   const canvas = document.getElementById('fluid-canvas');
   const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  WebGLFluid(canvas, {
-    TRIGGER: isTouchDevice ? 'manual' : 'hover', // niente listener touch invasivi su mobile
-    IMMEDIATE: true,              // niente splash automatico brutto all'avvio (ci pensiamo noi sotto)
-    AUTO: true,                    // piccole increspature "vive" quando il mouse è fermo
-    AUTO_SPEED: 0.3,
-    AUTO_INTENSITY: 1.2,
+  // ---------- Pausa quando non è visibile ----------
+  // La libreria non ha un comando "pausa", quindi intercettiamo il suo
+  // requestAnimationFrame: quando il canvas è fuori schermo, il ciclo si ferma.
+  const nativeRAF = window.requestAnimationFrame.bind(window);
+  let fluidLoop = null;     // la funzione di animazione della libreria
+  let capturing = false;
+  let paused = false;
+  let pendingFrame = null;
 
-    SPLAT_RADIUS: 0.15,            // increspature più piccole e precise = più "acqua", meno "macchia"
-    SPLAT_FORCE: 5000,
+  window.requestAnimationFrame = (cb) => {
+    if (capturing && !fluidLoop) fluidLoop = cb;           // registriamo il suo ciclo
+    if (paused && cb === fluidLoop) { pendingFrame = cb; return 0; } // in pausa: stop
+    return nativeRAF(cb);
+  };
 
-    DENSITY_DISSIPATION: 2.5,      // alta = l'onda si esaurisce in fretta, come acqua vera
-    VELOCITY_DISSIPATION: 0.9,     // basso = l'onda si propaga per un tratto prima di fermarsi
-    PRESSURE: 0.8,
-    PRESSURE_ITERATIONS: 20,
+  function pause() { paused = true; }
+  function resume() {
+    if (!paused) return;
+    paused = false;
+    if (pendingFrame) { const cb = pendingFrame; pendingFrame = null; nativeRAF(cb); }
+  }
 
-    CURL: 4,                       // basso = onde composte/lineari (acqua). Alto = vortici (fumo)
+  // ---------- Avvio ----------
+  let started = false;
 
-    COLORFUL: false,               // niente arcobaleno: colore fisso
-    COLOR_UPDATE_SPEED: 0,
-    BACK_COLOR: { r: 10, g: 10, b: 10 },  // sfondo scuro coerente col resto del sito
-    TRANSPARENT: false,
+  async function startFluid() {
+    if (started) return;
+    started = true;
+    removeStartListeners();
 
-    BLOOM: true,                   // dà il "luccichio" tipico dei riflessi sull'acqua
-    BLOOM_INTENSITY: 0.5,
-    SUNRAYS: false,
-  });
+    const { default: WebGLFluid } = await import('webgl-fluid'); // libreria caricata solo ora
 
-  // Simula un movimento del puntatore sul canvas, così la libreria
-  // genera uno splat come se fosse un vero passaggio del mouse/dito
+    capturing = true;
+    WebGLFluid(canvas, {
+      TRIGGER: isTouchDevice ? 'manual' : 'hover',
+      IMMEDIATE: true,
+      AUTO: true,
+      AUTO_SPEED: 0.3,
+      AUTO_INTENSITY: 1.2,
+      SPLAT_RADIUS: 0.15,
+      SPLAT_FORCE: 5000,
+      DENSITY_DISSIPATION: 2.5,
+      VELOCITY_DISSIPATION: 0.9,
+      PRESSURE: 0.8,
+      CURL: 4,
+      COLORFUL: false,
+      COLOR_UPDATE_SPEED: 0,
+      BACK_COLOR: { r: 10, g: 10, b: 10 },
+      TRANSPARENT: false,
+      SUNRAYS: false,
+
+      // Più leggero sui telefoni
+      SIM_RESOLUTION: isTouchDevice ? 64 : 128,
+      DYE_RESOLUTION: isTouchDevice ? 512 : 1024,
+      PRESSURE_ITERATIONS: isTouchDevice ? 10 : 20,
+      BLOOM: !isTouchDevice,
+      BLOOM_INTENSITY: 0.5,
+    });
+    capturing = false;
+
+    // Pausa/ripresa in base alla visibilità
+    new IntersectionObserver(
+      ([entry]) => (entry.isIntersecting ? resume() : pause()),
+      { threshold: 0 }
+    ).observe(canvas);
+
+    introSplashes();
+  }
+
+  // ---------- Gocce iniziali ----------
   function simulatePointerSplash(x, y) {
     const rect = canvas.getBoundingClientRect();
     const clientX = rect.left + rect.width * x;
     const clientY = rect.top + rect.height * y;
-
     ['pointermove', 'mousemove'].forEach(type => {
-      canvas.dispatchEvent(new PointerEvent(type, {
-        clientX,
-        clientY,
-        bubbles: true,
-      }));
+      canvas.dispatchEvent(new PointerEvent(type, { clientX, clientY, bubbles: true }));
     });
   }
 
-  // Sequenza di "gocce" iniziali per animare l'ingresso appena si carica il sito
   function introSplashes() {
-    const points = [
+    [
       { x: 0.5, y: 0.5, delay: 100 },
       { x: 0.3, y: 0.4, delay: 400 },
       { x: 0.7, y: 0.6, delay: 700 },
       { x: 0.5, y: 0.3, delay: 1000 },
-    ];
-
-    points.forEach(p => {
-      setTimeout(() => simulatePointerSplash(p.x, p.y), p.delay);
-    });
+    ].forEach(p => setTimeout(() => simulatePointerSplash(p.x, p.y), p.delay));
   }
 
-  introSplashes();
+  // ---------- Parte alla prima interazione ----------
+  const startEvents = ['pointermove', 'pointerdown', 'touchstart', 'scroll', 'keydown', 'wheel'];
+  function removeStartListeners() {
+    startEvents.forEach(e => window.removeEventListener(e, startFluid));
+  }
+
+  if (!reduceMotion) {
+    startEvents.forEach(e => window.addEventListener(e, startFluid, { once: true, passive: true }));
+  }
 </script>
 
 <style>
@@ -73,12 +111,13 @@
     width: 100%;
     height: 100%;
     display: block;
-    touch-action: pan-y; /* lascia libero lo scroll verticale su mobile */
+    background: #0a0a0a; /* stesso colore di BACK_COLOR: prima dell'avvio non si nota niente */
+    touch-action: pan-y;
   }
 
   @media (hover: none) and (pointer: coarse) {
     .fluid-canvas {
-      pointer-events: none; /* su mobile il canvas non intercetta più il touch, quindi si scrolla */
+      pointer-events: none;
     }
   }
 </style>

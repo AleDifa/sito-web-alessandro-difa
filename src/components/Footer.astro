@@ -2,21 +2,52 @@
 ---
 
 <footer class="footer">
-  <div class="footer-brand">DiFa</div>
+  <div class="footer-brand">Alessandro DiFa</div>
 
   <!-- Video full-bleed, largo quanto tutto lo schermo -->
   <div class="footer-video">
     <video
       class="footer-video-el"
-      autoplay
       muted
       loop
       playsinline
-      onended="this.currentTime = 0; this.play();"
-    >
-      <source src="/videos/video-drone-ancona.mp4" type="video/webm" />
-    </video>
+      preload="none"
+      poster="/img/video-drone-poster.webp"
+      data-src="/videos/video-drone-ancona.mp4"
+      aria-hidden="true"
+    ></video>
   </div>
+
+  
+<script>
+  const video = document.querySelector<HTMLVideoElement>('.footer-video-el');
+
+  if (video) {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let loaded = false;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          if (!loaded) {
+            const source = document.createElement('source');
+            source.src = video.dataset.src!;
+            source.type = 'video/mp4';
+            video.appendChild(source);
+            video.load();
+            loaded = true;
+          }
+          if (!reduceMotion) video.play().catch(() => {});
+        } else if (loaded) {
+          video.pause(); // non consuma CPU quando non è visibile
+        }
+      },
+      { rootMargin: '300px 0px' } // inizia a caricare un po' prima che arrivi in vista
+    );
+
+    observer.observe(video);
+  }
+  </script>
 
   <div class="container">
     <div class="footer-inner">
@@ -78,8 +109,7 @@
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
-    height: 180px; 
-    aspect-ratio: 16 / 6;
+    aspect-ratio: 14 / 2; 
     overflow: hidden;
     background: var(--bg-card);
     margin-bottom: 32px;
